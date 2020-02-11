@@ -16,5 +16,10 @@ namespace Hospital_Source_Code
         {
             InitializeComponent();
         }
+
+        private void HomeDashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

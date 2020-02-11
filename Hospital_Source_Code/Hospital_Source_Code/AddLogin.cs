@@ -10,38 +10,37 @@ using System.Windows.Forms;
 
 namespace Hospital_Source_Code
 {
-    public partial class Login : Form
+    public partial class AddLogin : Form
     {
-        public Login()
+        public AddLogin()
         {
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnCreate_Click(object sender, EventArgs e)
         {
             string userName = txtUsername.Text;
             string password = txtPassword.Text;
+            string password2 = txtPassword2.Text;
 
             // check if field left empty
-            if (VerifyInput(userName, password))
+            if (VerifyInput(userName, password, password2))
             {
-                // Verify Login Credentials
-                if (VerifyCredentials())
+                // Check if no account with that username exists in database
+                if (CheckForAccount())
                 {
-                    HomeDashboard homeDashboard = new HomeDashboard();
-                    homeDashboard.Show();
-                    this.Hide();
-                }                
+                    // Create Login
+                }
             }
         }
 
-        private bool VerifyCredentials()
+        private bool CheckForAccount()
         {
-            // Compare to database
+            // Check if no account with that username exists in database 
             return true;
         }
 
-        private bool VerifyInput(string userName, string password)
+        private bool VerifyInput(string userName, string password, string password2)
         {
             bool detailCorrect = true;
             if (userName == string.Empty)
@@ -59,6 +58,15 @@ namespace Hospital_Source_Code
             } else
             {
                 lblPassword.ForeColor = Color.Black;
+            }
+            if (password2 == string.Empty && password2.Equals(password))
+            {
+                lblPassword2.ForeColor = Color.Red;
+                detailCorrect = false;
+            }
+            else
+            {
+                lblPassword2.ForeColor = Color.Black;
             }
             return detailCorrect;
         }
