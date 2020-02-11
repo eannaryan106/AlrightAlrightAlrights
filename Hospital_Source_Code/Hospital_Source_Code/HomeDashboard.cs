@@ -12,9 +12,14 @@ namespace Hospital_Source_Code
 {
     public partial class HomeDashboard : Form
     {
-        public HomeDashboard()
-        {
+
+        public HomeDashboard(UserRole role) {
             InitializeComponent();
+            if (role == UserRole.SuperUser)
+            {
+                Console.WriteLine((int)role);
+            }
+            Console.WriteLine(role);
         }
 
         private void HomeDashboard_FormClosing(object sender, FormClosingEventArgs e)

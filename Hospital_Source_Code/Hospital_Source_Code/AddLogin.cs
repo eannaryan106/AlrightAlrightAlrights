@@ -27,7 +27,7 @@ namespace Hospital_Source_Code
             if (VerifyInput(userName, password, password2))
             {
                 // Check if no account with that username exists in database
-                if (CheckForAccount())
+                if (!CheckForAccount())
                 {
                     // Create Login
                 }

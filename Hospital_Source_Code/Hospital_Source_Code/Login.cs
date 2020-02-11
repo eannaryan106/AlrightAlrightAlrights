@@ -12,6 +12,7 @@ namespace Hospital_Source_Code
 {
     public partial class Login : Form
     {
+
         public Login()
         {
             InitializeComponent();
@@ -28,7 +29,8 @@ namespace Hospital_Source_Code
                 // Verify Login Credentials
                 if (VerifyCredentials())
                 {
-                    HomeDashboard homeDashboard = new HomeDashboard();
+                    UserRole role = UserRole.SuperUser;
+                    HomeDashboard homeDashboard = new HomeDashboard(role);
                     homeDashboard.Show();
                     this.Hide();
                 }                
