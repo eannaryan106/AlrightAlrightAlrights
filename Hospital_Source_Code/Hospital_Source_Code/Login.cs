@@ -69,5 +69,15 @@ namespace Hospital_Source_Code
         {
             Application.Exit();
         }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            this.button1.ForeColor = Color.DarkRed;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            this.button1.ForeColor = Color.Transparent;
+        }
     }
 }
