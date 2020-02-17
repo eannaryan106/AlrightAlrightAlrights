@@ -53,6 +53,16 @@
     <Compile Include="AddLogin.Designer.cs">
       <DependentUpon>AddLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Bill.cs" />
+    <Compile Include="Classes\Doctor.cs" />
+    <Compile Include="Classes\InPatientBill.cs" />
+    <Compile Include="Classes\OutPatientBill.cs" />
+    <Compile Include="Classes\Patient.cs" />
+    <Compile Include="Classes\PatientDetails.cs" />
+    <Compile Include="Classes\Person.cs" />
+    <Compile Include="Classes\PrescriptionDetails.cs" />
+    <Compile Include="Classes\TestDetails.cs" />
+    <Compile Include="Classes\VisitDetails.cs" />
     <Compile Include="HomeDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,5 +126,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
