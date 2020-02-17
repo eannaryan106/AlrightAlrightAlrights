@@ -57,6 +57,7 @@
     <Compile Include="Classes\Bill.cs" />
     <Compile Include="Classes\Doctor.cs" />
     <Compile Include="Classes\InPatientBill.cs" />
+    <Compile Include="Classes\LoginModel.cs" />
     <Compile Include="Classes\OutPatientBill.cs" />
     <Compile Include="Classes\Patient.cs" />
     <Compile Include="Classes\PatientDetails.cs" />

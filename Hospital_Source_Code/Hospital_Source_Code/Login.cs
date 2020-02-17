@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hospital_Source_Code.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,15 +13,16 @@ namespace Hospital_Source_Code
 {
     public partial class Login : Form
     {
-
+        DAO dao;
         public Login()
         {
             InitializeComponent();
-            conTest();
+            dao = new DAO();
+            //conTest();
         }
 
         private void conTest() {
-            DAO dao = new DAO();
+            
             dao.testCon();
         }
 
@@ -35,7 +37,32 @@ namespace Hospital_Source_Code
                 // Verify Login Credentials
                 if (VerifyCredentials())
                 {
-                    UserRole role = UserRole.Admin;
+                    // Check for login data that matches
+                    LoginModel login = dao.GetLogin(userName, password);
+                    UserRole role = UserRole.None;
+                    Console.WriteLine(login.UserType);
+                    // Set user role -- if no data matched inputs user role remains none
+                    switch (login.UserType)
+                    {
+                        case "Doctor":
+                            role = UserRole.Doctor;
+                            break;
+                        case "Admin":
+                            role = UserRole.Admin;
+                            break;
+                        case "Accounts":
+                            role = UserRole.Accounts;
+                            break;
+                        case "HR":
+                            role = UserRole.HR;
+                            break;
+                        case "SuperUser":
+                            role = UserRole.SuperUser;
+                            break;
+                        default:
+                            break;
+                    }
+
                     DeterminePermissions(role, userName);
                 }                
             }
@@ -43,16 +70,20 @@ namespace Hospital_Source_Code
 
         private void DeterminePermissions(UserRole role, string userName)
         {
+            // determine where the user is brought to and if user role is none then user is invalid and nothing happens
             if (role == UserRole.SuperUser)
             {
                 AddLogin addLogin = new AddLogin();
                 addLogin.Show();
                 this.Hide();
-            } else
+            } else if (role != UserRole.None)
             {
                 HomeDashboard homeDashboard = new HomeDashboard(role, userName);
                 homeDashboard.Show();
                 this.Hide();
+            } else
+            {
+                MessageBox.Show(this, "User doe's not match with any in our system please try again", "Invalid User", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
