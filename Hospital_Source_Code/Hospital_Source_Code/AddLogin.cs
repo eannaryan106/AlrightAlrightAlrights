@@ -70,5 +70,6 @@ namespace Hospital_Source_Code
             }
             return detailCorrect;
         }
+
     }
 }
