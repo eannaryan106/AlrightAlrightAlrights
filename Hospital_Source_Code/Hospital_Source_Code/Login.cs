@@ -29,11 +29,24 @@ namespace Hospital_Source_Code
                 // Verify Login Credentials
                 if (VerifyCredentials())
                 {
-                    UserRole role = UserRole.SuperUser;
-                    HomeDashboard homeDashboard = new HomeDashboard(role);
-                    homeDashboard.Show();
-                    this.Hide();
+                    UserRole role = UserRole.Admin;
+                    DeterminePermissions(role, userName);
                 }                
+            }
+        }
+
+        private void DeterminePermissions(UserRole role, string userName)
+        {
+            if (role == UserRole.SuperUser)
+            {
+                AddLogin addLogin = new AddLogin();
+                addLogin.Show();
+                this.Hide();
+            } else
+            {
+                HomeDashboard homeDashboard = new HomeDashboard(role, userName);
+                homeDashboard.Show();
+                this.Hide();
             }
         }
 
