@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -63,6 +64,7 @@
     <Compile Include="Classes\PrescriptionDetails.cs" />
     <Compile Include="Classes\TestDetails.cs" />
     <Compile Include="Classes\VisitDetails.cs" />
+    <Compile Include="DAO.cs" />
     <Compile Include="HomeDashboard.cs">
       <SubType>Form</SubType>
     </Compile>

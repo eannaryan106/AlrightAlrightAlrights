@@ -16,6 +16,12 @@ namespace Hospital_Source_Code
         public Login()
         {
             InitializeComponent();
+            conTest();
+        }
+
+        private void conTest() {
+            DAO dao = new DAO();
+            dao.testCon();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
