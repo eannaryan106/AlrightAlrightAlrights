@@ -12,15 +12,39 @@ namespace Hospital_Source_Code
 {
     public partial class HomeDashboard : Form
     {
-
-        public HomeDashboard(UserRole role, string username) {
+        UserRole role;
+        public HomeDashboard(UserRole role, string userName)
+        {
             InitializeComponent();
-            if (role == UserRole.SuperUser)
+            this.role = role;
+            if (role == UserRole.Admin)
             {
+                tabControl1.SelectTab("tabPatient");
+                tabControl1.TabPages.Remove(tabDoctor);
+                tabControl1.TabPages.Remove(tabBilling);
                 Console.WriteLine((int)role);
             }
-            Console.WriteLine(role);
-            Console.WriteLine(username);
+            else if(role == UserRole.HR)
+            {
+                tabControl1.SelectTab("tabDoctor");
+                tabControl1.TabPages.Remove(tabPatient);
+                tabControl1.TabPages.Remove(tabBilling);
+                tabControl1.TabPages.Remove(tabBeds);
+            }
+            else if(role == UserRole.Accounts)
+            {
+                tabControl1.SelectTab("tabBilling");
+                tabControl1.TabPages.Remove(tabBeds);
+                tabControl1.TabPages.Remove(tabPatient);
+                tabControl1.TabPages.Remove(tabDoctor);
+            }
+            else if(role == UserRole.Doctor)
+            {
+                tabControl1.SelectTab("tabBeds");
+                tabControl1.TabPages.Remove(tabDoctor);
+                tabControl1.TabPages.Remove(tabBilling);
+            }
+
         }
 
         private void HomeDashboard_FormClosing(object sender, FormClosingEventArgs e)
@@ -28,30 +52,5 @@ namespace Hospital_Source_Code
             Application.Exit();
         }
 
-        private void comboSearchPatient_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(comboSearchPatient.SelectedIndex == 0)
-            {
-                txtSearchLastName.Enabled = false;
-                txtSearchLastName.Text = " Type...";
-            } else
-                txtSearchLastName.Enabled = true;
-        }
-
-        private void txtSearchLastName_Enter(object sender, EventArgs e)
-        {
-            if(txtSearchLastName.Text == " Type...")
-            {
-                txtSearchLastName.Text = "";
-            }
-        }
-
-        private void txtSearchLastName_Leave(object sender, EventArgs e)
-        {
-            if (txtSearchLastName.Text == "")
-            {
-                txtSearchLastName.Text = " Type...";
-            }
-        }
     }
 }
