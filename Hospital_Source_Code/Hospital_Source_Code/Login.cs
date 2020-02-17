@@ -29,7 +29,7 @@ namespace Hospital_Source_Code
                 // Verify Login Credentials
                 if (VerifyCredentials())
                 {
-                    UserRole role = UserRole.SuperUser;
+                    UserRole role = UserRole.Admin;
                     HomeDashboard homeDashboard = new HomeDashboard(role);
                     homeDashboard.Show();
                     this.Hide();

@@ -30,9 +30,9 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPatient = new System.Windows.Forms.TabPage();
+            this.tabDoctor = new System.Windows.Forms.TabPage();
             this.tabBilling = new System.Windows.Forms.TabPage();
             this.tabBeds = new System.Windows.Forms.TabPage();
-            this.tabDoctor = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +58,16 @@
             this.tabPatient.Text = "Patient";
             this.tabPatient.UseVisualStyleBackColor = true;
             // 
+            // tabDoctor
+            // 
+            this.tabDoctor.Location = new System.Drawing.Point(4, 22);
+            this.tabDoctor.Name = "tabDoctor";
+            this.tabDoctor.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDoctor.Size = new System.Drawing.Size(796, 425);
+            this.tabDoctor.TabIndex = 1;
+            this.tabDoctor.Text = "Doctor";
+            this.tabDoctor.UseVisualStyleBackColor = true;
+            // 
             // tabBilling
             // 
             this.tabBilling.Location = new System.Drawing.Point(4, 22);
@@ -76,16 +86,6 @@
             this.tabBeds.Text = "Beds";
             this.tabBeds.UseVisualStyleBackColor = true;
             // 
-            // tabDoctor
-            // 
-            this.tabDoctor.Location = new System.Drawing.Point(4, 22);
-            this.tabDoctor.Name = "tabDoctor";
-            this.tabDoctor.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDoctor.Size = new System.Drawing.Size(796, 425);
-            this.tabDoctor.TabIndex = 1;
-            this.tabDoctor.Text = "Doctor";
-            this.tabDoctor.UseVisualStyleBackColor = true;
-            // 
             // HomeDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -101,11 +101,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPatient;
         private System.Windows.Forms.TabPage tabDoctor;
         private System.Windows.Forms.TabPage tabBilling;
         private System.Windows.Forms.TabPage tabBeds;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }

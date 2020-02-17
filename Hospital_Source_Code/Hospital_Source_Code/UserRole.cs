@@ -11,6 +11,7 @@ namespace Hospital_Source_Code
             Doctor = 1,
             Admin = 2,
             SuperUser = 3,
-            HR = 4
+            HR = 4,
+            Accounts = 5
         };
 }
