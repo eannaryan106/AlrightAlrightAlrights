@@ -71,7 +71,7 @@ namespace Hospital_Source_Code
             return detailCorrect;
         }
 
-        private void AddLogin_FormClosing(object sender, FormClosingEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
