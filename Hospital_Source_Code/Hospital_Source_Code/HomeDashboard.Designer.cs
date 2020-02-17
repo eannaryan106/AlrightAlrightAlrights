@@ -126,7 +126,7 @@
             this.textSearchLastName.Name = "textSearchLastName";
             this.textSearchLastName.Size = new System.Drawing.Size(166, 32);
             this.textSearchLastName.TabIndex = 0;
-            this.textSearchLastName.Text = "Type...";
+            this.textSearchLastName.Text = " Type...";
             // 
             // comboSearchPatient
             // 
@@ -139,7 +139,7 @@
             this.comboSearchPatient.Name = "comboSearchPatient";
             this.comboSearchPatient.Size = new System.Drawing.Size(166, 32);
             this.comboSearchPatient.TabIndex = 1;
-            this.comboSearchPatient.Text = "Select...";
+            this.comboSearchPatient.Text = " Select...";
             // 
             // lblSearchpatients
             // 
