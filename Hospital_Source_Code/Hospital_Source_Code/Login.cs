@@ -19,7 +19,7 @@ namespace Hospital_Source_Code
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
-        {
+        {            
             string userName = txtUsername.Text;
             string password = txtPassword.Text;
 
@@ -30,10 +30,23 @@ namespace Hospital_Source_Code
                 if (VerifyCredentials())
                 {
                     UserRole role = UserRole.SuperUser;
-                    HomeDashboard homeDashboard = new HomeDashboard(role);
-                    homeDashboard.Show();
-                    this.Hide();
+                    DeterminePermissions(role, userName);
                 }                
+            }
+        }
+
+        private void DeterminePermissions(UserRole role, string userName)
+        {
+            if (role == UserRole.SuperUser)
+            {
+                AddLogin addLogin = new AddLogin();
+                addLogin.Show();
+                this.Hide();
+            } else
+            {
+                HomeDashboard homeDashboard = new HomeDashboard(role, userName);
+                homeDashboard.Show();
+                this.Hide();
             }
         }
 
@@ -78,6 +91,11 @@ namespace Hospital_Source_Code
         private void button1_MouseLeave(object sender, EventArgs e)
         {
             this.button1.ForeColor = Color.Transparent;
+        }
+
+        private void lblForgotPassword_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, "An Email has been sent with your password reset link", "Password Reset", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

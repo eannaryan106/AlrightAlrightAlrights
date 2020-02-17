@@ -59,7 +59,7 @@ namespace Hospital_Source_Code
             {
                 lblPassword.ForeColor = Color.Black;
             }
-            if (password2 == string.Empty && password2.Equals(password))
+            if (password2 == string.Empty || !password2.Equals(password))
             {
                 lblPassword2.ForeColor = Color.Red;
                 detailCorrect = false;
@@ -71,5 +71,9 @@ namespace Hospital_Source_Code
             return detailCorrect;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
