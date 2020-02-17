@@ -35,7 +35,7 @@ namespace Hospital_Source_Code
                 // Verify Login Credentials
                 if (VerifyCredentials())
                 {
-                    UserRole role = UserRole.SuperUser;
+                    UserRole role = UserRole.Admin;
                     DeterminePermissions(role, userName);
                 }                
             }
@@ -102,6 +102,17 @@ namespace Hospital_Source_Code
         private void lblForgotPassword_Click(object sender, EventArgs e)
         {
             MessageBox.Show(this, "An Email has been sent with your password reset link", "Password Reset", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        // aligning & hiding textbox characters
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = '•';
+            txtPassword.TextAlign = HorizontalAlignment.Center;
+        }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+            txtUsername.TextAlign = HorizontalAlignment.Center;
         }
     }
 }
