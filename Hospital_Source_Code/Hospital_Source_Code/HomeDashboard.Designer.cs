@@ -34,7 +34,7 @@
             this.tabBilling = new System.Windows.Forms.TabPage();
             this.tabBeds = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textSearchLastName = new System.Windows.Forms.TextBox();
+            this.txtSearchLastName = new System.Windows.Forms.TextBox();
             this.comboSearchPatient = new System.Windows.Forms.ComboBox();
             this.lblSearchpatients = new System.Windows.Forms.Label();
             this.lblAddPatients = new System.Windows.Forms.Label();
@@ -51,7 +51,6 @@
             this.tabControl1.Controls.Add(this.tabBilling);
             this.tabControl1.Controls.Add(this.tabBeds);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Enabled = false;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabControl1.ItemSize = new System.Drawing.Size(100, 40);
@@ -112,21 +111,23 @@
             this.panel1.Controls.Add(this.lblAddPatients);
             this.panel1.Controls.Add(this.lblSearchpatients);
             this.panel1.Controls.Add(this.comboSearchPatient);
-            this.panel1.Controls.Add(this.textSearchLastName);
+            this.panel1.Controls.Add(this.txtSearchLastName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(257, 431);
             this.panel1.TabIndex = 0;
             // 
-            // textSearchLastName
+            // txtSearchLastName
             // 
-            this.textSearchLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
-            this.textSearchLastName.Location = new System.Drawing.Point(45, 171);
-            this.textSearchLastName.Name = "textSearchLastName";
-            this.textSearchLastName.Size = new System.Drawing.Size(166, 32);
-            this.textSearchLastName.TabIndex = 0;
-            this.textSearchLastName.Text = " Type...";
+            this.txtSearchLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.txtSearchLastName.Location = new System.Drawing.Point(45, 171);
+            this.txtSearchLastName.Name = "txtSearchLastName";
+            this.txtSearchLastName.Size = new System.Drawing.Size(166, 32);
+            this.txtSearchLastName.TabIndex = 0;
+            this.txtSearchLastName.Text = " Type...";
+            this.txtSearchLastName.Enter += new System.EventHandler(this.txtSearchLastName_Enter);
+            this.txtSearchLastName.Leave += new System.EventHandler(this.txtSearchLastName_Leave);
             // 
             // comboSearchPatient
             // 
@@ -140,6 +141,7 @@
             this.comboSearchPatient.Size = new System.Drawing.Size(166, 32);
             this.comboSearchPatient.TabIndex = 1;
             this.comboSearchPatient.Text = " Select...";
+            this.comboSearchPatient.SelectedIndexChanged += new System.EventHandler(this.comboSearchPatient_SelectedIndexChanged);
             // 
             // lblSearchpatients
             // 
@@ -163,6 +165,7 @@
             // 
             // btnInsertPatient
             // 
+            this.btnInsertPatient.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnInsertPatient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
             this.btnInsertPatient.Location = new System.Drawing.Point(62, 292);
             this.btnInsertPatient.Name = "btnInsertPatient";
@@ -196,7 +199,7 @@
         private System.Windows.Forms.TabPage tabBilling;
         private System.Windows.Forms.TabPage tabBeds;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textSearchLastName;
+        private System.Windows.Forms.TextBox txtSearchLastName;
         public System.Windows.Forms.ComboBox comboSearchPatient;
         private System.Windows.Forms.Button btnInsertPatient;
         private System.Windows.Forms.Label lblAddPatients;

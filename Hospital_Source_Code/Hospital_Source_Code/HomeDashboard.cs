@@ -27,5 +27,31 @@ namespace Hospital_Source_Code
         {
             Application.Exit();
         }
+
+        private void comboSearchPatient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboSearchPatient.SelectedIndex == 0)
+            {
+                txtSearchLastName.Enabled = false;
+                txtSearchLastName.Text = " Type...";
+            } else
+                txtSearchLastName.Enabled = true;
+        }
+
+        private void txtSearchLastName_Enter(object sender, EventArgs e)
+        {
+            if(txtSearchLastName.Text == " Type...")
+            {
+                txtSearchLastName.Text = "";
+            }
+        }
+
+        private void txtSearchLastName_Leave(object sender, EventArgs e)
+        {
+            if (txtSearchLastName.Text == "")
+            {
+                txtSearchLastName.Text = " Type...";
+            }
+        }
     }
 }
