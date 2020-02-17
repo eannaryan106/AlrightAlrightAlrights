@@ -13,7 +13,7 @@ namespace Hospital_Source_Code
     public partial class HomeDashboard : Form
     {
         UserRole role;
-        public HomeDashboard(UserRole role)
+        public HomeDashboard(UserRole role, string userName)
         {
             InitializeComponent();
             this.role = role;
