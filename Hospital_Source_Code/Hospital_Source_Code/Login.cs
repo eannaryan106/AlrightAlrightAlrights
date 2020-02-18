@@ -34,9 +34,6 @@ namespace Hospital_Source_Code
             // check if field left empty
             if (VerifyInput(userName, password))
             {
-                // Verify Login Credentials
-                if (VerifyCredentials())
-                {
                     // Check for login data that matches
                     LoginModel login = dao.GetLogin(userName, password);
                     UserRole role = UserRole.None;
@@ -63,8 +60,7 @@ namespace Hospital_Source_Code
                             break;
                     }
 
-                    DeterminePermissions(role, userName);
-                }                
+                    DeterminePermissions(role, userName);          // Determines if user exists and where to go     
             }
         }
 
@@ -85,12 +81,6 @@ namespace Hospital_Source_Code
             {
                 MessageBox.Show(this, "User doe's not match with any in our system please try again", "Invalid User", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private bool VerifyCredentials()
-        {
-            // Compare to database
-            return true;
         }
 
         private bool VerifyInput(string userName, string password)
