@@ -47,10 +47,20 @@ namespace Hospital_Source_Code
 
         }
 
+
+
+
+
+
         private void HomeDashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
+        private void btnSearchAllBillsIssued_Click(object sender, EventArgs e)
+        {
+            frmSearch searchForm = new frmSearch();
+            searchForm.Show();
+        }
     }
 }
