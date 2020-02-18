@@ -171,5 +171,65 @@ namespace Hospital_Source_Code
 
             return success;
         }
+
+        ///////////////////////////////////////////////
+        // Doctors
+        public void InsertDoctor(Doctor doc)
+        {
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(connection);
+                SqlCommand cmd = new SqlCommand("[dbo].[Insert_Doctor_Details]", sqlConn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@Forename", SqlDbType.VarChar, 50).Value = doc.FirstName;
+                cmd.Parameters.Add("@Surname", SqlDbType.VarChar, 50).Value = doc.LastName;
+                cmd.Parameters.Add("@Gender ", SqlDbType.Bit).Value = doc.Gender;
+                cmd.Parameters.Add("@Address", SqlDbType.NVarChar, 400).Value = doc.Address;
+                cmd.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 50).Value = doc.PhoneNumber;
+                cmd.Parameters.Add("@Qualification", SqlDbType.NVarChar, 50).Value = doc.Qualification;
+                cmd.Parameters.Add("@DepartmentId", SqlDbType.Int).Value = doc.DepartID;
+
+                sqlConn.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+        }
+
+        public List<int> GetDeptIds() {
+            string sql = "SELECT Department_Id FROM DepartmentDetails";
+            List<int> listOfDeptId = new List<int>();
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(connection);
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+                sqlConn.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+                
+                while (dataReader.Read())
+                {
+                    int tempDeptId = dataReader.GetInt32(0);
+                    listOfDeptId.Add(tempDeptId);
+                }
+
+                sqlConn.Close();
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+            return listOfDeptId;
+        }
     }
 }
