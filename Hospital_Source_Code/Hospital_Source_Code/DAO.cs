@@ -68,13 +68,13 @@ namespace Hospital_Source_Code
         }
 
         public void testCon() {
-            using(SqlConnection sqlConn = new SqlConnection(connection))
+            using(SqlConnection sqlConnection = new SqlConnection(connection))
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Login WHERE LoginID=1000", sqlConn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Login WHERE LoginID=1000", sqlConnection);
 
                 try
                 {
-                    sqlConn.Open();
+                    sqlConnection.Open();
                     var newID = cmd.ExecuteScalar();
                     Console.WriteLine("It connected no issues " + newID);
                 }
@@ -82,6 +82,10 @@ namespace Hospital_Source_Code
                 {
 
                     Console.WriteLine(ex);
+                }
+                finally
+                {
+                    sqlConnection.Close();
                 }
 
 
@@ -97,18 +101,16 @@ namespace Hospital_Source_Code
 
             try
             {
-                SqlConnection sqlConn = new SqlConnection(connection);
-
-                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+                SqlCommand cmd = new SqlCommand(sql, sqlConnection);
                 cmd.Parameters.AddWithValue("@username", username);
-                sqlConn.Open();
+                sqlConnection.Open();
 
                 System.Data.DataSet dsUser = new System.Data.DataSet();
 
                 SqlDataAdapter adaptID = new SqlDataAdapter(cmd);
                 adaptID.Fill(dsUser);
 
-                sqlConn.Close();
+                sqlConnection.Close();
 
                 int count = dsUser.Tables[0].Rows.Count;
                 if (count == 0)
@@ -170,6 +172,14 @@ namespace Hospital_Source_Code
             }
 
             return success;
+        }
+
+        public bool AddPatient(string forename, string surname, DateTime dob, bool gender, string address, string phone, string kin)
+        {
+            bool added = true;
+
+
+            return true;
         }
     }
 }

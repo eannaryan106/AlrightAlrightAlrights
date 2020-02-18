@@ -44,6 +44,8 @@ namespace Hospital_Source_Code
                 tabControl1.SelectTab("tabBeds");
                 tabControl1.TabPages.Remove(tabDoctor);
                 tabControl1.TabPages.Remove(tabBilling);
+                btnAddPatient.Hide();
+                lblAddPatients.Hide();
             }
 
         }
