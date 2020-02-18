@@ -55,7 +55,7 @@ namespace Hospital_Source_Code
             else if (comboUserType.SelectedIndex == 3)
                 role = UserRole.SuperUser;
             else
-                role = UserRole.Accounts;
+                role = UserRole.None;
             return role;
         }
 
