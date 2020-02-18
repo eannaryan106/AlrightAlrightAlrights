@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Configuration.Assemblies;
 using System.Data.SqlClient;
 using Hospital_Source_Code.Classes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Hospital_Source_Code
 {
@@ -169,6 +171,43 @@ namespace Hospital_Source_Code
             }
 
             return success;
+        }
+
+        public DataSet SearchBills(string field, string @operator, string @value)
+        {
+            DataSet dataSet = new DataSet();
+
+            string sql = "SELECT * FROM BillingDetails WHERE " +
+                        $"{field} {@operator} '{@value}'";
+
+            try
+            {
+                SqlCommand command = new SqlCommand
+                {
+                    Connection = sqlConnection,
+                    CommandText = sql
+                };
+                sqlConnection.Open();
+
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+
+                dataAdapter.Fill(dataSet, "BillingTable");
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine("A DataBase Exception Occurred: " + ex);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("A Non Database Exception Occured: " + ex);
+            }
+            finally
+            {
+                if (sqlConnection.State == ConnectionState.Open)
+                    sqlConnection.Close();
+            }
+
+            return dataSet;
         }
     }
 }

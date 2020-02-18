@@ -52,7 +52,10 @@ namespace Hospital_Source_Code
             }
             else
             {
-                
+                DAO dao = new DAO();
+                DataSet dataSet = dao.SearchBills(cboField.Text, cboOperator.Text, txtValue.Text);
+                dataGridView1.DataSource = dataSet;
+                dataGridView1.DataMember = "BillingTable";
             }
         }
     }
