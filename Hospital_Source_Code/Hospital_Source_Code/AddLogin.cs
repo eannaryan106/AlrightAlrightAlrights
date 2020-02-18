@@ -25,27 +25,38 @@ namespace Hospital_Source_Code
             string userName = txtUsername.Text;
             string password = txtPassword.Text;
             string password2 = txtPassword2.Text;
-            string userType = comboUserType.SelectedItem.ToString();
-
-            UserRole role = UserRole.Admin;
-
-
+            UserRole role = new UserRole();        
 
             // check if field left empty
-            if (VerifyInput(userName, password, password2, userType))
+            if (VerifyInput(userName, password, password2))
             {
-                Console.WriteLine(CheckForAccount().ToString());
-                MessageBox.Show("The statement is: " + CheckForAccount().ToString());
                 // Check if no account with that username exists in database
-                //if (!CheckForAccount())
-                //{
-                //    // Create Login
-                //    //bool success = dao.testAddUser(userName, password, role);
-
-                //    MessageBox.Show("User " + userName + " inserted successfully", "Insert completed", MessageBoxButtons.OK);
-                //} else
-                //MessageBox.Show("This username is already taken, please insert another username.\n Try " + userName + "1 or " + userName + "TheEejit instead", userName);
+                if (CheckForAccount() == true)
+                {
+                    // Create Login
+                    role = userTypeCheck();
+                    bool success = dao.testAddUser(userName, password, role);
+                    MessageBox.Show("User " + userName + " inserted successfully", "Insert completed", MessageBoxButtons.OK);
+                }
+                else
+                    MessageBox.Show("This username is already taken, please insert another username.\n Try " + userName + "1 or " + userName + "TheEejit instead", userName);
             }
+        }
+
+        private UserRole userTypeCheck()
+        {
+            UserRole role;
+            if (comboUserType.SelectedIndex == 0)
+                role = UserRole.Admin;
+            else if (comboUserType.SelectedIndex == 1)
+                role = UserRole.Doctor;
+            else if (comboUserType.SelectedIndex == 2)
+                role = UserRole.HR;
+            else if (comboUserType.SelectedIndex == 3)
+                role = UserRole.SuperUser;
+            else
+                role = UserRole.Accounts;
+            return role;
         }
 
         private bool CheckForAccount()
@@ -56,7 +67,7 @@ namespace Hospital_Source_Code
             return accountAvailable;
         }
 
-        private bool VerifyInput(string userName, string password, string password2, string userType)
+        private bool VerifyInput(string userName, string password, string password2)
         {
             bool detailCorrect = true;
             if (userName == string.Empty)
@@ -65,7 +76,7 @@ namespace Hospital_Source_Code
                 detailCorrect = false;
             } else
             {
-                lblUsername.ForeColor = Color.Black;
+                lblUsername.ForeColor = Color.MidnightBlue;
             }
             if (password == string.Empty)
             {
@@ -73,7 +84,7 @@ namespace Hospital_Source_Code
                 detailCorrect = false;
             } else
             {
-                lblPassword.ForeColor = Color.Black;
+                lblPassword.ForeColor = Color.MidnightBlue;
             }
             if (password2 == string.Empty || !password2.Equals(password))
             {
@@ -82,15 +93,16 @@ namespace Hospital_Source_Code
             }
             else
             {
-                lblPassword2.ForeColor = Color.Black;
+                lblPassword2.ForeColor = Color.MidnightBlue;
             }
-            if (userType.Equals(string.Empty))
+            if (comboUserType.SelectedIndex < 0)
             {
-                comboUserType.ForeColor = Color.Red;
+                lblUserType.ForeColor = Color.Red;
                 detailCorrect = false;
             }
-            else {
-                comboUserType.ForeColor = Color.Black;
+            else
+            {
+                lblUserType.ForeColor = Color.MidnightBlue;
             }
             return detailCorrect;
         }

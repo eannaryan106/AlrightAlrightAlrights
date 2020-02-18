@@ -144,7 +144,7 @@ namespace Hospital_Source_Code
                 cmd.Parameters.Add(new SqlParameter
                 {
                     ParameterName = "@password",
-                    Value = username,
+                    Value = password,
                     SqlDbType = System.Data.SqlDbType.VarChar,
                 });
 
