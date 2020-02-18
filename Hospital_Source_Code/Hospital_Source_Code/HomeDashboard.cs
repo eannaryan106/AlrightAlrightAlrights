@@ -58,7 +58,7 @@ namespace Hospital_Source_Code
         {
             Application.Exit();
         }
-
+        // --------------------------- PATIENT SEARCH ----------------------------------------------------------------------------------------------
         private void comboSearchPatient_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboSearchPatient.SelectedIndex == 0)
@@ -131,5 +131,34 @@ namespace Hospital_Source_Code
             this.patientDetailsTableAdapter.Fill(this.hospitalDatabaseDataSet.PatientDetails);
 
         }
+        //------------- Insert patient ------------------------------------------------------------------------------------
+        private void btnInsertPatient_Click(object sender, EventArgs e)
+        {
+            string forename = txtPatientForename.Text;
+            string surname = txtPatientSurname.Text;
+            DateTime dob = Convert.ToDateTime(txtPatientDOB.Text);
+            bool gender = false;
+            if(cmbPatientGender.SelectedIndex == 0)
+            {
+                gender = true;
+            }
+            string address = txtPatientAddress.Text;
+            string phone = txtPatientPhone.Text;
+            string kin = txtPatientNOK.Text;
+
+            Patient sickboi = new Patient(forename, surname, dob, address, gender, phone, kin);
+
+            bool inserted = dao.InsertPatient(sickboi);
+
+            if (inserted == true)
+            {
+                MessageBox.Show("Inserted");
+            }
+            else
+                MessageBox.Show("Failed");
+
+        }
+
+
     }
 }

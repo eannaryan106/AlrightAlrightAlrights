@@ -231,5 +231,89 @@ namespace Hospital_Source_Code
             }
             return listOfDeptId;
         }
+
+        public bool InsertPatient(Patient sickboi)
+        {
+            bool inserted = false;
+
+            //string str = "INSERT INTO PatientDetails (Forename, Surname, DateOfBirth, Gender, Address, PhoneNumber, NextOfKin) " +
+            //    "VALUES(@forename, @surname, @dob, @gender, @address, @phone, @kin); ";
+            try
+            {
+                SqlCommand cmd = new SqlCommand("[dbo].[Insert_Patient_Details]", sqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@Forename", SqlDbType.VarChar).Value = sickboi.FirstName;
+                cmd.Parameters.Add("@Surname", SqlDbType.VarChar).Value = sickboi.LastName;
+                cmd.Parameters.Add("@DateOfBirth", SqlDbType.Date).Value = sickboi.DOB;
+                cmd.Parameters.Add("@Gender", SqlDbType.Bit).Value = sickboi.Gender;
+                cmd.Parameters.Add("@Address", SqlDbType.VarChar).Value = sickboi.Address;
+                cmd.Parameters.Add("@PhoneNumber", SqlDbType.VarChar).Value = sickboi.PhoneNumber;
+                cmd.Parameters.Add("@NextOfKin", SqlDbType.VarChar).Value = sickboi.NextOfKin;
+
+                //cmd.Parameters.Add(new SqlParameter
+                //{
+                //    ParameterName = "@forename",
+                //    Value = sickboi.FirstName,
+                //    SqlDbType = System.Data.SqlDbType.VarChar,
+                //});
+                //cmd.Parameters.Add(new SqlParameter
+                //{
+                //    ParameterName = "@surname",
+                //    Value = sickboi.LastName,
+                //    SqlDbType = System.Data.SqlDbType.VarChar,
+                //});
+                //cmd.Parameters.Add(new SqlParameter
+                //{
+                //    ParameterName = "@dob",
+                //    Value = sickboi.DOB,
+                //    SqlDbType = System.Data.SqlDbType.DateTime,
+                //});
+                //cmd.Parameters.Add(new SqlParameter
+                //{
+                //    ParameterName = "@gender",
+                //    Value = sickboi.Gender,
+                //    SqlDbType = System.Data.SqlDbType.Bit,
+                //});
+                //cmd.Parameters.Add(new SqlParameter
+                //{
+                //    ParameterName = "@address",
+                //    Value = sickboi.Address,
+                //    SqlDbType = System.Data.SqlDbType.VarChar,
+                //});
+                //cmd.Parameters.Add(new SqlParameter
+                //{
+                //    ParameterName = "@phone",
+                //    Value = sickboi.PhoneNumber,
+                //    SqlDbType = System.Data.SqlDbType.VarChar,
+                //});
+                //cmd.Parameters.Add(new SqlParameter
+                //{
+                //    ParameterName = "@kin",
+                //    Value = sickboi.NextOfKin,
+                //    SqlDbType = System.Data.SqlDbType.VarChar,
+                //});
+
+                sqlConnection.Open();
+
+                int NumRow = cmd.ExecuteNonQuery();
+                if (NumRow == 1)
+                    inserted = true;
+                inserted = true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return inserted;
+        }
     }
 }
