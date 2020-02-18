@@ -57,6 +57,32 @@ namespace Hospital_Source_Code
             Application.Exit();
         }
 
+        private void comboSearchPatient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboSearchPatient.SelectedIndex == 0)
+                txtSearchLastName.Text = " Enter ID...";
+            else if (comboSearchPatient.SelectedIndex == 1)
+                txtSearchLastName.Text = " Enter last name...";
+        }
+
+        private void txtSearchLastName_Enter(object sender, EventArgs e)
+        {
+            if (txtSearchLastName.Text == " Type..." || txtSearchLastName.Text == " Enter ID..." || txtSearchLastName.Text == " Enter last name...")
+                txtSearchLastName.Text = "";
+        }
+
+        private void txtSearchLastName_Leave(object sender, EventArgs e)
+        {
+            if (txtSearchLastName.Text == "")
+            {
+                if (comboSearchPatient.SelectedIndex == 0)
+                    txtSearchLastName.Text = " Enter ID...";
+                else if (comboSearchPatient.SelectedIndex == 1)
+                    txtSearchLastName.Text = " Enter last name...";
+                else
+                    txtSearchLastName.Text = " Type...";
+            }
+        }
         private void btnSearchAllBillsIssued_Click(object sender, EventArgs e)
         {
             frmSearch searchForm = new frmSearch();
