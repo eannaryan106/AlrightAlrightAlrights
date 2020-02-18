@@ -39,9 +39,15 @@
             this.tabDoctor = new System.Windows.Forms.TabPage();
             this.tabBilling = new System.Windows.Forms.TabPage();
             this.tabBeds = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPatient.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabDoctor.SuspendLayout();
+            this.tabBeds.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -84,7 +90,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(257, 431);
+            this.panel1.Size = new System.Drawing.Size(270, 431);
             this.panel1.TabIndex = 0;
             // 
             // btnInsertPatient
@@ -145,6 +151,7 @@
             // 
             // tabDoctor
             // 
+            this.tabDoctor.Controls.Add(this.panel2);
             this.tabDoctor.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabDoctor.Location = new System.Drawing.Point(4, 44);
             this.tabDoctor.Name = "tabDoctor";
@@ -166,6 +173,7 @@
             // 
             // tabBeds
             // 
+            this.tabBeds.Controls.Add(this.panel3);
             this.tabBeds.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabBeds.Location = new System.Drawing.Point(4, 44);
             this.tabBeds.Name = "tabBeds";
@@ -173,6 +181,35 @@
             this.tabBeds.TabIndex = 3;
             this.tabBeds.Text = "       BEDS      ";
             this.tabBeds.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(149)))), ((int)(((byte)(193)))));
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(270, 431);
+            this.panel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(45, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 24);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Search doctors:";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(149)))), ((int)(((byte)(193)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(270, 437);
+            this.panel3.TabIndex = 0;
             // 
             // HomeDashboard
             // 
@@ -187,6 +224,10 @@
             this.tabPatient.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabDoctor.ResumeLayout(false);
+            this.tabBeds.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -204,5 +245,8 @@
         private System.Windows.Forms.Button btnInsertPatient;
         private System.Windows.Forms.Label lblAddPatients;
         private System.Windows.Forms.Label lblSearchpatients;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel3;
     }
 }

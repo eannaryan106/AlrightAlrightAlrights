@@ -35,7 +35,7 @@ namespace Hospital_Source_Code
                 // Verify Login Credentials
                 if (VerifyCredentials())
                 {
-                    UserRole role = UserRole.Admin;
+                    UserRole role = UserRole.SuperUser;
                     DeterminePermissions(role, userName);
                 }                
             }
