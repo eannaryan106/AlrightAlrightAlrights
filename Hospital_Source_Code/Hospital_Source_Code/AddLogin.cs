@@ -25,14 +25,14 @@ namespace Hospital_Source_Code
             string userName = txtUsername.Text;
             string password = txtPassword.Text;
             string password2 = txtPassword2.Text;
-            //string userType = comboUserType.SelectedItem.ToString();
+            string userType = comboUserType.SelectedItem.ToString();
 
             UserRole role = UserRole.Admin;
 
 
 
             // check if field left empty
-            if (VerifyInput(userName, password, password2))
+            if (VerifyInput(userName, password, password2, userType))
             {
                 Console.WriteLine(CheckForAccount().ToString());
                 MessageBox.Show("The statement is: " + CheckForAccount().ToString());
@@ -56,7 +56,7 @@ namespace Hospital_Source_Code
             return accountAvailable;
         }
 
-        private bool VerifyInput(string userName, string password, string password2)
+        private bool VerifyInput(string userName, string password, string password2, string userType)
         {
             bool detailCorrect = true;
             if (userName == string.Empty)
@@ -83,6 +83,14 @@ namespace Hospital_Source_Code
             else
             {
                 lblPassword2.ForeColor = Color.Black;
+            }
+            if (userType.Equals(string.Empty))
+            {
+                comboUserType.ForeColor = Color.Red;
+                detailCorrect = false;
+            }
+            else {
+                comboUserType.ForeColor = Color.Black;
             }
             return detailCorrect;
         }

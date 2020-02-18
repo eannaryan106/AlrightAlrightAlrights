@@ -78,5 +78,10 @@ namespace Hospital_Source_Code
                     txtSearchLastName.Text = " Type...";
             }
         }
+
+        private void btnInsertDoctor_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
