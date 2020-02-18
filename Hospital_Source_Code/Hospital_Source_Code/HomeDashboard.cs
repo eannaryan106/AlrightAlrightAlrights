@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hospital_Source_Code.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,15 @@ namespace Hospital_Source_Code
 {
     public partial class HomeDashboard : Form
     {
+        DAO dao = new DAO();
+
         UserRole role;
         public HomeDashboard(UserRole role, string userName)
         {
             InitializeComponent();
             pnlInsertPatient.Hide();
             this.role = role;
+            loadDeptIds();
             if (role == UserRole.Admin)
             {
                 tabControl1.SelectTab("tabPatient");
@@ -82,9 +86,37 @@ namespace Hospital_Source_Code
             }
         }
 
+        private void loadDeptIds ()
+        {
+            List<int> listOfIds = dao.GetDeptIds();
+            cmbDeptID.Items.Clear();
+            foreach (var item in listOfIds)
+            {
+                cmbDeptID.Items.Add(item);
+            }
+        }
+
         private void btnInsertDoctor_Click(object sender, EventArgs e)
         {
+            ////// TODO - make error check method for all this
+            string firstName = txtFirstName.Text;
+            string lastName = txtLastName.Text;
+            string address = txtAddress.Text;
+            bool gender = false;
+            if ((cmbGender.SelectedItem.ToString()).Equals("Female"))
+            {
+                gender = true;
+            }            
+            string phoneNumber = txtPhoneNo.Text;
+            string qualification = txtQualifcation.Text;
+            int deptId = 0;
+            string tempId = cmbDeptID.SelectedItem.ToString();
+            int.TryParse(tempId, out deptId);
+            /////////
 
+            Doctor doc = new Doctor(firstName, lastName, address, gender, phoneNumber, qualification, deptId);
+
+            dao.InsertDoctor(doc);
         }
 
         private void btnAddPatient_Click(object sender, EventArgs e)

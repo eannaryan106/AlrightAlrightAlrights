@@ -68,13 +68,13 @@ namespace Hospital_Source_Code
         }
 
         public void testCon() {
-            using(SqlConnection sqlConnection = new SqlConnection(connection))
+            using(SqlConnection sqlConn = new SqlConnection(connection))
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Login WHERE LoginID=1000", sqlConnection);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Login WHERE LoginID=1000", sqlConn);
 
                 try
                 {
-                    sqlConnection.Open();
+                    sqlConn.Open();
                     var newID = cmd.ExecuteScalar();
                     Console.WriteLine("It connected no issues " + newID);
                 }
@@ -82,10 +82,6 @@ namespace Hospital_Source_Code
                 {
 
                     Console.WriteLine(ex);
-                }
-                finally
-                {
-                    sqlConnection.Close();
                 }
 
 
@@ -101,16 +97,18 @@ namespace Hospital_Source_Code
 
             try
             {
-                SqlCommand cmd = new SqlCommand(sql, sqlConnection);
+                SqlConnection sqlConn = new SqlConnection(connection);
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
                 cmd.Parameters.AddWithValue("@username", username);
-                sqlConnection.Open();
+                sqlConn.Open();
 
                 System.Data.DataSet dsUser = new System.Data.DataSet();
 
                 SqlDataAdapter adaptID = new SqlDataAdapter(cmd);
                 adaptID.Fill(dsUser);
 
-                sqlConnection.Close();
+                sqlConn.Close();
 
                 int count = dsUser.Tables[0].Rows.Count;
                 if (count == 0)
@@ -174,12 +172,64 @@ namespace Hospital_Source_Code
             return success;
         }
 
-        public bool AddPatient(string forename, string surname, DateTime dob, bool gender, string address, string phone, string kin)
+        ///////////////////////////////////////////////
+        // Doctors
+        public void InsertDoctor(Doctor doc)
         {
-            bool added = true;
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(connection);
+                SqlCommand cmd = new SqlCommand("[dbo].[Insert_Doctor_Details]", sqlConn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
+                cmd.Parameters.Add("@Forename", SqlDbType.VarChar, 50).Value = doc.FirstName;
+                cmd.Parameters.Add("@Surname", SqlDbType.VarChar, 50).Value = doc.LastName;
+                cmd.Parameters.Add("@Gender ", SqlDbType.Bit).Value = doc.Gender;
+                cmd.Parameters.Add("@Address", SqlDbType.NVarChar, 400).Value = doc.Address;
+                cmd.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 50).Value = doc.PhoneNumber;
+                cmd.Parameters.Add("@Qualification", SqlDbType.NVarChar, 50).Value = doc.Qualification;
+                cmd.Parameters.Add("@DepartmentId", SqlDbType.Int).Value = doc.DepartID;
 
-            return true;
+                sqlConn.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+        }
+
+        public List<int> GetDeptIds() {
+            string sql = "SELECT Department_Id FROM DepartmentDetails";
+            List<int> listOfDeptId = new List<int>();
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(connection);
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+                sqlConn.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+                
+                while (dataReader.Read())
+                {
+                    int tempDeptId = dataReader.GetInt32(0);
+                    listOfDeptId.Add(tempDeptId);
+                }
+
+                sqlConn.Close();
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+            return listOfDeptId;
         }
     }
 }
