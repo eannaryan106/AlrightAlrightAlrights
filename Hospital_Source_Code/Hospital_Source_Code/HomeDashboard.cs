@@ -19,6 +19,7 @@ namespace Hospital_Source_Code
         public HomeDashboard(UserRole role, string userName)
         {
             InitializeComponent();
+            pnlInsertPatient.Hide();
             this.role = role;
             loadDeptIds();
             if (role == UserRole.Admin)
@@ -114,6 +115,19 @@ namespace Hospital_Source_Code
             Doctor doc = new Doctor(firstName, lastName, address, gender, phoneNumber, qualification, deptId);
 
             dao.InsertDoctor(doc);
+        }
+
+        private void btnAddPatient_Click(object sender, EventArgs e)
+        {
+            pnlHomescreen.Hide();
+            pnlInsertPatient.Show();
+        }
+
+        private void HomeDashboard_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'hospitalDatabaseDataSet.PatientDetails' table. You can move, or remove it, as needed.
+            this.patientDetailsTableAdapter.Fill(this.hospitalDatabaseDataSet.PatientDetails);
+
         }
     }
 }
