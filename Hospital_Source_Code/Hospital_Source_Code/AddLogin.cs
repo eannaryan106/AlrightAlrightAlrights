@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hospital_Source_Code.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace Hospital_Source_Code
 {
     public partial class AddLogin : Form
     {
+        DAO dao;
+
         public AddLogin()
         {
             InitializeComponent();
+            dao = new DAO();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -22,25 +26,30 @@ namespace Hospital_Source_Code
             string userName = txtUsername.Text;
             string password = txtPassword.Text;
             string password2 = txtPassword2.Text;
+            string userType = comboUserType.SelectedIndex.ToString();
 
             // check if field left empty
-            if (VerifyInput(userName, password, password2))
+            if (VerifyInput(userName, password, password2, userType))
             {
                 // Check if no account with that username exists in database
-                if (!CheckForAccount())
+                if (!CheckForAccount(userName))
                 {
                     // Create Login
+                } else
+                {
+                    MessageBox.Show(this, "User already exists in system", "User Exists", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
-        private bool CheckForAccount()
+        private bool CheckForAccount(string userName)
         {
             // Check if no account with that username exists in database 
-            return true;
+            bool exist = dao.CheckLoginExist(userName);
+            return exist;
         }
 
-        private bool VerifyInput(string userName, string password, string password2)
+        private bool VerifyInput(string userName, string password, string password2, string userType)
         {
             bool detailCorrect = true;
             if (userName == string.Empty)
@@ -67,6 +76,14 @@ namespace Hospital_Source_Code
             else
             {
                 lblPassword2.ForeColor = Color.Black;
+            }
+            if (userType.Equals(string.Empty))
+            {
+                detailCorrect = false;
+                comboUserType.ForeColor = Color.Red;
+            } else
+            {
+                comboUserType.ForeColor = Color.Black;
             }
             return detailCorrect;
         }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Configuration.Assemblies;
 using System.Data.SqlClient;
 using Hospital_Source_Code.Classes;
+using System.Data;
 
 namespace Hospital_Source_Code
 {
@@ -64,6 +65,47 @@ namespace Hospital_Source_Code
             }
 
             return login;
+        }
+
+        public bool CheckLoginExist(string username)
+        {
+            bool exist = false;
+
+            try
+            {
+                SqlCommand command = new SqlCommand
+                {
+                    Connection = sqlConnection,
+                    CommandText = "SELECT * FROM Login WHERE username=" + username
+                };
+                sqlConnection.Open();
+
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    string newExist = (string)dataReader["username"];
+                    if (newExist.Equals(username))
+                    {
+                        exist = true;
+                        break;
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+
+            return exist;
         }
 
         public void testCon() {
