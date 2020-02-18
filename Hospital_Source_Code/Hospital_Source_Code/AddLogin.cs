@@ -1,5 +1,4 @@
-﻿using Hospital_Source_Code.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,15 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hospital_Source_Code
-{
+{  
     public partial class AddLogin : Form
     {
-        DAO dao;
+
+        private DAO dao = new DAO();
 
         public AddLogin()
         {
             InitializeComponent();
-            dao = new DAO();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -26,30 +25,38 @@ namespace Hospital_Source_Code
             string userName = txtUsername.Text;
             string password = txtPassword.Text;
             string password2 = txtPassword2.Text;
-            string userType = comboUserType.SelectedIndex.ToString();
+            //string userType = comboUserType.SelectedItem.ToString();
+
+            UserRole role = UserRole.Admin;
+
+
 
             // check if field left empty
-            if (VerifyInput(userName, password, password2, userType))
+            if (VerifyInput(userName, password, password2))
             {
+                Console.WriteLine(CheckForAccount().ToString());
+                MessageBox.Show("The statement is: " + CheckForAccount().ToString());
                 // Check if no account with that username exists in database
-                if (!CheckForAccount(userName))
-                {
-                    // Create Login
-                } else
-                {
-                    MessageBox.Show(this, "User already exists in system", "User Exists", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                //if (!CheckForAccount())
+                //{
+                //    // Create Login
+                //    //bool success = dao.testAddUser(userName, password, role);
+
+                //    MessageBox.Show("User " + userName + " inserted successfully", "Insert completed", MessageBoxButtons.OK);
+                //} else
+                //MessageBox.Show("This username is already taken, please insert another username.\n Try " + userName + "1 or " + userName + "TheEejit instead", userName);
             }
         }
 
-        private bool CheckForAccount(string userName)
+        private bool CheckForAccount()
         {
+            string username = txtUsername.Text;
+            bool accountAvailable = dao.CheckForAccount(username);
             // Check if no account with that username exists in database 
-            bool exist = dao.CheckLoginExist(userName);
-            return exist;
+            return accountAvailable;
         }
 
-        private bool VerifyInput(string userName, string password, string password2, string userType)
+        private bool VerifyInput(string userName, string password, string password2)
         {
             bool detailCorrect = true;
             if (userName == string.Empty)
@@ -77,14 +84,6 @@ namespace Hospital_Source_Code
             {
                 lblPassword2.ForeColor = Color.Black;
             }
-            if (userType.Equals(string.Empty))
-            {
-                detailCorrect = false;
-                comboUserType.ForeColor = Color.Red;
-            } else
-            {
-                comboUserType.ForeColor = Color.Black;
-            }
             return detailCorrect;
         }
 
@@ -92,5 +91,6 @@ namespace Hospital_Source_Code
         {
             Application.Exit();
         }
+
     }
 }
