@@ -8,6 +8,7 @@ namespace Hospital_Source_Code
 {
     public enum UserRole
     {
+        None = 0,
             Doctor = 1,
             Admin = 2,
             SuperUser = 3,
