@@ -32,6 +32,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeDashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPatient = new System.Windows.Forms.TabPage();
+            this.pnlInsertPatient = new System.Windows.Forms.Panel();
+            this.cmbPatientGender = new System.Windows.Forms.ComboBox();
+            this.txtPatientNOK = new System.Windows.Forms.TextBox();
+            this.btnInsertPatient = new System.Windows.Forms.Button();
+            this.lblPatientKin = new System.Windows.Forms.Label();
+            this.lblPatientPhone = new System.Windows.Forms.Label();
+            this.lblPatientAddress = new System.Windows.Forms.Label();
+            this.lblPatientGender = new System.Windows.Forms.Label();
+            this.lblPatientDOB = new System.Windows.Forms.Label();
+            this.lblPatientSurname = new System.Windows.Forms.Label();
+            this.lblPatientForname = new System.Windows.Forms.Label();
+            this.txtPatientAddress = new System.Windows.Forms.TextBox();
+            this.txtPatientPhone = new System.Windows.Forms.TextBox();
+            this.txtPatientDOB = new System.Windows.Forms.TextBox();
+            this.txtPatientSurname = new System.Windows.Forms.TextBox();
+            this.txtPatientForename = new System.Windows.Forms.TextBox();
             this.pnlHomescreen = new System.Windows.Forms.Panel();
             this.pnlLeftPane = new System.Windows.Forms.Panel();
             this.btnSearchPatient = new System.Windows.Forms.Button();
@@ -58,31 +74,24 @@
             this.hospitalDatabaseDataSet = new Hospital_Source_Code.HospitalDatabaseDataSet();
             this.patientDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patientDetailsTableAdapter = new Hospital_Source_Code.HospitalDatabaseDataSetTableAdapters.PatientDetailsTableAdapter();
-            this.pnlInsertPatient = new System.Windows.Forms.Panel();
-            this.txtPatientForename = new System.Windows.Forms.TextBox();
-            this.txtPatientSurname = new System.Windows.Forms.TextBox();
-            this.txtPatientDOB = new System.Windows.Forms.TextBox();
-            this.txtPatientPhone = new System.Windows.Forms.TextBox();
-            this.txtPatientAddress = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnInsertPatient = new System.Windows.Forms.Button();
-            this.txtPatientNOK = new System.Windows.Forms.TextBox();
-            this.cmbPatientGender = new System.Windows.Forms.ComboBox();
+            this.pnlErrors = new System.Windows.Forms.Panel();
+            this.lblNameError = new System.Windows.Forms.Label();
+            this.lblSurnameError = new System.Windows.Forms.Label();
+            this.LblGenderError = new System.Windows.Forms.Label();
+            this.LblAddressError = new System.Windows.Forms.Label();
+            this.LblPhoneError = new System.Windows.Forms.Label();
+            this.lblDOBError = new System.Windows.Forms.Label();
+            this.LblKinError = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPatient.SuspendLayout();
+            this.pnlInsertPatient.SuspendLayout();
             this.pnlLeftPane.SuspendLayout();
             this.tabDoctor.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabBeds.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientDetailsBindingSource)).BeginInit();
-            this.pnlInsertPatient.SuspendLayout();
+            this.pnlErrors.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -115,6 +124,183 @@
             this.tabPatient.TabIndex = 0;
             this.tabPatient.Text = "   PATIENTS   ";
             this.tabPatient.UseVisualStyleBackColor = true;
+            // 
+            // pnlInsertPatient
+            // 
+            this.pnlInsertPatient.BackColor = System.Drawing.Color.White;
+            this.pnlInsertPatient.Controls.Add(this.txtPatientAddress);
+            this.pnlInsertPatient.Controls.Add(this.pnlErrors);
+            this.pnlInsertPatient.Controls.Add(this.cmbPatientGender);
+            this.pnlInsertPatient.Controls.Add(this.txtPatientNOK);
+            this.pnlInsertPatient.Controls.Add(this.btnInsertPatient);
+            this.pnlInsertPatient.Controls.Add(this.lblPatientKin);
+            this.pnlInsertPatient.Controls.Add(this.lblPatientPhone);
+            this.pnlInsertPatient.Controls.Add(this.lblPatientAddress);
+            this.pnlInsertPatient.Controls.Add(this.lblPatientGender);
+            this.pnlInsertPatient.Controls.Add(this.lblPatientDOB);
+            this.pnlInsertPatient.Controls.Add(this.lblPatientSurname);
+            this.pnlInsertPatient.Controls.Add(this.lblPatientForname);
+            this.pnlInsertPatient.Controls.Add(this.txtPatientPhone);
+            this.pnlInsertPatient.Controls.Add(this.txtPatientDOB);
+            this.pnlInsertPatient.Controls.Add(this.txtPatientSurname);
+            this.pnlInsertPatient.Controls.Add(this.txtPatientForename);
+            this.pnlInsertPatient.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlInsertPatient.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.pnlInsertPatient.Location = new System.Drawing.Point(273, 0);
+            this.pnlInsertPatient.Name = "pnlInsertPatient";
+            this.pnlInsertPatient.Size = new System.Drawing.Size(789, 634);
+            this.pnlInsertPatient.TabIndex = 18;
+            // 
+            // cmbPatientGender
+            // 
+            this.cmbPatientGender.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbPatientGender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.cmbPatientGender.FormattingEnabled = true;
+            this.cmbPatientGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cmbPatientGender.Location = new System.Drawing.Point(232, 235);
+            this.cmbPatientGender.Name = "cmbPatientGender";
+            this.cmbPatientGender.Size = new System.Drawing.Size(166, 32);
+            this.cmbPatientGender.TabIndex = 5;
+            this.cmbPatientGender.Text = " Select...";
+            this.cmbPatientGender.SelectedIndexChanged += new System.EventHandler(this.cmbPatientGender_SelectedIndexChanged);
+            // 
+            // txtPatientNOK
+            // 
+            this.txtPatientNOK.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientNOK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.txtPatientNOK.Location = new System.Drawing.Point(232, 465);
+            this.txtPatientNOK.Name = "txtPatientNOK";
+            this.txtPatientNOK.Size = new System.Drawing.Size(166, 32);
+            this.txtPatientNOK.TabIndex = 17;
+            this.txtPatientNOK.Leave += new System.EventHandler(this.txtPatientNOK_Leave);
+            // 
+            // btnInsertPatient
+            // 
+            this.btnInsertPatient.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnInsertPatient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.btnInsertPatient.Location = new System.Drawing.Point(541, 538);
+            this.btnInsertPatient.Name = "btnInsertPatient";
+            this.btnInsertPatient.Size = new System.Drawing.Size(131, 46);
+            this.btnInsertPatient.TabIndex = 5;
+            this.btnInsertPatient.Text = "INSERT";
+            this.btnInsertPatient.UseVisualStyleBackColor = true;
+            this.btnInsertPatient.Click += new System.EventHandler(this.btnInsertPatient_Click);
+            // 
+            // lblPatientKin
+            // 
+            this.lblPatientKin.AutoSize = true;
+            this.lblPatientKin.Location = new System.Drawing.Point(82, 468);
+            this.lblPatientKin.Name = "lblPatientKin";
+            this.lblPatientKin.Size = new System.Drawing.Size(111, 24);
+            this.lblPatientKin.TabIndex = 16;
+            this.lblPatientKin.Text = "Next of kin:";
+            // 
+            // lblPatientPhone
+            // 
+            this.lblPatientPhone.AutoSize = true;
+            this.lblPatientPhone.Location = new System.Drawing.Point(82, 407);
+            this.lblPatientPhone.Name = "lblPatientPhone";
+            this.lblPatientPhone.Size = new System.Drawing.Size(72, 24);
+            this.lblPatientPhone.TabIndex = 15;
+            this.lblPatientPhone.Text = "Phone:";
+            // 
+            // lblPatientAddress
+            // 
+            this.lblPatientAddress.AutoSize = true;
+            this.lblPatientAddress.Location = new System.Drawing.Point(82, 296);
+            this.lblPatientAddress.Name = "lblPatientAddress";
+            this.lblPatientAddress.Size = new System.Drawing.Size(87, 24);
+            this.lblPatientAddress.TabIndex = 14;
+            this.lblPatientAddress.Text = "Address:";
+            // 
+            // lblPatientGender
+            // 
+            this.lblPatientGender.AutoSize = true;
+            this.lblPatientGender.Location = new System.Drawing.Point(82, 238);
+            this.lblPatientGender.Name = "lblPatientGender";
+            this.lblPatientGender.Size = new System.Drawing.Size(81, 24);
+            this.lblPatientGender.TabIndex = 13;
+            this.lblPatientGender.Text = "Gender:";
+            // 
+            // lblPatientDOB
+            // 
+            this.lblPatientDOB.AutoSize = true;
+            this.lblPatientDOB.Location = new System.Drawing.Point(82, 180);
+            this.lblPatientDOB.Name = "lblPatientDOB";
+            this.lblPatientDOB.Size = new System.Drawing.Size(55, 24);
+            this.lblPatientDOB.TabIndex = 12;
+            this.lblPatientDOB.Text = "DOB:";
+            // 
+            // lblPatientSurname
+            // 
+            this.lblPatientSurname.AutoSize = true;
+            this.lblPatientSurname.Location = new System.Drawing.Point(82, 121);
+            this.lblPatientSurname.Name = "lblPatientSurname";
+            this.lblPatientSurname.Size = new System.Drawing.Size(137, 24);
+            this.lblPatientSurname.TabIndex = 11;
+            this.lblPatientSurname.Text = "Second name:";
+            // 
+            // lblPatientForname
+            // 
+            this.lblPatientForname.AutoSize = true;
+            this.lblPatientForname.Location = new System.Drawing.Point(82, 63);
+            this.lblPatientForname.Name = "lblPatientForname";
+            this.lblPatientForname.Size = new System.Drawing.Size(108, 24);
+            this.lblPatientForname.TabIndex = 10;
+            this.lblPatientForname.Text = "First name:";
+            // 
+            // txtPatientAddress
+            // 
+            this.txtPatientAddress.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.txtPatientAddress.Location = new System.Drawing.Point(232, 293);
+            this.txtPatientAddress.Multiline = true;
+            this.txtPatientAddress.Name = "txtPatientAddress";
+            this.txtPatientAddress.Size = new System.Drawing.Size(294, 84);
+            this.txtPatientAddress.TabIndex = 9;
+            this.txtPatientAddress.Leave += new System.EventHandler(this.txtPatientAddress_Leave);
+            // 
+            // txtPatientPhone
+            // 
+            this.txtPatientPhone.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.txtPatientPhone.Location = new System.Drawing.Point(232, 404);
+            this.txtPatientPhone.Name = "txtPatientPhone";
+            this.txtPatientPhone.Size = new System.Drawing.Size(166, 32);
+            this.txtPatientPhone.TabIndex = 8;
+            this.txtPatientPhone.Leave += new System.EventHandler(this.txtPatientPhone_Leave);
+            // 
+            // txtPatientDOB
+            // 
+            this.txtPatientDOB.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientDOB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.txtPatientDOB.Location = new System.Drawing.Point(232, 177);
+            this.txtPatientDOB.Name = "txtPatientDOB";
+            this.txtPatientDOB.Size = new System.Drawing.Size(166, 32);
+            this.txtPatientDOB.TabIndex = 7;
+            this.txtPatientDOB.Leave += new System.EventHandler(this.txtPatientDOB_Leave);
+            // 
+            // txtPatientSurname
+            // 
+            this.txtPatientSurname.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientSurname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.txtPatientSurname.Location = new System.Drawing.Point(232, 118);
+            this.txtPatientSurname.Name = "txtPatientSurname";
+            this.txtPatientSurname.Size = new System.Drawing.Size(166, 32);
+            this.txtPatientSurname.TabIndex = 6;
+            this.txtPatientSurname.Leave += new System.EventHandler(this.txtPatientSurname_Leave);
+            // 
+            // txtPatientForename
+            // 
+            this.txtPatientForename.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPatientForename.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.txtPatientForename.Location = new System.Drawing.Point(232, 60);
+            this.txtPatientForename.Name = "txtPatientForename";
+            this.txtPatientForename.Size = new System.Drawing.Size(166, 32);
+            this.txtPatientForename.TabIndex = 5;
+            this.txtPatientForename.Leave += new System.EventHandler(this.txtPatientForename_Leave);
             // 
             // pnlHomescreen
             // 
@@ -393,174 +579,97 @@
             // 
             this.patientDetailsTableAdapter.ClearBeforeFill = true;
             // 
-            // pnlInsertPatient
+            // pnlErrors
             // 
-            this.pnlInsertPatient.BackColor = System.Drawing.Color.White;
-            this.pnlInsertPatient.Controls.Add(this.cmbPatientGender);
-            this.pnlInsertPatient.Controls.Add(this.txtPatientNOK);
-            this.pnlInsertPatient.Controls.Add(this.btnInsertPatient);
-            this.pnlInsertPatient.Controls.Add(this.label9);
-            this.pnlInsertPatient.Controls.Add(this.label10);
-            this.pnlInsertPatient.Controls.Add(this.label11);
-            this.pnlInsertPatient.Controls.Add(this.label12);
-            this.pnlInsertPatient.Controls.Add(this.label13);
-            this.pnlInsertPatient.Controls.Add(this.label14);
-            this.pnlInsertPatient.Controls.Add(this.label15);
-            this.pnlInsertPatient.Controls.Add(this.txtPatientAddress);
-            this.pnlInsertPatient.Controls.Add(this.txtPatientPhone);
-            this.pnlInsertPatient.Controls.Add(this.txtPatientDOB);
-            this.pnlInsertPatient.Controls.Add(this.txtPatientSurname);
-            this.pnlInsertPatient.Controls.Add(this.txtPatientForename);
-            this.pnlInsertPatient.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlInsertPatient.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.pnlInsertPatient.Location = new System.Drawing.Point(273, 6);
-            this.pnlInsertPatient.Name = "pnlInsertPatient";
-            this.pnlInsertPatient.Size = new System.Drawing.Size(789, 628);
-            this.pnlInsertPatient.TabIndex = 18;
+            this.pnlErrors.BackColor = System.Drawing.Color.Transparent;
+            this.pnlErrors.Controls.Add(this.LblKinError);
+            this.pnlErrors.Controls.Add(this.lblDOBError);
+            this.pnlErrors.Controls.Add(this.LblPhoneError);
+            this.pnlErrors.Controls.Add(this.LblAddressError);
+            this.pnlErrors.Controls.Add(this.LblGenderError);
+            this.pnlErrors.Controls.Add(this.lblSurnameError);
+            this.pnlErrors.Controls.Add(this.lblNameError);
+            this.pnlErrors.Location = new System.Drawing.Point(416, 48);
+            this.pnlErrors.Name = "pnlErrors";
+            this.pnlErrors.Size = new System.Drawing.Size(355, 462);
+            this.pnlErrors.TabIndex = 19;
             // 
-            // txtPatientForename
+            // lblNameError
             // 
-            this.txtPatientForename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
-            this.txtPatientForename.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
-            this.txtPatientForename.Location = new System.Drawing.Point(232, 60);
-            this.txtPatientForename.Name = "txtPatientForename";
-            this.txtPatientForename.Size = new System.Drawing.Size(166, 32);
-            this.txtPatientForename.TabIndex = 5;
+            this.lblNameError.AutoSize = true;
+            this.lblNameError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameError.ForeColor = System.Drawing.Color.Red;
+            this.lblNameError.Location = new System.Drawing.Point(3, 12);
+            this.lblNameError.Name = "lblNameError";
+            this.lblNameError.Size = new System.Drawing.Size(141, 14);
+            this.lblNameError.TabIndex = 19;
+            this.lblNameError.Text = "Please insert a valid name";
             // 
-            // txtPatientSurname
+            // lblSurnameError
             // 
-            this.txtPatientSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
-            this.txtPatientSurname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
-            this.txtPatientSurname.Location = new System.Drawing.Point(232, 118);
-            this.txtPatientSurname.Name = "txtPatientSurname";
-            this.txtPatientSurname.Size = new System.Drawing.Size(166, 32);
-            this.txtPatientSurname.TabIndex = 6;
+            this.lblSurnameError.AutoSize = true;
+            this.lblSurnameError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSurnameError.ForeColor = System.Drawing.Color.Red;
+            this.lblSurnameError.Location = new System.Drawing.Point(3, 73);
+            this.lblSurnameError.Name = "lblSurnameError";
+            this.lblSurnameError.Size = new System.Drawing.Size(157, 14);
+            this.lblSurnameError.TabIndex = 20;
+            this.lblSurnameError.Text = "Please insert a valid surname";
             // 
-            // txtPatientDOB
+            // LblGenderError
             // 
-            this.txtPatientDOB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
-            this.txtPatientDOB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
-            this.txtPatientDOB.Location = new System.Drawing.Point(232, 177);
-            this.txtPatientDOB.Name = "txtPatientDOB";
-            this.txtPatientDOB.Size = new System.Drawing.Size(166, 32);
-            this.txtPatientDOB.TabIndex = 7;
+            this.LblGenderError.AutoSize = true;
+            this.LblGenderError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblGenderError.ForeColor = System.Drawing.Color.Red;
+            this.LblGenderError.Location = new System.Drawing.Point(3, 186);
+            this.LblGenderError.Name = "LblGenderError";
+            this.LblGenderError.Size = new System.Drawing.Size(165, 14);
+            this.LblGenderError.TabIndex = 21;
+            this.LblGenderError.Text = "Please select one of the values";
             // 
-            // txtPatientPhone
+            // LblAddressError
             // 
-            this.txtPatientPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
-            this.txtPatientPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
-            this.txtPatientPhone.Location = new System.Drawing.Point(232, 404);
-            this.txtPatientPhone.Name = "txtPatientPhone";
-            this.txtPatientPhone.Size = new System.Drawing.Size(166, 32);
-            this.txtPatientPhone.TabIndex = 8;
+            this.LblAddressError.AutoSize = true;
+            this.LblAddressError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAddressError.ForeColor = System.Drawing.Color.Red;
+            this.LblAddressError.Location = new System.Drawing.Point(121, 247);
+            this.LblAddressError.Name = "LblAddressError";
+            this.LblAddressError.Size = new System.Drawing.Size(142, 14);
+            this.LblAddressError.TabIndex = 22;
+            this.LblAddressError.Text = "Please insert your address";
             // 
-            // txtPatientAddress
+            // LblPhoneError
             // 
-            this.txtPatientAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
-            this.txtPatientAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
-            this.txtPatientAddress.Location = new System.Drawing.Point(232, 293);
-            this.txtPatientAddress.Multiline = true;
-            this.txtPatientAddress.Name = "txtPatientAddress";
-            this.txtPatientAddress.Size = new System.Drawing.Size(294, 84);
-            this.txtPatientAddress.TabIndex = 9;
+            this.LblPhoneError.AutoSize = true;
+            this.LblPhoneError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPhoneError.ForeColor = System.Drawing.Color.Red;
+            this.LblPhoneError.Location = new System.Drawing.Point(3, 359);
+            this.LblPhoneError.Name = "LblPhoneError";
+            this.LblPhoneError.Size = new System.Drawing.Size(190, 14);
+            this.LblPhoneError.TabIndex = 23;
+            this.LblPhoneError.Text = "Please insert a valid phone number";
             // 
-            // label15
+            // lblDOBError
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(82, 63);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(108, 24);
-            this.label15.TabIndex = 10;
-            this.label15.Text = "First name:";
+            this.lblDOBError.AutoSize = true;
+            this.lblDOBError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDOBError.ForeColor = System.Drawing.Color.Red;
+            this.lblDOBError.Location = new System.Drawing.Point(3, 129);
+            this.lblDOBError.Name = "lblDOBError";
+            this.lblDOBError.Size = new System.Drawing.Size(293, 28);
+            this.lblDOBError.TabIndex = 24;
+            this.lblDOBError.Text = "Invalid date format\r\nDOB needs to be in the following format: dd/mm/yyyy";
             // 
-            // label14
+            // LblKinError
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(82, 121);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(137, 24);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "Second name:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(82, 180);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(55, 24);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "DOB:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(82, 238);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(81, 24);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "Gender:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(82, 296);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(87, 24);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "Address:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(82, 407);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 24);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "Phone:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(82, 468);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(111, 24);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Next of kin:";
-            // 
-            // btnInsertPatient
-            // 
-            this.btnInsertPatient.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnInsertPatient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
-            this.btnInsertPatient.Location = new System.Drawing.Point(541, 538);
-            this.btnInsertPatient.Name = "btnInsertPatient";
-            this.btnInsertPatient.Size = new System.Drawing.Size(131, 46);
-            this.btnInsertPatient.TabIndex = 5;
-            this.btnInsertPatient.Text = "INSERT";
-            this.btnInsertPatient.UseVisualStyleBackColor = true;
-            this.btnInsertPatient.Click += new System.EventHandler(this.btnInsertPatient_Click);
-            // 
-            // txtPatientNOK
-            // 
-            this.txtPatientNOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
-            this.txtPatientNOK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
-            this.txtPatientNOK.Location = new System.Drawing.Point(232, 465);
-            this.txtPatientNOK.Name = "txtPatientNOK";
-            this.txtPatientNOK.Size = new System.Drawing.Size(166, 32);
-            this.txtPatientNOK.TabIndex = 17;
-            // 
-            // cmbPatientGender
-            // 
-            this.cmbPatientGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
-            this.cmbPatientGender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
-            this.cmbPatientGender.FormattingEnabled = true;
-            this.cmbPatientGender.Items.AddRange(new object[] {
-            "ID",
-            "Last name"});
-            this.cmbPatientGender.Location = new System.Drawing.Point(232, 235);
-            this.cmbPatientGender.Name = "cmbPatientGender";
-            this.cmbPatientGender.Size = new System.Drawing.Size(166, 32);
-            this.cmbPatientGender.TabIndex = 5;
-            this.cmbPatientGender.Text = " Select...";
+            this.LblKinError.AutoSize = true;
+            this.LblKinError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblKinError.ForeColor = System.Drawing.Color.Red;
+            this.LblKinError.Location = new System.Drawing.Point(3, 420);
+            this.LblKinError.Name = "LblKinError";
+            this.LblKinError.Size = new System.Drawing.Size(157, 14);
+            this.LblKinError.TabIndex = 25;
+            this.LblKinError.Text = "Please insert your next of kin";
             // 
             // HomeDashboard
             // 
@@ -574,6 +683,8 @@
             this.Load += new System.EventHandler(this.HomeDashboard_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPatient.ResumeLayout(false);
+            this.pnlInsertPatient.ResumeLayout(false);
+            this.pnlInsertPatient.PerformLayout();
             this.pnlLeftPane.ResumeLayout(false);
             this.pnlLeftPane.PerformLayout();
             this.tabDoctor.ResumeLayout(false);
@@ -582,8 +693,8 @@
             this.tabBeds.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.hospitalDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientDetailsBindingSource)).EndInit();
-            this.pnlInsertPatient.ResumeLayout(false);
-            this.pnlInsertPatient.PerformLayout();
+            this.pnlErrors.ResumeLayout(false);
+            this.pnlErrors.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -622,17 +733,25 @@
         public System.Windows.Forms.ComboBox cmbPatientGender;
         private System.Windows.Forms.TextBox txtPatientNOK;
         private System.Windows.Forms.Button btnInsertPatient;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblPatientKin;
+        private System.Windows.Forms.Label lblPatientPhone;
+        private System.Windows.Forms.Label lblPatientAddress;
+        private System.Windows.Forms.Label lblPatientGender;
+        private System.Windows.Forms.Label lblPatientDOB;
+        private System.Windows.Forms.Label lblPatientSurname;
+        private System.Windows.Forms.Label lblPatientForname;
         private System.Windows.Forms.TextBox txtPatientAddress;
         private System.Windows.Forms.TextBox txtPatientPhone;
         private System.Windows.Forms.TextBox txtPatientDOB;
         private System.Windows.Forms.TextBox txtPatientSurname;
         private System.Windows.Forms.TextBox txtPatientForename;
+        private System.Windows.Forms.Panel pnlErrors;
+        private System.Windows.Forms.Label LblGenderError;
+        private System.Windows.Forms.Label lblSurnameError;
+        private System.Windows.Forms.Label lblNameError;
+        private System.Windows.Forms.Label LblKinError;
+        private System.Windows.Forms.Label lblDOBError;
+        private System.Windows.Forms.Label LblPhoneError;
+        private System.Windows.Forms.Label LblAddressError;
     }
 }
