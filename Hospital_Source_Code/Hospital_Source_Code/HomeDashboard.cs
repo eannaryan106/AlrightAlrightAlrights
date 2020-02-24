@@ -89,28 +89,28 @@ namespace Hospital_Source_Code
         private void loadDeptIds ()
         {
             List<int> listOfIds = dao.GetDeptIds();
-            cmbDeptID.Items.Clear();
+            cmbDocDeptID.Items.Clear();
             foreach (var item in listOfIds)
             {
-                cmbDeptID.Items.Add(item);
+                cmbDocDeptID.Items.Add(item);
             }
         }
 
         private void btnInsertDoctor_Click(object sender, EventArgs e)
         {
             ////// TODO - make error check method for all this
-            string firstName = txtFirstName.Text;
-            string lastName = txtLastName.Text;
-            string address = txtAddress.Text;
+            string firstName = txtDocFirstName.Text;
+            string lastName = txtDocLastName.Text;
+            string address = txtDocAddress.Text;
             bool gender = false;
-            if ((cmbGender.SelectedItem.ToString()).Equals("Female"))
+            if ((cmbDocGender.SelectedItem.ToString()).Equals("Female"))
             {
                 gender = true;
             }            
-            string phoneNumber = txtPhoneNo.Text;
-            string qualification = txtQualifcation.Text;
+            string phoneNumber = txtDocPhoneNo.Text;
+            string qualification = txtDocQualifcation.Text;
             int deptId = 0;
-            string tempId = cmbDeptID.SelectedItem.ToString();
+            string tempId = cmbDocDeptID.SelectedItem.ToString();
             int.TryParse(tempId, out deptId);
             /////////
 
@@ -137,28 +137,28 @@ namespace Hospital_Source_Code
             string searchCriteria = cmbSearchCriteria.SelectedItem.ToString();
             if (searchCriteria.Equals("ID"))
             {
-                if (int.TryParse(txtSearch.Text, out int docId))
+                if (int.TryParse(txtSearchDoc1.Text, out int docId))
                 {
                     Doctor doc = dao.GetDoctor(docId);
-                    txtFirstNameDetails.Text = doc.FirstName;
-                    txtLastNameDetails.Text = doc.LastName;
-                    txtAddressDetails.Text = doc.Address;
+                    txtDocFirstNameDetails.Text = doc.FirstName;
+                    txtDocLastNameDetails.Text = doc.LastName;
+                    txtDocAddressDetails.Text = doc.Address;
                     if (doc.Gender == true)
                     {
-                        txtGenderDetails.Text = "Female";
+                        txtDocGenderDetails.Text = "Female";
                     }
                     else
                     {
-                        txtGenderDetails.Text = "Male";
+                        txtDocGenderDetails.Text = "Male";
                     }
-                    txtPhoneNoDetails.Text = doc.PhoneNumber;
-                    txtQualificationDetails.Text = doc.Qualification;
-                    txtDepartmentIDDetails.Text = doc.DepartID.ToString();
+                    txtDocPhoneNoDetails.Text = doc.PhoneNumber;
+                    txtDocQualificationDetails.Text = doc.Qualification;
+                    txtDocDepartmentIDDetails.Text = doc.DepartID.ToString();
                 }
             }
             else {
                 Console.WriteLine("Got Here 1");
-                string surname = txtSearch.Text;
+                string surname = txtSearchDoc1.Text;
                 
 
                 //List<Doctor> listOfDocs = dao.GetDoctors(txtSearch.Text);
@@ -171,6 +171,5 @@ namespace Hospital_Source_Code
                 }
             }
         }
-
     }
 }
