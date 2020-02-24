@@ -129,5 +129,45 @@ namespace Hospital_Source_Code
             this.patientDetailsTableAdapter.Fill(this.hospitalDatabaseDataSet.PatientDetails);
 
         }
+
+        private void btnSearchDoc_Click(object sender, EventArgs e)
+        {
+            string searchCriteria = cmbSearchCriteria.SelectedItem.ToString();
+            if (searchCriteria.Equals("ID"))
+            {
+                if (int.TryParse(txtSearch.Text, out int docId))
+                {
+                    Doctor doc = dao.GetDoctor(docId);
+                    txtFirstNameDetails.Text = doc.FirstName;
+                    txtLastNameDetails.Text = doc.LastName;
+                    txtAddressDetails.Text = doc.Address;
+                    if (doc.Gender == true)
+                    {
+                        txtGenderDetails.Text = "Female";
+                    }
+                    else
+                    {
+                        txtGenderDetails.Text = "Male";
+                    }
+                    txtPhoneNoDetails.Text = doc.PhoneNumber;
+                    txtQualificationDetails.Text = doc.Qualification;
+                    txtDepartmentIDDetails.Text = doc.DepartID.ToString();
+                }
+            }
+            else {
+                Console.WriteLine("Got Here 1");
+                string surname = txtSearch.Text;
+                
+
+                //List<Doctor> listOfDocs = dao.GetDoctors(txtSearch.Text);
+                Console.WriteLine("Got Here 2");
+                if (!surname.Equals(string.Empty))
+                {
+                    Console.WriteLine("Got Here 3");
+                    SearchDoctorsSurname searchDoctors = new SearchDoctorsSurname(this, surname);
+                    searchDoctors.Show();
+                }
+            }
+        }
     }
 }

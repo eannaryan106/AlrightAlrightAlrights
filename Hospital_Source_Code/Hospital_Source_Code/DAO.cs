@@ -231,5 +231,62 @@ namespace Hospital_Source_Code
             }
             return listOfDeptId;
         }
+
+        public Doctor GetDoctor(int id)
+        {
+            string sql = $"SELECT * FROM DoctorDetails WHERE Id="+id;
+            Doctor doc = new Doctor();
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(connection);
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+                sqlConn.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    doc = new Doctor((int)dataReader["Id"], (string)dataReader["Forename"], (string)dataReader["Surname"],
+                        (bool)dataReader["Gender"], (string)dataReader["Address"], (string)dataReader["PhoneNumber"],
+                        (string)dataReader["Qualification"], (int)dataReader["DepartmentId"]);
+                }
+                sqlConn.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+            return doc;
+        }
+
+        public DataSet GetDoctors(string surname)
+        {
+            string sql = $"SELECT Surname, Forename, Id, DepartmentId, Qualification FROM DoctorDetails WHERE Surname='{surname}'";
+            DataSet dataSet = new DataSet();
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(connection);
+
+                SqlCommand command = new SqlCommand(sql, sqlConn);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+
+
+                dataAdapter.Fill(dataSet, "DoctorsTable");
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+            return dataSet;
+        }
+                
     }
 }
