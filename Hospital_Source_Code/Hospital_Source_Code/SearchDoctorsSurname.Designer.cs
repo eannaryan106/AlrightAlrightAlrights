@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dGDDoctors = new System.Windows.Forms.DataGridView();
+            this.btnSelect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGDDoctors)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,11 +41,22 @@
             this.dGDDoctors.Size = new System.Drawing.Size(543, 255);
             this.dGDDoctors.TabIndex = 0;
             // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(44, 324);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.TabIndex = 1;
+            this.btnSelect.Text = "Select";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
             // SearchDoctorsSurname
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.dGDDoctors);
             this.Name = "SearchDoctorsSurname";
             this.Text = "SearchDoctorsSurname";
@@ -56,5 +68,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dGDDoctors;
+        private System.Windows.Forms.Button btnSelect;
     }
 }

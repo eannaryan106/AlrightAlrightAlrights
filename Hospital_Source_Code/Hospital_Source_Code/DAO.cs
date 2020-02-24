@@ -174,14 +174,15 @@ namespace Hospital_Source_Code
 
         ///////////////////////////////////////////////
         // Doctors
-        public void InsertDoctor(Doctor doc)
+        public void UpdateDoctor(Doctor doc)
         {
             try
             {
                 SqlConnection sqlConn = new SqlConnection(connection);
-                SqlCommand cmd = new SqlCommand("[dbo].[Insert_Doctor_Details]", sqlConn);
+                SqlCommand cmd = new SqlCommand("[dbo].[Update_Doctor_Details]", sqlConn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
+                cmd.Parameters.Add("@Id", SqlDbType.Int).Value = doc.ID;
                 cmd.Parameters.Add("@Forename", SqlDbType.VarChar, 50).Value = doc.FirstName;
                 cmd.Parameters.Add("@Surname", SqlDbType.VarChar, 50).Value = doc.LastName;
                 cmd.Parameters.Add("@Gender ", SqlDbType.Bit).Value = doc.Gender;
