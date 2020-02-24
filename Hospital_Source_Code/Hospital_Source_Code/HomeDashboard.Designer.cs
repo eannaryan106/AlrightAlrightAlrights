@@ -174,6 +174,7 @@
             this.txtPatientAddress.Name = "txtPatientAddress";
             this.txtPatientAddress.Size = new System.Drawing.Size(294, 84);
             this.txtPatientAddress.TabIndex = 9;
+            this.txtPatientAddress.Leave += new System.EventHandler(this.txtPatientAddress_Leave_1);
             // 
             // pnlErrors
             // 
@@ -273,15 +274,14 @@
             this.cmbPatientGender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
             this.cmbPatientGender.FormattingEnabled = true;
             this.cmbPatientGender.Items.AddRange(new object[] {
-            "ID",
-            "Last name",
-            "ID",
-            "Last name"});
+            "Male",
+            "Female"});
             this.cmbPatientGender.Location = new System.Drawing.Point(232, 235);
             this.cmbPatientGender.Name = "cmbPatientGender";
             this.cmbPatientGender.Size = new System.Drawing.Size(166, 32);
             this.cmbPatientGender.TabIndex = 5;
             this.cmbPatientGender.Text = " Select...";
+            this.cmbPatientGender.SelectedIndexChanged += new System.EventHandler(this.cmbPatientGender_SelectedIndexChanged);
             // 
             // txtPatientNOK
             // 
@@ -291,6 +291,7 @@
             this.txtPatientNOK.Name = "txtPatientNOK";
             this.txtPatientNOK.Size = new System.Drawing.Size(166, 32);
             this.txtPatientNOK.TabIndex = 17;
+            this.txtPatientNOK.Leave += new System.EventHandler(this.txtPatientNOK_Leave_1);
             // 
             // btnInsertPatient
             // 
@@ -374,6 +375,7 @@
             this.txtPatientPhone.Name = "txtPatientPhone";
             this.txtPatientPhone.Size = new System.Drawing.Size(166, 32);
             this.txtPatientPhone.TabIndex = 8;
+            this.txtPatientPhone.Leave += new System.EventHandler(this.txtPatientPhone_Leave_1);
             // 
             // txtPatientDOB
             // 
@@ -383,6 +385,7 @@
             this.txtPatientDOB.Name = "txtPatientDOB";
             this.txtPatientDOB.Size = new System.Drawing.Size(166, 32);
             this.txtPatientDOB.TabIndex = 7;
+            this.txtPatientDOB.Leave += new System.EventHandler(this.txtPatientDOB_Leave_1);
             // 
             // txtPatientSurname
             // 
@@ -392,6 +395,7 @@
             this.txtPatientSurname.Name = "txtPatientSurname";
             this.txtPatientSurname.Size = new System.Drawing.Size(166, 32);
             this.txtPatientSurname.TabIndex = 6;
+            this.txtPatientSurname.Leave += new System.EventHandler(this.txtPatientSurname_Leave_1);
             // 
             // txtPatientForename
             // 
@@ -401,6 +405,7 @@
             this.txtPatientForename.Name = "txtPatientForename";
             this.txtPatientForename.Size = new System.Drawing.Size(166, 32);
             this.txtPatientForename.TabIndex = 5;
+            this.txtPatientForename.Leave += new System.EventHandler(this.txtPatientForename_Leave_1);
             // 
             // pnlHomescreen
             // 

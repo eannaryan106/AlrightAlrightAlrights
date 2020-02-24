@@ -244,7 +244,7 @@ namespace Hospital_Source_Code
                 btnInsertPatient.Enabled = true;
         }
         //-------------------- PATIENT: Leave textbox event -------------------------------------------------------------------
-        private void txtPatientForename_Leave(object sender, EventArgs e)
+        private void txtPatientForename_Leave_1(object sender, EventArgs e)
         {
             if (txtPatientForename.Text == string.Empty || !alphabetOnly.IsMatch(txtPatientForename.Text.ToString()))
             {
@@ -260,7 +260,7 @@ namespace Hospital_Source_Code
                 test();
             }
         }
-        private void txtPatientSurname_Leave(object sender, EventArgs e)
+        private void txtPatientSurname_Leave_1(object sender, EventArgs e)
         {
             if (txtPatientSurname.Text == string.Empty || !alphabetOnly.IsMatch(txtPatientSurname.Text.ToString()))
             {
@@ -276,23 +276,37 @@ namespace Hospital_Source_Code
             }
         }
 
-        private void txtPatientAddress_Leave(object sender, EventArgs e)
+        private void txtPatientDOB_Leave_1(object sender, EventArgs e)
         {
-            if (txtPatientAddress.Text == string.Empty)
+            if (txtPatientDOB.Text == string.Empty)
             {
-                lblPatientAddress.ForeColor = Color.Red;
-                lblAddressError.Show();
+                lblPatientDOB.ForeColor = Color.Red;
+                lblDOBError.Show();
                 btnInsertPatient.Enabled = false;
             }
             else
             {
-                lblPatientAddress.ForeColor = Color.MidnightBlue;
-                lblAddressError.Hide();
+                lblPatientDOB.ForeColor = Color.MidnightBlue;
+                lblDOBError.Hide();
                 test();
             }
         }
-
-        private void txtPatientNOK_Leave(object sender, EventArgs e)
+        private void txtPatientPhone_Leave_1(object sender, EventArgs e)
+        {
+            if (txtPatientPhone.Text == string.Empty || !numbersOnly.IsMatch(txtPatientPhone.Text.ToString()))
+            {
+                lblPatientPhone.ForeColor = Color.Red;
+                lblPhoneError.Show();
+                btnInsertPatient.Enabled = false;
+            }
+            else
+            {
+                lblPatientPhone.ForeColor = Color.MidnightBlue;
+                lblPhoneError.Hide();
+                test();
+            }
+        }
+        private void txtPatientNOK_Leave_1(object sender, EventArgs e)
         {
             if (txtPatientNOK.Text == string.Empty || !alphabetOnly.IsMatch(txtPatientNOK.Text.ToString()))
             {
@@ -308,34 +322,18 @@ namespace Hospital_Source_Code
             }
         }
 
-        private void txtPatientPhone_Leave(object sender, EventArgs e)
+        private void txtPatientAddress_Leave_1(object sender, EventArgs e)
         {
-            if (txtPatientPhone.Text == string.Empty || !numbersOnly.IsMatch(txtPatientPhone.Text.ToString()))
+            if (txtPatientAddress.Text == string.Empty)
             {
-                lblPatientPhone.ForeColor = Color.Red;
-                lblPhoneError.Show();
+                lblPatientAddress.ForeColor = Color.Red;
+                lblAddressError.Show();
                 btnInsertPatient.Enabled = false;
             }
             else
             {
-                lblPatientPhone.ForeColor = Color.MidnightBlue;
-                lblPhoneError.Hide();
-                test();
-            }
-        }
-
-        private void txtPatientDOB_Leave(object sender, EventArgs e)
-        {
-            if (txtPatientDOB.Text == string.Empty)
-            {
-                lblPatientDOB.ForeColor = Color.Red;
-                lblDOBError.Show();
-                btnInsertPatient.Enabled = false;
-            }
-            else
-            {
-                lblPatientDOB.ForeColor = Color.MidnightBlue;
-                lblDOBError.Hide();
+                lblPatientAddress.ForeColor = Color.MidnightBlue;
+                lblAddressError.Hide();
                 test();
             }
         }
@@ -344,6 +342,5 @@ namespace Hospital_Source_Code
         {
             test();
         }
-
     }
     }
