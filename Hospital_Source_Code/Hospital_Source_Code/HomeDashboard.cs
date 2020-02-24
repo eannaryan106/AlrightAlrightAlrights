@@ -48,6 +48,8 @@ namespace Hospital_Source_Code
                 tabControl1.SelectTab("tabBeds");
                 tabControl1.TabPages.Remove(tabDoctor);
                 tabControl1.TabPages.Remove(tabBilling);
+                btnAddPatient.Hide();
+                lblAddPatients.Hide();
             }
 
         }
@@ -56,7 +58,7 @@ namespace Hospital_Source_Code
         {
             Application.Exit();
         }
-
+        // --------------------------- PATIENT SEARCH ----------------------------------------------------------------------------------------------
         private void comboSearchPatient_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboSearchPatient.SelectedIndex == 0)
@@ -169,5 +171,6 @@ namespace Hospital_Source_Code
                 }
             }
         }
+
     }
 }
