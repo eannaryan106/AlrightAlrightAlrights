@@ -23,5 +23,13 @@ namespace Hospital_Source_Code.Classes
             Qualification = qualification;
             DepartID = deptId;
         }
+
+        public Doctor(int id, string firstName, string lastName, bool gender, string address, string phoneNumber, string qualification, int deptId)
+            : base(firstName, lastName, address, gender, phoneNumber)
+        {
+            Qualification = qualification;
+            DepartID = deptId;
+            ID = id;
+        }
     }
 }
