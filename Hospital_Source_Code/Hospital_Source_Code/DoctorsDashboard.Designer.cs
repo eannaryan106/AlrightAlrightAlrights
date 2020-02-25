@@ -54,6 +54,7 @@
             this.lblSearchDoc1 = new System.Windows.Forms.Label();
             this.txtSearchDoc1 = new System.Windows.Forms.TextBox();
             this.btnSearchDoc = new System.Windows.Forms.Button();
+            this.btnDocReport = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabDoctors.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // tabDoctors
             // 
+            this.tabDoctors.Controls.Add(this.btnDocReport);
             this.tabDoctors.Controls.Add(this.lblDocIdlabel);
             this.tabDoctors.Controls.Add(this.lblDocID);
             this.tabDoctors.Controls.Add(this.lblDocDepartmentID2);
@@ -105,7 +107,7 @@
             this.lblDocIdlabel.AutoSize = true;
             this.lblDocIdlabel.BackColor = System.Drawing.Color.Transparent;
             this.lblDocIdlabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblDocIdlabel.Location = new System.Drawing.Point(948, 39);
+            this.lblDocIdlabel.Location = new System.Drawing.Point(688, 28);
             this.lblDocIdlabel.Name = "lblDocIdlabel";
             this.lblDocIdlabel.Size = new System.Drawing.Size(33, 24);
             this.lblDocIdlabel.TabIndex = 61;
@@ -116,11 +118,11 @@
             this.lblDocID.AutoSize = true;
             this.lblDocID.BackColor = System.Drawing.Color.Transparent;
             this.lblDocID.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblDocID.Location = new System.Drawing.Point(987, 39);
+            this.lblDocID.Location = new System.Drawing.Point(727, 28);
             this.lblDocID.Name = "lblDocID";
-            this.lblDocID.Size = new System.Drawing.Size(21, 24);
+            this.lblDocID.Size = new System.Drawing.Size(60, 24);
             this.lblDocID.TabIndex = 60;
-            this.lblDocID.Text = "1";
+            this.lblDocID.Text = "None";
             // 
             // lblDocDepartmentID2
             // 
@@ -365,6 +367,19 @@
             this.btnSearchDoc.UseVisualStyleBackColor = true;
             this.btnSearchDoc.Click += new System.EventHandler(this.btnSearchDoc_Click);
             // 
+            // btnDocReport
+            // 
+            this.btnDocReport.Enabled = false;
+            this.btnDocReport.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnDocReport.ForeColor = System.Drawing.Color.MediumBlue;
+            this.btnDocReport.Location = new System.Drawing.Point(902, 550);
+            this.btnDocReport.Name = "btnDocReport";
+            this.btnDocReport.Size = new System.Drawing.Size(131, 46);
+            this.btnDocReport.TabIndex = 62;
+            this.btnDocReport.Text = "REPORT";
+            this.btnDocReport.UseVisualStyleBackColor = true;
+            this.btnDocReport.Visible = false;
+            // 
             // DoctorsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,5 +426,6 @@
         public System.Windows.Forms.ComboBox cmbDocDeptID;
         private System.Windows.Forms.TextBox txtDocLastName;
         private System.Windows.Forms.TextBox txtDocFirstName;
+        private System.Windows.Forms.Button btnDocReport;
     }
 }
