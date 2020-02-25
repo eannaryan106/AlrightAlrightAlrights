@@ -51,20 +51,20 @@ namespace Hospital_Source_Code
 
         private void txtSearchLastName_Enter(object sender, EventArgs e)
         {
-            if (txtSearchLastName.Text == " Type..." || txtSearchLastName.Text == " Enter ID..." || txtSearchLastName.Text == " Enter last name...")
-                txtSearchLastName.Text = "";
+            if (txtSearchPat.Text == " Type..." || txtSearchPat.Text == " Enter ID..." || txtSearchPat.Text == " Enter last name...")
+                txtSearchPat.Text = "";
         }
 
         private void txtSearchLastName_Leave(object sender, EventArgs e)
         {
-            if (txtSearchLastName.Text == "")
+            if (txtSearchPat.Text == "")
             {
                 if (comboSearchPatient.SelectedIndex == 0)
-                    txtSearchLastName.Text = " Enter ID...";
+                    txtSearchPat.Text = " Enter ID...";
                 else if (comboSearchPatient.SelectedIndex == 1)
-                    txtSearchLastName.Text = " Enter last name...";
+                    txtSearchPat.Text = " Enter last name...";
                 else
-                    txtSearchLastName.Text = " Type...";
+                    txtSearchPat.Text = " Type...";
             }
         }
         private void btnAddPatient_Click(object sender, EventArgs e)
@@ -233,6 +233,28 @@ namespace Hospital_Source_Code
         private void txtPatientForename_TextChanged(object sender, EventArgs e)
         {
             test();
+        }
+
+        private void btnSearchPatient_Click(object sender, EventArgs e)
+        {
+            string searchCriteria = comboSearchPatient.SelectedItem.ToString();
+            if (searchCriteria.Equals("ID"))
+            {
+                if (int.TryParse(txtSearchPat.Text, out int docId))
+                {
+                    //populateDetails(docId);
+                }
+            }
+            else
+            {
+                string surname = txtSearchPat.Text;
+
+                if (!surname.Equals(string.Empty))
+                {
+                    SearchPatients searchDoctors = new SearchPatient(this, surname);
+                    searchDoctors.Show();
+                }
+            }
         }
     }
 }

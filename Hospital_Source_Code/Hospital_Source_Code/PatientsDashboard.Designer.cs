@@ -38,7 +38,7 @@
             this.lblAddPatients = new System.Windows.Forms.Label();
             this.lblSearchpatients = new System.Windows.Forms.Label();
             this.comboSearchPatient = new System.Windows.Forms.ComboBox();
-            this.txtSearchLastName = new System.Windows.Forms.TextBox();
+            this.txtSearchPat = new System.Windows.Forms.TextBox();
             this.pnlHomescreen = new System.Windows.Forms.Panel();
             this.pnlInsertPatient = new System.Windows.Forms.Panel();
             this.txtPatientAddress = new System.Windows.Forms.TextBox();
@@ -117,7 +117,7 @@
             this.pnlLeftPane.Controls.Add(this.lblAddPatients);
             this.pnlLeftPane.Controls.Add(this.lblSearchpatients);
             this.pnlLeftPane.Controls.Add(this.comboSearchPatient);
-            this.pnlLeftPane.Controls.Add(this.txtSearchLastName);
+            this.pnlLeftPane.Controls.Add(this.txtSearchPat);
             this.pnlLeftPane.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLeftPane.Location = new System.Drawing.Point(3, 3);
             this.pnlLeftPane.Name = "pnlLeftPane";
@@ -135,6 +135,7 @@
             this.btnSearchPatient.TabIndex = 5;
             this.btnSearchPatient.Text = "SEARCH";
             this.btnSearchPatient.UseVisualStyleBackColor = true;
+            this.btnSearchPatient.Click += new System.EventHandler(this.btnSearchPatient_Click);
             // 
             // btnAddPatient
             // 
@@ -184,15 +185,15 @@
             this.comboSearchPatient.TabIndex = 1;
             this.comboSearchPatient.Text = " Select...";
             // 
-            // txtSearchLastName
+            // txtSearchPat
             // 
-            this.txtSearchLastName.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
-            this.txtSearchLastName.Location = new System.Drawing.Point(45, 171);
-            this.txtSearchLastName.Name = "txtSearchLastName";
-            this.txtSearchLastName.Size = new System.Drawing.Size(166, 32);
-            this.txtSearchLastName.TabIndex = 0;
-            this.txtSearchLastName.Text = " Type...";
+            this.txtSearchPat.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchPat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.txtSearchPat.Location = new System.Drawing.Point(45, 171);
+            this.txtSearchPat.Name = "txtSearchPat";
+            this.txtSearchPat.Size = new System.Drawing.Size(166, 32);
+            this.txtSearchPat.TabIndex = 0;
+            this.txtSearchPat.Text = " Type...";
             // 
             // pnlHomescreen
             // 
@@ -513,7 +514,7 @@
         private System.Windows.Forms.Label lblAddPatients;
         private System.Windows.Forms.Label lblSearchpatients;
         public System.Windows.Forms.ComboBox comboSearchPatient;
-        private System.Windows.Forms.TextBox txtSearchLastName;
+        private System.Windows.Forms.TextBox txtSearchPat;
         private System.Windows.Forms.Panel pnlHomescreen;
         private System.Windows.Forms.Panel pnlInsertPatient;
         private System.Windows.Forms.TextBox txtPatientAddress;

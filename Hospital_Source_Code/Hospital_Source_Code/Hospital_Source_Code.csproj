@@ -109,6 +109,12 @@
     <Compile Include="SearchDoctorsSurname.Designer.cs">
       <DependentUpon>SearchDoctorsSurname.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchPatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchPatients.Designer.cs">
+      <DependentUpon>SearchPatients.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserRole.cs" />
     <EmbeddedResource Include="AddLogin.resx">
       <DependentUpon>AddLogin.cs</DependentUpon>
@@ -140,6 +146,9 @@
     </Compile>
     <EmbeddedResource Include="SearchDoctorsSurname.resx">
       <DependentUpon>SearchDoctorsSurname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchPatients.resx">
+      <DependentUpon>SearchPatients.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="HospitalDatabaseDataSet.xsc">
       <DependentUpon>HospitalDatabaseDataSet.xsd</DependentUpon>
