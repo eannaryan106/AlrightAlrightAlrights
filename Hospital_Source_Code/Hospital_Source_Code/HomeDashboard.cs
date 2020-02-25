@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,12 +15,17 @@ namespace Hospital_Source_Code
     public partial class HomeDashboard : Form
     {
         DAO dao = new DAO();
+        Regex numbersOnly = new Regex(@"^[0-9]+$");
+        Regex alphabetOnly = new Regex(@"^[a-zA-Z]+$");
+
 
         UserRole role;
         public HomeDashboard(UserRole role, string userName)
         {
             InitializeComponent();
+            test();
             pnlInsertPatient.Hide();
+            hideErrors();
             this.role = role;
             loadDeptIds();
             if (role == UserRole.Admin)
@@ -118,7 +124,8 @@ namespace Hospital_Source_Code
                     populateDetails(docId);
                 }
             }
-            else {
+            else
+            {
                 string surname = txtSearchDoc1.Text;
 
                 if (!surname.Equals(string.Empty))
@@ -129,73 +136,207 @@ namespace Hospital_Source_Code
             }
         }
 
-            public void populateDetails(int docId) {
-                Doctor doc = dao.GetDoctor(docId);
-                lblDocID.Text = doc.ID.ToString();
-                txtDocFirstName.Text = doc.FirstName;
-                txtDocLastName.Text = doc.LastName;
-                txtDocAddress.Text = doc.Address;
-                if (doc.Gender == true)
+        public void populateDetails(int docId)
+        {
+            Doctor doc = dao.GetDoctor(docId);
+            lblDocID.Text = doc.ID.ToString();
+            txtDocFirstName.Text = doc.FirstName;
+            txtDocLastName.Text = doc.LastName;
+            txtDocAddress.Text = doc.Address;
+            if (doc.Gender == true)
+            {
+                cmbDocGender.Text = "Female";
+            }
+            else
+            {
+                cmbDocGender.Text = "Male";
+            }
+            txtDocPhoneNo.Text = doc.PhoneNumber;
+            txtDocQualification.Text = doc.Qualification;
+            cmbDocDeptID.Text = doc.DepartID.ToString();
+
+        }
+        private void btnUpdateDoctor_Click(object sender, EventArgs e)
+        {
+            ////// TODO - make error check method for all this
+            int.TryParse(lblDocID.Text, out int id);
+            string firstName = txtDocFirstName.Text;
+            string lastName = txtDocLastName.Text;
+            string address = txtDocAddress.Text;
+            bool gender = false;
+            if ((cmbDocGender.SelectedItem.ToString()).Equals("Female"))
+            {
+                gender = true;
+            }
+            string phoneNumber = txtDocPhoneNo.Text;
+            string qualification = txtDocQualification.Text;
+            int deptId = 0;
+            string tempId = cmbDocDeptID.SelectedItem.ToString();
+            int.TryParse(tempId, out deptId);
+            /////////
+
+            Doctor doc = new Doctor(id, firstName, lastName, gender, address, phoneNumber, qualification, deptId);
+
+            dao.UpdateDoctor(doc);
+        }
+        //------------- Insert patient -------------------------------------------------------------------------------------------------------------------------------------------
+        private void btnInsertPatient_Click(object sender, EventArgs e)
+        {
+            string forename = txtPatientForename.Text;
+            string surname = txtPatientSurname.Text;
+            bool gender = false;
+            if (cmbPatientGender.SelectedIndex == 0)
+            {
+                gender = true;
+            }
+            string address = txtPatientAddress.Text;
+            string phone = txtPatientPhone.Text;
+            string kin = txtPatientNOK.Text;
+
+            DateTime.TryParse(txtPatientDOB.Text, out DateTime birth);
+            Patient sickboi = new Patient(forename, surname, birth, address, gender, phone, kin);
+
+            bool inserted = dao.InsertPatient(sickboi);
+
+            if (inserted == true)
+            {
+                MessageBox.Show("Patient inserted succesfully");
+                //clear the screen and go back to home page
+                Clear();
+                pnlHomescreen.Show();
+                pnlInsertPatient.Hide();
+            }
+            else
+                MessageBox.Show("Failed");
+        }
+        //--------------- PATIENT: Clear all fields -----------------------
+        public void Clear()
+        {
+            foreach (Control c in pnlInsertPatient.Controls)
+            {
+                if (c is TextBox)
                 {
-                    cmbDocGender.Text = "Female";
+                    c.Text = "";
                 }
-                else
-                {
-                    cmbDocGender.Text = "Male";
-                }
-                txtDocPhoneNo.Text = doc.PhoneNumber;
-                txtDocQualification.Text = doc.Qualification;
-                cmbDocDeptID.Text = doc.DepartID.ToString();
+            }
+        }
+        //-------------- PATIENT: Hide error messages
+        private void hideErrors()
+        {
+            foreach (Control lbl in pnlErrors.Controls)
+            {
+                lbl.Hide();
+            }
+        }
+        //--------------------- PATIENT: Checking is fields are empty
+        private void test()
+        {
+            btnInsertPatient.Enabled = false;
+
+            var emptyTextboxes = from tb in pnlInsertPatient.Controls.OfType<TextBox>()
+                                 where string.IsNullOrEmpty(tb.Text)
+                                 select tb;
+            if (emptyTextboxes.Any() || cmbPatientGender.SelectedIndex == -1)
+            {
+                btnInsertPatient.Enabled = false;
+            }
+            else
+                btnInsertPatient.Enabled = true;
+        }
+        //-------------------- PATIENT: Leave textbox event -------------------------------------------------------------------
+        private void txtPatientForename_Leave_1(object sender, EventArgs e)
+        {
+            if (txtPatientForename.Text == string.Empty || !alphabetOnly.IsMatch(txtPatientForename.Text.ToString()))
+            {
+                lblPatientForename.ForeColor = Color.Red;
+                lblNameError.Show();
+                btnInsertPatient.Enabled = false;
 
             }
-            //------------- Insert patient ------------------------------------------------------------------------------------
-            private void btnInsertPatient_Click(object sender, EventArgs e)
+            else
             {
-                string forename = txtPatientForename.Text;
-                string surname = txtPatientSurname.Text;
-                DateTime dob = Convert.ToDateTime(txtPatientDOB.Text);
-                bool gender = false;
-                if (cmbPatientGender.SelectedIndex == 0)
-                {
-                    gender = true;
-                }
-                string address = txtPatientAddress.Text;
-                string phone = txtPatientPhone.Text;
-                string kin = txtPatientNOK.Text;
-
-                Patient sickboi = new Patient(forename, surname, dob, address, gender, phone, kin);
-
-                bool inserted = dao.InsertPatient(sickboi);
-
-                if (inserted == true)
-                {
-                    MessageBox.Show("Inserted");
-                }
-                else
-                    MessageBox.Show("Failed");
-
+                lblPatientForename.ForeColor = Color.MidnightBlue;
+                lblNameError.Hide();
+                test();
             }
-
-            private void btnUpdateDoctor_Click(object sender, EventArgs e)
+        }
+        private void txtPatientSurname_Leave_1(object sender, EventArgs e)
+        {
+            if (txtPatientSurname.Text == string.Empty || !alphabetOnly.IsMatch(txtPatientSurname.Text.ToString()))
             {
-                ////// TODO - make error check method for all this
-                int.TryParse(lblDocID.Text, out int id);
-                string firstName = txtDocFirstName.Text;
-                string lastName = txtDocLastName.Text;
-                string address = txtDocAddress.Text;
-                bool gender = false;
-                if ((cmbDocGender.SelectedItem.ToString()).Equals("Female"))
-                {
-                    gender = true;
-                }
-                string phoneNumber = txtDocPhoneNo.Text;
-                string qualification = txtDocQualification.Text;
-                int deptId = 0;
-                string tempId = cmbDocDeptID.SelectedItem.ToString();
-                int.TryParse(tempId, out deptId);
-                /////////
+                lblPatientSurname.ForeColor = Color.Red;
+                lblSurnameError.Show();
+                btnInsertPatient.Enabled = false;
+            }
+            else
+            {
+                lblPatientSurname.ForeColor = Color.MidnightBlue;
+                lblSurnameError.Hide();
+                test();
+            }
+        }
 
-                Doctor doc = new Doctor(id, firstName, lastName, gender, address, phoneNumber, qualification, deptId);
+        private void txtPatientDOB_Leave_1(object sender, EventArgs e)
+        {
+            if (txtPatientDOB.Text == string.Empty)
+            {
+                lblPatientDOB.ForeColor = Color.Red;
+                lblDOBError.Show();
+                btnInsertPatient.Enabled = false;
+            }
+            else
+            {
+                lblPatientDOB.ForeColor = Color.MidnightBlue;
+                lblDOBError.Hide();
+                test();
+            }
+        }
+        private void txtPatientPhone_Leave_1(object sender, EventArgs e)
+        {
+            if (txtPatientPhone.Text == string.Empty || !numbersOnly.IsMatch(txtPatientPhone.Text.ToString()))
+            {
+                lblPatientPhone.ForeColor = Color.Red;
+                lblPhoneError.Show();
+                btnInsertPatient.Enabled = false;
+            }
+            else
+            {
+                lblPatientPhone.ForeColor = Color.MidnightBlue;
+                lblPhoneError.Hide();
+                test();
+            }
+        }
+        private void txtPatientNOK_Leave_1(object sender, EventArgs e)
+        {
+            if (txtPatientNOK.Text == string.Empty || !alphabetOnly.IsMatch(txtPatientNOK.Text.ToString()))
+            {
+                lblPatientKin.ForeColor = Color.Red;
+                lblKinError.Show();
+                btnInsertPatient.Enabled = false;
+            }
+            else
+            {
+                lblPatientKin.ForeColor = Color.MidnightBlue;
+                lblKinError.Hide();
+                test();
+            }
+        }
+
+        private void txtPatientAddress_Leave_1(object sender, EventArgs e)
+        {
+            if (txtPatientAddress.Text == string.Empty)
+            {
+                lblPatientAddress.ForeColor = Color.Red;
+                lblAddressError.Show();
+                btnInsertPatient.Enabled = false;
+            }
+            else
+            {
+                lblPatientAddress.ForeColor = Color.MidnightBlue;
+                lblAddressError.Hide();
+                test();
+            }
+        }
 
                 dao.UpdateDoctor(doc);
             }
@@ -211,3 +352,10 @@ namespace Hospital_Source_Code
         }
     }
     }
+        private void cmbPatientGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            test();
+        }
+
+    }
+}
