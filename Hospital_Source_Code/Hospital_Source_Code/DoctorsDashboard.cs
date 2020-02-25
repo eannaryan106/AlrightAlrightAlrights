@@ -48,6 +48,10 @@ namespace Hospital_Source_Code
                 if (int.TryParse(txtSearchDoc1.Text, out int docId))
                 {
                     populateDetails(docId);
+                } else
+                {
+                    MessageBox.Show(this, "ID must be an integer, please enter a valid value", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             else
@@ -85,6 +89,8 @@ namespace Hospital_Source_Code
             txtDocPhoneNo.Text = doc.PhoneNumber;
             txtDocQualification.Text = doc.Qualification;
             cmbDocDeptID.Text = doc.DepartID.ToString();
+            btnUpdateDoctor.Enabled = true;
+            btnUpdateDoctor.Visible = true;
 
         }
         private void btnUpdateDoctor_Click(object sender, EventArgs e)
@@ -111,19 +117,9 @@ namespace Hospital_Source_Code
             dao.UpdateDoctor(doc);
         }
 
-        private void cmbSearchCriteria_SelectedIndexChanged(object sender, EventArgs e)
+        private void DoctorsDashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-        }
-
-        private void cmbSearchCriteria_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSearchDoc1_TextChanged(object sender, EventArgs e)
-        {
-
+            Application.Exit();
         }
     }
 }

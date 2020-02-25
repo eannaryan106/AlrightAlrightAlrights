@@ -30,12 +30,6 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabDoctors = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblSearchDocCriteria = new System.Windows.Forms.Label();
-            this.cmbSearchCriteria = new System.Windows.Forms.ComboBox();
-            this.lblSearchDoc1 = new System.Windows.Forms.Label();
-            this.txtSearchDoc1 = new System.Windows.Forms.TextBox();
-            this.btnSearchDoc = new System.Windows.Forms.Button();
             this.lblDocIdlabel = new System.Windows.Forms.Label();
             this.lblDocID = new System.Windows.Forms.Label();
             this.lblDocDepartmentID2 = new System.Windows.Forms.Label();
@@ -54,6 +48,12 @@
             this.cmbDocDeptID = new System.Windows.Forms.ComboBox();
             this.txtDocLastName = new System.Windows.Forms.TextBox();
             this.txtDocFirstName = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblSearchDocCriteria = new System.Windows.Forms.Label();
+            this.cmbSearchCriteria = new System.Windows.Forms.ComboBox();
+            this.lblSearchDoc1 = new System.Windows.Forms.Label();
+            this.txtSearchDoc1 = new System.Windows.Forms.TextBox();
+            this.btnSearchDoc = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabDoctors.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -99,78 +99,6 @@
             this.tabDoctors.TabIndex = 0;
             this.tabDoctors.Text = "   DOCTORS   ";
             this.tabDoctors.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(149)))), ((int)(((byte)(193)))));
-            this.panel2.Controls.Add(this.lblSearchDocCriteria);
-            this.panel2.Controls.Add(this.cmbSearchCriteria);
-            this.panel2.Controls.Add(this.lblSearchDoc1);
-            this.panel2.Controls.Add(this.txtSearchDoc1);
-            this.panel2.Controls.Add(this.btnSearchDoc);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(270, 631);
-            this.panel2.TabIndex = 1;
-            // 
-            // lblSearchDocCriteria
-            // 
-            this.lblSearchDocCriteria.AutoSize = true;
-            this.lblSearchDocCriteria.BackColor = System.Drawing.Color.Transparent;
-            this.lblSearchDocCriteria.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchDocCriteria.ForeColor = System.Drawing.Color.White;
-            this.lblSearchDocCriteria.Location = new System.Drawing.Point(20, 43);
-            this.lblSearchDocCriteria.Name = "lblSearchDocCriteria";
-            this.lblSearchDocCriteria.Size = new System.Drawing.Size(199, 24);
-            this.lblSearchDocCriteria.TabIndex = 21;
-            this.lblSearchDocCriteria.Text = "Select Search Criteria";
-            // 
-            // cmbSearchCriteria
-            // 
-            this.cmbSearchCriteria.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.cmbSearchCriteria.FormattingEnabled = true;
-            this.cmbSearchCriteria.Items.AddRange(new object[] {
-            "ID",
-            "Surname"});
-            this.cmbSearchCriteria.Location = new System.Drawing.Point(45, 102);
-            this.cmbSearchCriteria.Name = "cmbSearchCriteria";
-            this.cmbSearchCriteria.Size = new System.Drawing.Size(166, 32);
-            this.cmbSearchCriteria.TabIndex = 20;
-            this.cmbSearchCriteria.Text = " Select...";
-            this.cmbSearchCriteria.SelectedIndexChanged += new System.EventHandler(this.cmbSearchCriteria_SelectedIndexChanged_1);
-            // 
-            // lblSearchDoc1
-            // 
-            this.lblSearchDoc1.AutoSize = true;
-            this.lblSearchDoc1.BackColor = System.Drawing.Color.Transparent;
-            this.lblSearchDoc1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchDoc1.ForeColor = System.Drawing.Color.Black;
-            this.lblSearchDoc1.Location = new System.Drawing.Point(23, 125);
-            this.lblSearchDoc1.Name = "lblSearchDoc1";
-            this.lblSearchDoc1.Size = new System.Drawing.Size(0, 18);
-            this.lblSearchDoc1.TabIndex = 20;
-            // 
-            // txtSearchDoc1
-            // 
-            this.txtSearchDoc1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.txtSearchDoc1.Location = new System.Drawing.Point(45, 171);
-            this.txtSearchDoc1.Name = "txtSearchDoc1";
-            this.txtSearchDoc1.Size = new System.Drawing.Size(166, 32);
-            this.txtSearchDoc1.TabIndex = 20;
-            this.txtSearchDoc1.TextChanged += new System.EventHandler(this.txtSearchDoc1_TextChanged);
-            // 
-            // btnSearchDoc
-            // 
-            this.btnSearchDoc.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnSearchDoc.ForeColor = System.Drawing.Color.MediumBlue;
-            this.btnSearchDoc.Location = new System.Drawing.Point(62, 238);
-            this.btnSearchDoc.Name = "btnSearchDoc";
-            this.btnSearchDoc.Size = new System.Drawing.Size(131, 46);
-            this.btnSearchDoc.TabIndex = 20;
-            this.btnSearchDoc.Text = "SEARCH";
-            this.btnSearchDoc.UseVisualStyleBackColor = true;
-            this.btnSearchDoc.Click += new System.EventHandler(this.btnSearchDoc_Click);
             // 
             // lblDocIdlabel
             // 
@@ -316,6 +244,7 @@
             // 
             // btnUpdateDoctor
             // 
+            this.btnUpdateDoctor.Enabled = false;
             this.btnUpdateDoctor.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnUpdateDoctor.ForeColor = System.Drawing.Color.MediumBlue;
             this.btnUpdateDoctor.Location = new System.Drawing.Point(655, 550);
@@ -324,6 +253,7 @@
             this.btnUpdateDoctor.TabIndex = 44;
             this.btnUpdateDoctor.Text = "SUBMIT";
             this.btnUpdateDoctor.UseVisualStyleBackColor = true;
+            this.btnUpdateDoctor.Visible = false;
             this.btnUpdateDoctor.Click += new System.EventHandler(this.btnUpdateDoctor_Click);
             // 
             // cmbDocGender
@@ -365,6 +295,76 @@
             this.txtDocFirstName.Size = new System.Drawing.Size(460, 32);
             this.txtDocFirstName.TabIndex = 46;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(149)))), ((int)(((byte)(193)))));
+            this.panel2.Controls.Add(this.lblSearchDocCriteria);
+            this.panel2.Controls.Add(this.cmbSearchCriteria);
+            this.panel2.Controls.Add(this.lblSearchDoc1);
+            this.panel2.Controls.Add(this.txtSearchDoc1);
+            this.panel2.Controls.Add(this.btnSearchDoc);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(270, 631);
+            this.panel2.TabIndex = 1;
+            // 
+            // lblSearchDocCriteria
+            // 
+            this.lblSearchDocCriteria.AutoSize = true;
+            this.lblSearchDocCriteria.BackColor = System.Drawing.Color.Transparent;
+            this.lblSearchDocCriteria.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchDocCriteria.ForeColor = System.Drawing.Color.White;
+            this.lblSearchDocCriteria.Location = new System.Drawing.Point(20, 43);
+            this.lblSearchDocCriteria.Name = "lblSearchDocCriteria";
+            this.lblSearchDocCriteria.Size = new System.Drawing.Size(199, 24);
+            this.lblSearchDocCriteria.TabIndex = 21;
+            this.lblSearchDocCriteria.Text = "Select Search Criteria";
+            // 
+            // cmbSearchCriteria
+            // 
+            this.cmbSearchCriteria.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.cmbSearchCriteria.FormattingEnabled = true;
+            this.cmbSearchCriteria.Items.AddRange(new object[] {
+            "ID",
+            "Surname"});
+            this.cmbSearchCriteria.Location = new System.Drawing.Point(45, 102);
+            this.cmbSearchCriteria.Name = "cmbSearchCriteria";
+            this.cmbSearchCriteria.Size = new System.Drawing.Size(166, 32);
+            this.cmbSearchCriteria.TabIndex = 20;
+            this.cmbSearchCriteria.Text = " Select...";
+            // 
+            // lblSearchDoc1
+            // 
+            this.lblSearchDoc1.AutoSize = true;
+            this.lblSearchDoc1.BackColor = System.Drawing.Color.Transparent;
+            this.lblSearchDoc1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchDoc1.ForeColor = System.Drawing.Color.Black;
+            this.lblSearchDoc1.Location = new System.Drawing.Point(23, 125);
+            this.lblSearchDoc1.Name = "lblSearchDoc1";
+            this.lblSearchDoc1.Size = new System.Drawing.Size(0, 18);
+            this.lblSearchDoc1.TabIndex = 20;
+            // 
+            // txtSearchDoc1
+            // 
+            this.txtSearchDoc1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txtSearchDoc1.Location = new System.Drawing.Point(45, 171);
+            this.txtSearchDoc1.Name = "txtSearchDoc1";
+            this.txtSearchDoc1.Size = new System.Drawing.Size(166, 32);
+            this.txtSearchDoc1.TabIndex = 20;
+            // 
+            // btnSearchDoc
+            // 
+            this.btnSearchDoc.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnSearchDoc.ForeColor = System.Drawing.Color.MediumBlue;
+            this.btnSearchDoc.Location = new System.Drawing.Point(62, 238);
+            this.btnSearchDoc.Name = "btnSearchDoc";
+            this.btnSearchDoc.Size = new System.Drawing.Size(131, 46);
+            this.btnSearchDoc.TabIndex = 20;
+            this.btnSearchDoc.Text = "SEARCH";
+            this.btnSearchDoc.UseVisualStyleBackColor = true;
+            this.btnSearchDoc.Click += new System.EventHandler(this.btnSearchDoc_Click);
+            // 
             // DoctorsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,6 +373,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "DoctorsDashboard";
             this.Text = "DoctorsDashboard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DoctorsDashboard_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabDoctors.ResumeLayout(false);
             this.tabDoctors.PerformLayout();

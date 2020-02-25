@@ -251,7 +251,7 @@ namespace Hospital_Source_Code
 
                 if (!surname.Equals(string.Empty))
                 {
-                    SearchPatients searchDoctors = new SearchPatient(this, surname);
+                    SearchPatients searchDoctors = new SearchPatients(this, surname);
                     searchDoctors.Show();
                 }
             }

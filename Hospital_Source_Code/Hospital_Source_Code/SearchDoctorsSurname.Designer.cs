@@ -55,7 +55,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(636, 369);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.dGDDoctors);
             this.Name = "SearchDoctorsSurname";

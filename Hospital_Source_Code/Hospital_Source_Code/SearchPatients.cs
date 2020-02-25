@@ -12,7 +12,7 @@ namespace Hospital_Source_Code
 {
     public partial class SearchPatients : Form
     {
-        public SearchPatients()
+        public SearchPatients(PatientsDashboard dash, string surname)
         {
             InitializeComponent();
         }
