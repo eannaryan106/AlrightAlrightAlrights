@@ -18,6 +18,7 @@ namespace Hospital_Source_Code
         Regex numbersOnly = new Regex(@"^[0-9]+$");
         Regex alphabetOnly = new Regex(@"^[a-zA-Z]+$");
 
+
         UserRole role;
         public HomeDashboard(UserRole role, string userName)
         {
@@ -138,6 +139,11 @@ namespace Hospital_Source_Code
         public void populateDetails(int docId)
         {
             Doctor doc = dao.GetDoctor(docId);
+            if (doc.ID == 0)
+            {
+                MessageBox.Show(this, "ID does not match any in our system, please enter valid ID", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             lblDocID.Text = doc.ID.ToString();
             txtDocFirstName.Text = doc.FirstName;
             txtDocLastName.Text = doc.LastName;
@@ -179,8 +185,35 @@ namespace Hospital_Source_Code
             dao.UpdateDoctor(doc);
         }
         //------------- Insert patient -------------------------------------------------------------------------------------------------------------------------------------------
+        private void btnInsertPatient_Click(object sender, EventArgs e)
+        {
+            string forename = txtPatientForename.Text;
+            string surname = txtPatientSurname.Text;
+            bool gender = false;
+            if (cmbPatientGender.SelectedIndex == 0)
+            {
+                gender = true;
+            }
+            string address = txtPatientAddress.Text;
+            string phone = txtPatientPhone.Text;
+            string kin = txtPatientNOK.Text;
 
+            DateTime.TryParse(txtPatientDOB.Text, out DateTime birth);
+            Patient sickboi = new Patient(forename, surname, birth, address, gender, phone, kin);
 
+            bool inserted = dao.InsertPatient(sickboi);
+
+            if (inserted == true)
+            {
+                MessageBox.Show("Patient inserted succesfully");
+                //clear the screen and go back to home page
+                Clear();
+                pnlHomescreen.Show();
+                pnlInsertPatient.Hide();
+            }
+            else
+                MessageBox.Show("Failed");
+        }
         //--------------- PATIENT: Clear all fields -----------------------
         public void Clear()
         {
@@ -203,6 +236,8 @@ namespace Hospital_Source_Code
         //--------------------- PATIENT: Checking is fields are empty
         private void test()
         {
+            btnInsertPatient.Enabled = false;
+
             var emptyTextboxes = from tb in pnlInsertPatient.Controls.OfType<TextBox>()
                                  where string.IsNullOrEmpty(tb.Text)
                                  select tb;
@@ -211,21 +246,7 @@ namespace Hospital_Source_Code
                 btnInsertPatient.Enabled = false;
             }
             else
-            {
                 btnInsertPatient.Enabled = true;
-            }
-        }
-        private bool RedLabels() //Label check
-        {
-            bool aintRed = true;
-            foreach (Control control in pnlInsertPatient.Controls)
-            {
-                if (control.ForeColor == Color.Red)
-                {
-                    aintRed = false;
-                }
-            }
-            return aintRed;
         }
         //-------------------- PATIENT: Leave textbox event -------------------------------------------------------------------
         private void txtPatientForename_Leave_1(object sender, EventArgs e)
@@ -234,6 +255,8 @@ namespace Hospital_Source_Code
             {
                 lblPatientForename.ForeColor = Color.Red;
                 lblNameError.Show();
+                btnInsertPatient.Enabled = false;
+
             }
             else
             {
@@ -248,6 +271,7 @@ namespace Hospital_Source_Code
             {
                 lblPatientSurname.ForeColor = Color.Red;
                 lblSurnameError.Show();
+                btnInsertPatient.Enabled = false;
             }
             else
             {
@@ -256,12 +280,14 @@ namespace Hospital_Source_Code
                 test();
             }
         }
+
         private void txtPatientDOB_Leave_1(object sender, EventArgs e)
         {
             if (txtPatientDOB.Text == string.Empty)
             {
                 lblPatientDOB.ForeColor = Color.Red;
                 lblDOBError.Show();
+                btnInsertPatient.Enabled = false;
             }
             else
             {
@@ -300,12 +326,14 @@ namespace Hospital_Source_Code
                 test();
             }
         }
+
         private void txtPatientAddress_Leave_1(object sender, EventArgs e)
         {
             if (txtPatientAddress.Text == string.Empty)
             {
                 lblPatientAddress.ForeColor = Color.Red;
                 lblAddressError.Show();
+                btnInsertPatient.Enabled = false;
             }
             else
             {
@@ -314,48 +342,25 @@ namespace Hospital_Source_Code
                 test();
             }
         }
+
+        private void cmbSearchCriteria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbSearchCriteria.SelectedItem.ToString() == "ID")
+            {
+                lblSearchDoc1.Text = "Enter ID";
+            } else if (cmbSearchCriteria.SelectedItem.ToString() == "Surname") {
+                lblSearchDoc1.Text = "Enter Surname";
+            }
+        }
+
         private void cmbPatientGender_SelectedIndexChanged(object sender, EventArgs e)
         {
             test();
         }
-        private void btnInsertPatient_Click(object sender, EventArgs e)
-        {
-            bool aintRed = RedLabels();
-            if (aintRed)
-            {
-                string forename = txtPatientForename.Text;
-                string surname = txtPatientSurname.Text;
-                bool gender = false;
-                if (cmbPatientGender.SelectedIndex == 0)
-                {
-                    gender = true;
-                }
-                string address = txtPatientAddress.Text;
-                string phone = txtPatientPhone.Text;
-                string kin = txtPatientNOK.Text;
 
-                DateTime.TryParse(txtPatientDOB.Text, out DateTime birth);
-                Patient sickboi = new Patient(forename, surname, birth, address, gender, phone, kin);
-
-                bool inserted = dao.InsertPatient(sickboi);
-
-                if (inserted == true)
-                {
-                    MessageBox.Show("Patient inserted succesfully");
-                    //clear the screen and go back to home page
-                    Clear();
-                    pnlHomescreen.Show();
-                    pnlInsertPatient.Hide();
-                }
-                else
-                    MessageBox.Show("Failed");
-            }
-            else
-                MessageBox.Show("ain't gonna happen...");
-        }//TEXT CHANGED
-        private void txtPatientForename_TextChanged(object sender, EventArgs e)
-        {
-            test();
-        }
     }
-}
+
+    }
+
+
+    

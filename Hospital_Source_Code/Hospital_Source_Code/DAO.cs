@@ -123,6 +123,36 @@ namespace Hospital_Source_Code
             return accountAvailable;
         }
 
+        public int GetLoginId(string username)
+        {
+            int id = 0;
+
+            string sql = "SELECT LoginID FROM Login WHERE username=@username";
+
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(connection);
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+                cmd.Parameters.AddWithValue("@username", username);
+                sqlConn.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    id = dataReader.GetInt32(0);
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+
+            return id;
+        }
+
         public bool testAddUser(string username, string password, UserRole role)
         {
             bool success = true;
@@ -190,6 +220,30 @@ namespace Hospital_Source_Code
                 cmd.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 50).Value = doc.PhoneNumber;
                 cmd.Parameters.Add("@Qualification", SqlDbType.NVarChar, 50).Value = doc.Qualification;
                 cmd.Parameters.Add("@DepartmentId", SqlDbType.Int).Value = doc.DepartID;
+
+                sqlConn.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+        }
+
+        public void AddDoctor(int id)
+        {
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(connection);
+                SqlCommand cmd = new SqlCommand("[dbo].[Insert_Doctor_ID]", sqlConn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@Id", SqlDbType.Int).Value = id;
 
                 sqlConn.Open();
 
@@ -331,9 +385,22 @@ namespace Hospital_Source_Code
                 SqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    doc = new Doctor((int)dataReader["Id"], (string)dataReader["Forename"], (string)dataReader["Surname"],
-                        (bool)dataReader["Gender"], (string)dataReader["Address"], (string)dataReader["PhoneNumber"],
-                        (string)dataReader["Qualification"], (int)dataReader["DepartmentId"]);
+                    int docId = (int)dataReader["Id"];
+                    string forename = (string)dataReader["Forename"];
+                    string surname = (string)dataReader["Surname"];
+                    bool gender = (bool)dataReader["Gender"];
+                    string address = (string)dataReader["Address"];
+                    string phoneNumber = (string)dataReader["PhoneNumber"];
+                    string qualification = (string)dataReader["Qualification"];
+                    int deptId = (int)dataReader["DepartmentId"];
+
+                    if (forename.Equals(string.Empty))
+                    {
+                        doc = new Doctor(docId);
+                    } else
+                    {
+                        doc = new Doctor(docId, forename, surname, gender, address, phoneNumber, qualification, deptId);
+                    }                    
                 }
                 sqlConn.Close();
             }

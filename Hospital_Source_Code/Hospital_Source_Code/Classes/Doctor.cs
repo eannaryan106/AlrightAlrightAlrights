@@ -17,6 +17,11 @@ namespace Hospital_Source_Code.Classes
 
         }
 
+        public Doctor(int id)
+        {
+            ID = id;
+        }
+
         public Doctor (string firstName, string lastName, string address, bool gender, string phoneNumber, string qualification, int deptId)
             : base(firstName, lastName, address, gender, phoneNumber)
         {
