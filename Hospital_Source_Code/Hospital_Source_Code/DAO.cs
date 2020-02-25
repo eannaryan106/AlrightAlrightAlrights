@@ -439,6 +439,30 @@ namespace Hospital_Source_Code
             }
             return dataSet;
         }
+
+        public DataSet GetPatients(string surname)
+        {
+            DataSet ds = new DataSet();
+            string sql = $"SELECT Forename, Surname, Id, DateOfBirth WHERE Surname='{surname}'";
+
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(connection);
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+
+                dataAdapter.Fill(ds, "PatientsTable");
+
+            } catch(SqlException ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            } catch (Exception ex)
+            {
+                Console.WriteLine("Database error occured " + ex);
+            }
+            return ds;
+        }
                 
     }
 }
