@@ -139,6 +139,11 @@ namespace Hospital_Source_Code
         public void populateDetails(int docId)
         {
             Doctor doc = dao.GetDoctor(docId);
+            if (doc.ID == 0)
+            {
+                MessageBox.Show(this, "ID does not match any in our system, please enter valid ID", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             lblDocID.Text = doc.ID.ToString();
             txtDocFirstName.Text = doc.FirstName;
             txtDocLastName.Text = doc.LastName;
