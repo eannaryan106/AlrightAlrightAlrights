@@ -160,9 +160,9 @@
             this.pnlInsertPatient.Controls.Add(this.txtPatientForename);
             this.pnlInsertPatient.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlInsertPatient.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.pnlInsertPatient.Location = new System.Drawing.Point(273, 6);
+            this.pnlInsertPatient.Location = new System.Drawing.Point(273, 0);
             this.pnlInsertPatient.Name = "pnlInsertPatient";
-            this.pnlInsertPatient.Size = new System.Drawing.Size(789, 628);
+            this.pnlInsertPatient.Size = new System.Drawing.Size(789, 634);
             this.pnlInsertPatient.TabIndex = 18;
             // 
             // txtPatientAddress
@@ -174,6 +174,7 @@
             this.txtPatientAddress.Name = "txtPatientAddress";
             this.txtPatientAddress.Size = new System.Drawing.Size(294, 84);
             this.txtPatientAddress.TabIndex = 9;
+            this.txtPatientAddress.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             this.txtPatientAddress.Leave += new System.EventHandler(this.txtPatientAddress_Leave_1);
             // 
             // pnlErrors
@@ -282,6 +283,7 @@
             this.cmbPatientGender.TabIndex = 5;
             this.cmbPatientGender.Text = " Select...";
             this.cmbPatientGender.SelectedIndexChanged += new System.EventHandler(this.cmbPatientGender_SelectedIndexChanged);
+            this.cmbPatientGender.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             // 
             // txtPatientNOK
             // 
@@ -291,6 +293,7 @@
             this.txtPatientNOK.Name = "txtPatientNOK";
             this.txtPatientNOK.Size = new System.Drawing.Size(166, 32);
             this.txtPatientNOK.TabIndex = 17;
+            this.txtPatientNOK.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             this.txtPatientNOK.Leave += new System.EventHandler(this.txtPatientNOK_Leave_1);
             // 
             // btnInsertPatient
@@ -376,6 +379,7 @@
             this.txtPatientPhone.Name = "txtPatientPhone";
             this.txtPatientPhone.Size = new System.Drawing.Size(166, 32);
             this.txtPatientPhone.TabIndex = 8;
+            this.txtPatientPhone.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             this.txtPatientPhone.Leave += new System.EventHandler(this.txtPatientPhone_Leave_1);
             // 
             // txtPatientDOB
@@ -386,6 +390,7 @@
             this.txtPatientDOB.Name = "txtPatientDOB";
             this.txtPatientDOB.Size = new System.Drawing.Size(166, 32);
             this.txtPatientDOB.TabIndex = 7;
+            this.txtPatientDOB.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             this.txtPatientDOB.Leave += new System.EventHandler(this.txtPatientDOB_Leave_1);
             // 
             // txtPatientSurname
@@ -396,6 +401,7 @@
             this.txtPatientSurname.Name = "txtPatientSurname";
             this.txtPatientSurname.Size = new System.Drawing.Size(166, 32);
             this.txtPatientSurname.TabIndex = 6;
+            this.txtPatientSurname.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             this.txtPatientSurname.Leave += new System.EventHandler(this.txtPatientSurname_Leave_1);
             // 
             // txtPatientForename
@@ -406,6 +412,7 @@
             this.txtPatientForename.Name = "txtPatientForename";
             this.txtPatientForename.Size = new System.Drawing.Size(166, 32);
             this.txtPatientForename.TabIndex = 5;
+            this.txtPatientForename.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             this.txtPatientForename.Leave += new System.EventHandler(this.txtPatientForename_Leave_1);
             // 
             // pnlHomescreen
@@ -931,7 +938,6 @@
         private System.Windows.Forms.Button btnInsertPatient;
         private System.Windows.Forms.TextBox txtPatientAddress;
         private System.Windows.Forms.TextBox txtPatientPhone;
-        private System.Windows.Forms.TextBox txtPatientDOB;
         private System.Windows.Forms.TextBox txtPatientSurname;
         private System.Windows.Forms.TextBox txtPatientForename;
         private System.Windows.Forms.Label lblDocDepartmentID2;
@@ -958,5 +964,6 @@
         private System.Windows.Forms.Label lblDOBError;
         private System.Windows.Forms.Label lblSurnameError;
         private System.Windows.Forms.Label lblNameError;
+        private System.Windows.Forms.TextBox txtPatientDOB;
     }
 }
