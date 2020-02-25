@@ -18,7 +18,7 @@ namespace Hospital_Source_Code
         Regex numbersOnly = new Regex(@"^[0-9]+$");
         Regex alphabetOnly = new Regex(@"^[a-zA-Z]+$");
 
-        public DoctorsDashboard()
+        public DoctorsDashboard(UserRole role, string userName)
         {
             InitializeComponent();
             loadDeptIds();

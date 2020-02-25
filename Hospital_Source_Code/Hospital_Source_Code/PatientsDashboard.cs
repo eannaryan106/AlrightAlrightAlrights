@@ -20,7 +20,7 @@ namespace Hospital_Source_Code
 
 
         UserRole role;
-        public PatientsDashboard()
+        public PatientsDashboard(UserRole role, string userName)
         {
             InitializeComponent();
             test();

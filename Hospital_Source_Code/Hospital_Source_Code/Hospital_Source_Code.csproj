@@ -54,12 +54,6 @@
     <Compile Include="AddLogin.Designer.cs">
       <DependentUpon>AddLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminDashboard.Designer.cs">
-      <DependentUpon>AdminDashboard.cs</DependentUpon>
-    </Compile>
     <Compile Include="Classes\Bill.cs" />
     <Compile Include="Classes\Doctor.cs" />
     <Compile Include="Classes\InPatientBill.cs" />
@@ -112,9 +106,6 @@
     <Compile Include="UserRole.cs" />
     <EmbeddedResource Include="AddLogin.resx">
       <DependentUpon>AddLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminDashboard.resx">
-      <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DoctorsDashboard.resx">
       <DependentUpon>DoctorsDashboard.cs</DependentUpon>
