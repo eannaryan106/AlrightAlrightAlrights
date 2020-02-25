@@ -48,6 +48,10 @@ namespace Hospital_Source_Code
                 if (int.TryParse(txtSearchDoc1.Text, out int docId))
                 {
                     populateDetails(docId);
+                } else
+                {
+                    MessageBox.Show(this, "ID must be an integer, please enter a valid value", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             else
@@ -85,6 +89,10 @@ namespace Hospital_Source_Code
             txtDocPhoneNo.Text = doc.PhoneNumber;
             txtDocQualification.Text = doc.Qualification;
             cmbDocDeptID.Text = doc.DepartID.ToString();
+            btnUpdateDoctor.Enabled = true;
+            btnUpdateDoctor.Visible = true;
+            btnDocReport.Enabled = true;
+            btnDocReport.Visible = true;
 
         }
         private void btnUpdateDoctor_Click(object sender, EventArgs e)
@@ -111,19 +119,56 @@ namespace Hospital_Source_Code
             dao.UpdateDoctor(doc);
         }
 
-        private void cmbSearchCriteria_SelectedIndexChanged(object sender, EventArgs e)
+        private void DoctorsDashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Application.Exit();
+        }
+
+        private void btnDocReport_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(lblDocID.Text, out int id))
+            {
+                PrintReport();
+            }
+            else {
+                MessageBox.Show(this, "No Doctor Selected For Report, please select a doctor first", "No Doctor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
-        private void cmbSearchCriteria_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void PrintReport()
         {
-
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
         }
 
-        private void txtSearchDoc1_TextChanged(object sender, EventArgs e)
+        private void printDocument1_PrintPage_1(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-
+            Font regFont = new Font("Arial", 12);
+            float width = printDocument1.DefaultPageSettings.PrintableArea.Width;
+            float h = 150;
+            string gender = "Male";
+            int.TryParse(lblDocID.Text, out int id);
+            Doctor doc = dao.GetDoctor(id);
+            e.Graphics.DrawString("Forename:", regFont, Brushes.Black, (width * 0.075f), 75);
+            e.Graphics.DrawString("Surname:", regFont, Brushes.Black, (width * 0.075f), 100);
+            e.Graphics.DrawString("Gender:", regFont, Brushes.Black, (width * 0.075f), 125);            
+            e.Graphics.DrawString("Phone Number:", regFont, Brushes.Black, (width * 0.075f), 150);
+            e.Graphics.DrawString("Qualification:", regFont, Brushes.Black, (width * 0.075f), 175);
+            e.Graphics.DrawString("Department ID:", regFont, Brushes.Black, (width * 0.075f), 200);
+            e.Graphics.DrawString("Address:", regFont, Brushes.Black, (width * 0.075f), 225);
+            //e.Graphics.DrawString(listOfHolidays[currentHoliday].ToString(), regFont, Brushes.Black, 100, 100);
+            e.Graphics.DrawString(doc.FirstName, regFont, Brushes.Black, (width * 0.3f), 75);
+            e.Graphics.DrawString(doc.LastName, regFont, Brushes.Black, (width * 0.3f), 100);
+            if (doc.Gender == true)
+            {
+                gender = "Female";
+            }
+            e.Graphics.DrawString(gender, regFont, Brushes.Black, (width * 0.3f), 125);            
+            e.Graphics.DrawString(doc.PhoneNumber, regFont, Brushes.Black, (width * 0.3f), 150);
+            e.Graphics.DrawString(doc.Qualification, regFont, Brushes.Black, (width * 0.3f), 175);
+            e.Graphics.DrawString(doc.DepartID.ToString(), regFont, Brushes.Black, (width * 0.3f), 200);
+            e.Graphics.DrawString(doc.Address, regFont, Brushes.Black, (width * 0.3f), 225);
         }
     }
 }
