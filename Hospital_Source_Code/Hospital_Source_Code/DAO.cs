@@ -385,9 +385,22 @@ namespace Hospital_Source_Code
                 SqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    doc = new Doctor((int)dataReader["Id"], (string)dataReader["Forename"], (string)dataReader["Surname"],
-                        (bool)dataReader["Gender"], (string)dataReader["Address"], (string)dataReader["PhoneNumber"],
-                        (string)dataReader["Qualification"], (int)dataReader["DepartmentId"]);
+                    int docId = (int)dataReader["Id"];
+                    string forename = (string)dataReader["Forename"];
+                    string surname = (string)dataReader["Surname"];
+                    bool gender = (bool)dataReader["Gender"];
+                    string address = (string)dataReader["Address"];
+                    string phoneNumber = (string)dataReader["PhoneNumber"];
+                    string qualification = (string)dataReader["Qualification"];
+                    int deptId = (int)dataReader["DepartmentId"];
+
+                    if (forename.Equals(string.Empty))
+                    {
+                        doc = new Doctor(docId);
+                    } else
+                    {
+                        doc = new Doctor(docId, forename, surname, gender, address, phoneNumber, qualification, deptId);
+                    }                    
                 }
                 sqlConn.Close();
             }

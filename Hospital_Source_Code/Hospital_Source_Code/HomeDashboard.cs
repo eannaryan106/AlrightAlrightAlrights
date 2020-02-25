@@ -338,9 +338,6 @@ namespace Hospital_Source_Code
             }
         }
 
-                dao.UpdateDoctor(doc);
-            }
-
         private void cmbSearchCriteria_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbSearchCriteria.SelectedItem.ToString() == "ID")
@@ -350,12 +347,15 @@ namespace Hospital_Source_Code
                 lblSearchDoc1.Text = "Enter Surname";
             }
         }
-    }
-    }
+
         private void cmbPatientGender_SelectedIndexChanged(object sender, EventArgs e)
         {
             test();
         }
 
     }
-}
+
+    }
+
+
+    
