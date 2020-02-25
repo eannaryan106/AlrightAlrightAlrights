@@ -174,8 +174,6 @@
             this.txtPatientAddress.Name = "txtPatientAddress";
             this.txtPatientAddress.Size = new System.Drawing.Size(294, 84);
             this.txtPatientAddress.TabIndex = 9;
-            this.txtPatientAddress.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
-            this.txtPatientAddress.Leave += new System.EventHandler(this.txtPatientAddress_Leave_1);
             // 
             // pnlErrors
             // 
@@ -282,8 +280,6 @@
             this.cmbPatientGender.Size = new System.Drawing.Size(166, 32);
             this.cmbPatientGender.TabIndex = 5;
             this.cmbPatientGender.Text = " Select...";
-            this.cmbPatientGender.SelectedIndexChanged += new System.EventHandler(this.cmbPatientGender_SelectedIndexChanged);
-            this.cmbPatientGender.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             // 
             // txtPatientNOK
             // 
@@ -293,8 +289,6 @@
             this.txtPatientNOK.Name = "txtPatientNOK";
             this.txtPatientNOK.Size = new System.Drawing.Size(166, 32);
             this.txtPatientNOK.TabIndex = 17;
-            this.txtPatientNOK.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
-            this.txtPatientNOK.Leave += new System.EventHandler(this.txtPatientNOK_Leave_1);
             // 
             // btnInsertPatient
             // 
@@ -306,7 +300,6 @@
             this.btnInsertPatient.TabIndex = 5;
             this.btnInsertPatient.Text = "INSERT";
             this.btnInsertPatient.UseVisualStyleBackColor = true;
-            this.btnInsertPatient.Click += new System.EventHandler(this.btnInsertPatient_Click);
             // 
             // lblPatientKin
             // 
@@ -379,8 +372,6 @@
             this.txtPatientPhone.Name = "txtPatientPhone";
             this.txtPatientPhone.Size = new System.Drawing.Size(166, 32);
             this.txtPatientPhone.TabIndex = 8;
-            this.txtPatientPhone.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
-            this.txtPatientPhone.Leave += new System.EventHandler(this.txtPatientPhone_Leave_1);
             // 
             // txtPatientDOB
             // 
@@ -390,8 +381,6 @@
             this.txtPatientDOB.Name = "txtPatientDOB";
             this.txtPatientDOB.Size = new System.Drawing.Size(166, 32);
             this.txtPatientDOB.TabIndex = 7;
-            this.txtPatientDOB.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
-            this.txtPatientDOB.Leave += new System.EventHandler(this.txtPatientDOB_Leave_1);
             // 
             // txtPatientSurname
             // 
@@ -401,8 +390,6 @@
             this.txtPatientSurname.Name = "txtPatientSurname";
             this.txtPatientSurname.Size = new System.Drawing.Size(166, 32);
             this.txtPatientSurname.TabIndex = 6;
-            this.txtPatientSurname.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
-            this.txtPatientSurname.Leave += new System.EventHandler(this.txtPatientSurname_Leave_1);
             // 
             // txtPatientForename
             // 
@@ -412,8 +399,6 @@
             this.txtPatientForename.Name = "txtPatientForename";
             this.txtPatientForename.Size = new System.Drawing.Size(166, 32);
             this.txtPatientForename.TabIndex = 5;
-            this.txtPatientForename.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
-            this.txtPatientForename.Leave += new System.EventHandler(this.txtPatientForename_Leave_1);
             // 
             // pnlHomescreen
             // 
@@ -461,7 +446,6 @@
             this.btnAddPatient.TabIndex = 4;
             this.btnAddPatient.Text = "ADD";
             this.btnAddPatient.UseVisualStyleBackColor = true;
-            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
             // 
             // lblAddPatients
             // 
@@ -495,7 +479,6 @@
             this.comboSearchPatient.Size = new System.Drawing.Size(166, 32);
             this.comboSearchPatient.TabIndex = 1;
             this.comboSearchPatient.Text = " Select...";
-            this.comboSearchPatient.SelectedIndexChanged += new System.EventHandler(this.comboSearchPatient_SelectedIndexChanged);
             // 
             // txtSearchLastName
             // 
@@ -505,8 +488,6 @@
             this.txtSearchLastName.Size = new System.Drawing.Size(166, 32);
             this.txtSearchLastName.TabIndex = 0;
             this.txtSearchLastName.Text = " Type...";
-            this.txtSearchLastName.Enter += new System.EventHandler(this.txtSearchLastName_Enter);
-            this.txtSearchLastName.Leave += new System.EventHandler(this.txtSearchLastName_Leave);
             // 
             // tabDoctor
             // 
@@ -701,7 +682,6 @@
             this.cmbSearchCriteria.Size = new System.Drawing.Size(209, 32);
             this.cmbSearchCriteria.TabIndex = 20;
             this.cmbSearchCriteria.Text = " Select...";
-            this.cmbSearchCriteria.SelectedIndexChanged += new System.EventHandler(this.cmbSearchCriteria_SelectedIndexChanged);
             // 
             // lblSearchDoc1
             // 
@@ -732,7 +712,6 @@
             this.btnSearchDoc.TabIndex = 20;
             this.btnSearchDoc.Text = "Search";
             this.btnSearchDoc.UseVisualStyleBackColor = true;
-            this.btnSearchDoc.Click += new System.EventHandler(this.btnSearchDoc_Click);
             // 
             // txtDocPhoneNo
             // 
@@ -761,7 +740,6 @@
             this.btnUpdateDoctor.TabIndex = 5;
             this.btnUpdateDoctor.Text = "Submit";
             this.btnUpdateDoctor.UseVisualStyleBackColor = true;
-            this.btnUpdateDoctor.Click += new System.EventHandler(this.btnUpdateDoctor_Click);
             // 
             // cmbDocGender
             // 
@@ -877,7 +855,6 @@
             this.Name = "HomeDashboard";
             this.Text = "HomeDashboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HomeDashboard_FormClosing);
-            this.Load += new System.EventHandler(this.HomeDashboard_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPatient.ResumeLayout(false);
             this.pnlInsertPatient.ResumeLayout(false);
