@@ -14,9 +14,9 @@ namespace Hospital_Source_Code
     public partial class SearchDoctorsSurname : Form
     {
         DAO dao = new DAO();
-        HomeDashboard homeDash;
+        DoctorsDashboard homeDash;
 
-        public SearchDoctorsSurname(HomeDashboard dash, string surname)
+        public SearchDoctorsSurname(DoctorsDashboard dash, string surname)
         {
             InitializeComponent();
             populateList(surname);

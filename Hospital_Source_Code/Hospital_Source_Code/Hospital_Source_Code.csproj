@@ -72,6 +72,12 @@
     <Compile Include="Classes\TestDetails.cs" />
     <Compile Include="Classes\VisitDetails.cs" />
     <Compile Include="DAO.cs" />
+    <Compile Include="DoctorsDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorsDashboard.Designer.cs">
+      <DependentUpon>DoctorsDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorsDashboard.resx">
+      <DependentUpon>DoctorsDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeDashboard.resx">
       <DependentUpon>HomeDashboard.cs</DependentUpon>
