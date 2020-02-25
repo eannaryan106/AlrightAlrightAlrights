@@ -36,6 +36,11 @@ namespace Hospital_Source_Code
                     // Create Login
                     role = userTypeCheck();
                     bool success = dao.testAddUser(userName, password, role);
+                    if (role == UserRole.Doctor)
+                    {
+                        int id = dao.GetLoginId(userName);
+                        dao.AddDoctor(id);
+                    }
                     MessageBox.Show("User " + userName + " inserted successfully", "Insert completed", MessageBoxButtons.OK);
                 }
                 else

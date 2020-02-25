@@ -586,6 +586,7 @@
             this.cmbSearchCriteria.Size = new System.Drawing.Size(209, 32);
             this.cmbSearchCriteria.TabIndex = 20;
             this.cmbSearchCriteria.Text = " Select...";
+            this.cmbSearchCriteria.SelectedIndexChanged += new System.EventHandler(this.cmbSearchCriteria_SelectedIndexChanged);
             // 
             // lblSearchDoc1
             // 
@@ -595,9 +596,8 @@
             this.lblSearchDoc1.ForeColor = System.Drawing.Color.Black;
             this.lblSearchDoc1.Location = new System.Drawing.Point(23, 125);
             this.lblSearchDoc1.Name = "lblSearchDoc1";
-            this.lblSearchDoc1.Size = new System.Drawing.Size(107, 18);
+            this.lblSearchDoc1.Size = new System.Drawing.Size(0, 18);
             this.lblSearchDoc1.TabIndex = 20;
-            this.lblSearchDoc1.Text = "Enter Surname";
             // 
             // txtSearchDoc1
             // 

@@ -199,5 +199,15 @@ namespace Hospital_Source_Code
 
                 dao.UpdateDoctor(doc);
             }
+
+        private void cmbSearchCriteria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbSearchCriteria.SelectedItem.ToString() == "ID")
+            {
+                lblSearchDoc1.Text = "Enter ID";
+            } else if (cmbSearchCriteria.SelectedItem.ToString() == "Surname") {
+                lblSearchDoc1.Text = "Enter Surname";
+            }
         }
+    }
     }
