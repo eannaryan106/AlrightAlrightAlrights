@@ -124,7 +124,8 @@ namespace Hospital_Source_Code
                     populateDetails(docId);
                 }
             }
-            else {
+            else
+            {
                 string surname = txtSearchDoc1.Text;
 
                 if (!surname.Equals(string.Empty))
@@ -135,49 +136,50 @@ namespace Hospital_Source_Code
             }
         }
 
-            public void populateDetails(int docId) {
-                Doctor doc = dao.GetDoctor(docId);
-                lblDocID.Text = doc.ID.ToString();
-                txtDocFirstName.Text = doc.FirstName;
-                txtDocLastName.Text = doc.LastName;
-                txtDocAddress.Text = doc.Address;
-                if (doc.Gender == true)
-                {
-                    cmbDocGender.Text = "Female";
-                }
-                else
-                {
-                    cmbDocGender.Text = "Male";
-                }
-                txtDocPhoneNo.Text = doc.PhoneNumber;
-                txtDocQualification.Text = doc.Qualification;
-                cmbDocDeptID.Text = doc.DepartID.ToString();
-
-            }
-            private void btnUpdateDoctor_Click(object sender, EventArgs e)
+        public void populateDetails(int docId)
+        {
+            Doctor doc = dao.GetDoctor(docId);
+            lblDocID.Text = doc.ID.ToString();
+            txtDocFirstName.Text = doc.FirstName;
+            txtDocLastName.Text = doc.LastName;
+            txtDocAddress.Text = doc.Address;
+            if (doc.Gender == true)
             {
-                ////// TODO - make error check method for all this
-                int.TryParse(lblDocID.Text, out int id);
-                string firstName = txtDocFirstName.Text;
-                string lastName = txtDocLastName.Text;
-                string address = txtDocAddress.Text;
-                bool gender = false;
-                if ((cmbDocGender.SelectedItem.ToString()).Equals("Female"))
-                {
-                    gender = true;
-                }
-                string phoneNumber = txtDocPhoneNo.Text;
-                string qualification = txtDocQualification.Text;
-                int deptId = 0;
-                string tempId = cmbDocDeptID.SelectedItem.ToString();
-                int.TryParse(tempId, out deptId);
-                /////////
-
-                Doctor doc = new Doctor(id, firstName, lastName, gender, address, phoneNumber, qualification, deptId);
-
-                dao.UpdateDoctor(doc);
+                cmbDocGender.Text = "Female";
             }
-        //------------- Insert patient ------------------------------------------------------------------------------------
+            else
+            {
+                cmbDocGender.Text = "Male";
+            }
+            txtDocPhoneNo.Text = doc.PhoneNumber;
+            txtDocQualification.Text = doc.Qualification;
+            cmbDocDeptID.Text = doc.DepartID.ToString();
+
+        }
+        private void btnUpdateDoctor_Click(object sender, EventArgs e)
+        {
+            ////// TODO - make error check method for all this
+            int.TryParse(lblDocID.Text, out int id);
+            string firstName = txtDocFirstName.Text;
+            string lastName = txtDocLastName.Text;
+            string address = txtDocAddress.Text;
+            bool gender = false;
+            if ((cmbDocGender.SelectedItem.ToString()).Equals("Female"))
+            {
+                gender = true;
+            }
+            string phoneNumber = txtDocPhoneNo.Text;
+            string qualification = txtDocQualification.Text;
+            int deptId = 0;
+            string tempId = cmbDocDeptID.SelectedItem.ToString();
+            int.TryParse(tempId, out deptId);
+            /////////
+
+            Doctor doc = new Doctor(id, firstName, lastName, gender, address, phoneNumber, qualification, deptId);
+
+            dao.UpdateDoctor(doc);
+        }
+        //------------- Insert patient -------------------------------------------------------------------------------------------------------------------------------------------
         private void btnInsertPatient_Click(object sender, EventArgs e)
         {
             string forename = txtPatientForename.Text;
@@ -190,9 +192,8 @@ namespace Hospital_Source_Code
             string address = txtPatientAddress.Text;
             string phone = txtPatientPhone.Text;
             string kin = txtPatientNOK.Text;
-            string dob = txtPatientDOB.Text;
 
-            DateTime birth = Convert.ToDateTime(txtPatientDOB.Text);
+            DateTime.TryParse(txtPatientDOB.Text, out DateTime birth);
             Patient sickboi = new Patient(forename, surname, birth, address, gender, phone, kin);
 
             bool inserted = dao.InsertPatient(sickboi);
@@ -207,7 +208,6 @@ namespace Hospital_Source_Code
             }
             else
                 MessageBox.Show("Failed");
-
         }
         //--------------- PATIENT: Clear all fields -----------------------
         public void Clear()
@@ -342,5 +342,6 @@ namespace Hospital_Source_Code
         {
             test();
         }
+
     }
-    }
+}

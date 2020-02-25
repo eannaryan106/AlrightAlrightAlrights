@@ -303,6 +303,7 @@
             this.btnInsertPatient.TabIndex = 5;
             this.btnInsertPatient.Text = "INSERT";
             this.btnInsertPatient.UseVisualStyleBackColor = true;
+            this.btnInsertPatient.Click += new System.EventHandler(this.btnInsertPatient_Click);
             // 
             // lblPatientKin
             // 
