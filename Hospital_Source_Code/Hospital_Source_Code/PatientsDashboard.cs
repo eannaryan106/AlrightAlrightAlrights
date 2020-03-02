@@ -65,28 +65,65 @@ namespace Hospital_Source_Code
         }
         private void btnSearchPatient_Click(object sender, EventArgs e)
         {
-            string searchCriteria = comboSearchPatient.SelectedItem.ToString();
-            if (searchCriteria.Equals("ID"))
+            if (comboSearchPatient.SelectedIndex == 0)
             {
-                if (int.TryParse(txtSearchPat.Text, out int docId))
+                if (int.TryParse(txtSearchPat.Text, out int id))
                 {
-                    //populateDetails(docId);
+                    PopulateFields(id);
                 }
                 else
                     label1.ForeColor = Color.Red;
             }
-            else
+            else if (comboSearchPatient.SelectedIndex == 1)
             {
+                Console.WriteLine("izzzzzzey");
                 string surname = txtSearchPat.Text;
 
                 if (!surname.Equals(string.Empty))
                 {
-                    SearchPatients searchDoctors = new SearchPatients(this, surname);
-                    searchDoctors.Show();
+                    SearchPatients searchPatients = new SearchPatients(this, surname);
+                    searchPatients.Show();
                 }
-                else label1.ForeColor = Color.Red;
+                else
+                    MessageBox.Show("Whait! Whaaaat?");
             }
+            else
+                MessageBox.Show("None selected dude");
         }
+
+        //------------- Popuplate Patient fields ----------------------------------------------------------------------------------------------------------------------------------
+
+        public void PopulateFields(int patientID)
+        {
+            int id = patientID;
+            Patient sickboi = dao.GetPatientByID(patientID);
+            Console.WriteLine("His id is: " + id);
+            //if (sickboi.PatientID == 0)
+            //{
+            //    MessageBox.Show(this, "ID does not match any in our system, please enter valid ID", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            lblPatientID.Text = sickboi.PatientID.ToString();
+            txtPatientForename.Text = sickboi.FirstName;
+            txtPatientSurname.Text = sickboi.LastName;
+            txtPatientAddress.Text = sickboi.Address;
+            if (sickboi.Gender == true)
+            {
+                cmbPatientGender.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbPatientGender.SelectedIndex = 1;
+            }
+            txtPatientPhone.Text = sickboi.PhoneNumber;
+            txtPatientDOB.Text = sickboi.DOB.ToShortDateString();
+            Console.WriteLine("----------------------------------the date is: " + sickboi.DOB.ToShortDateString());
+            txtPatientNOK.Text = sickboi.NextOfKin;
+
+            pnlInsertPatient.Show();
+            btnInsertPatient.Hide();
+        }
+
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
             pnlInsertPatient.Show();
