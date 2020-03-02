@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientsDashboard));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPatient = new System.Windows.Forms.TabControl();
             this.tabPatients = new System.Windows.Forms.TabPage();
-            this.tabRooms = new System.Windows.Forms.TabPage();
+            this.pnlHomescreen = new System.Windows.Forms.Panel();
             this.pnlLeftPane = new System.Windows.Forms.Panel();
             this.btnSearchPatient = new System.Windows.Forms.Button();
             this.btnAddPatient = new System.Windows.Forms.Button();
@@ -39,7 +39,7 @@
             this.lblSearchpatients = new System.Windows.Forms.Label();
             this.comboSearchPatient = new System.Windows.Forms.ComboBox();
             this.txtSearchPat = new System.Windows.Forms.TextBox();
-            this.pnlHomescreen = new System.Windows.Forms.Panel();
+            this.tabRooms = new System.Windows.Forms.TabPage();
             this.pnlInsertPatient = new System.Windows.Forms.Panel();
             this.txtPatientAddress = new System.Windows.Forms.TextBox();
             this.pnlErrors = new System.Windows.Forms.Panel();
@@ -64,29 +64,30 @@
             this.txtPatientDOB = new System.Windows.Forms.TextBox();
             this.txtPatientSurname = new System.Windows.Forms.TextBox();
             this.txtPatientForename = new System.Windows.Forms.TextBox();
-            this.tabControl1.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPatient.SuspendLayout();
             this.tabPatients.SuspendLayout();
             this.pnlLeftPane.SuspendLayout();
-            this.pnlHomescreen.SuspendLayout();
             this.pnlInsertPatient.SuspendLayout();
             this.pnlErrors.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabPatient
             // 
-            this.tabControl1.Controls.Add(this.tabPatients);
-            this.tabControl1.Controls.Add(this.tabRooms);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.ItemSize = new System.Drawing.Size(100, 40);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1073, 685);
-            this.tabControl1.TabIndex = 0;
+            this.tabPatient.Controls.Add(this.tabPatients);
+            this.tabPatient.Controls.Add(this.tabRooms);
+            this.tabPatient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabPatient.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPatient.ItemSize = new System.Drawing.Size(100, 40);
+            this.tabPatient.Location = new System.Drawing.Point(0, 0);
+            this.tabPatient.Name = "tabPatient";
+            this.tabPatient.SelectedIndex = 0;
+            this.tabPatient.Size = new System.Drawing.Size(1073, 685);
+            this.tabPatient.TabIndex = 0;
             // 
             // tabPatients
             // 
+            this.tabPatients.Controls.Add(this.pnlInsertPatient);
             this.tabPatients.Controls.Add(this.pnlHomescreen);
             this.tabPatients.Controls.Add(this.pnlLeftPane);
             this.tabPatients.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -98,20 +99,20 @@
             this.tabPatients.Text = "    PATIENTS   ";
             this.tabPatients.UseVisualStyleBackColor = true;
             // 
-            // tabRooms
+            // pnlHomescreen
             // 
-            this.tabRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabRooms.Location = new System.Drawing.Point(4, 44);
-            this.tabRooms.Name = "tabRooms";
-            this.tabRooms.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRooms.Size = new System.Drawing.Size(1065, 637);
-            this.tabRooms.TabIndex = 1;
-            this.tabRooms.Text = "    ROOMS    ";
-            this.tabRooms.UseVisualStyleBackColor = true;
+            this.pnlHomescreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlHomescreen.BackgroundImage")));
+            this.pnlHomescreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlHomescreen.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHomescreen.Location = new System.Drawing.Point(273, 3);
+            this.pnlHomescreen.Name = "pnlHomescreen";
+            this.pnlHomescreen.Size = new System.Drawing.Size(789, 638);
+            this.pnlHomescreen.TabIndex = 3;
             // 
             // pnlLeftPane
             // 
             this.pnlLeftPane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(149)))), ((int)(((byte)(193)))));
+            this.pnlLeftPane.Controls.Add(this.label1);
             this.pnlLeftPane.Controls.Add(this.btnSearchPatient);
             this.pnlLeftPane.Controls.Add(this.btnAddPatient);
             this.pnlLeftPane.Controls.Add(this.lblAddPatients);
@@ -126,15 +127,16 @@
             // 
             // btnSearchPatient
             // 
+            this.btnSearchPatient.BackColor = System.Drawing.Color.Transparent;
             this.btnSearchPatient.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnSearchPatient.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchPatient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.btnSearchPatient.ForeColor = System.Drawing.Color.MidnightBlue;
             this.btnSearchPatient.Location = new System.Drawing.Point(62, 238);
             this.btnSearchPatient.Name = "btnSearchPatient";
             this.btnSearchPatient.Size = new System.Drawing.Size(131, 46);
             this.btnSearchPatient.TabIndex = 5;
             this.btnSearchPatient.Text = "SEARCH";
-            this.btnSearchPatient.UseVisualStyleBackColor = true;
+            this.btnSearchPatient.UseVisualStyleBackColor = false;
             this.btnSearchPatient.Click += new System.EventHandler(this.btnSearchPatient_Click);
             // 
             // btnAddPatient
@@ -148,6 +150,7 @@
             this.btnAddPatient.TabIndex = 4;
             this.btnAddPatient.Text = "ADD";
             this.btnAddPatient.UseVisualStyleBackColor = true;
+            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
             // 
             // lblAddPatients
             // 
@@ -174,7 +177,7 @@
             // comboSearchPatient
             // 
             this.comboSearchPatient.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboSearchPatient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.comboSearchPatient.ForeColor = System.Drawing.Color.MidnightBlue;
             this.comboSearchPatient.FormattingEnabled = true;
             this.comboSearchPatient.Items.AddRange(new object[] {
             "ID",
@@ -184,6 +187,7 @@
             this.comboSearchPatient.Size = new System.Drawing.Size(166, 32);
             this.comboSearchPatient.TabIndex = 1;
             this.comboSearchPatient.Text = " Select...";
+            this.comboSearchPatient.SelectedIndexChanged += new System.EventHandler(this.comboSearchPatient_SelectedIndexChanged);
             // 
             // txtSearchPat
             // 
@@ -193,18 +197,19 @@
             this.txtSearchPat.Name = "txtSearchPat";
             this.txtSearchPat.Size = new System.Drawing.Size(166, 32);
             this.txtSearchPat.TabIndex = 0;
-            this.txtSearchPat.Text = " Type...";
+            this.txtSearchPat.Enter += new System.EventHandler(this.txtSearchLastName_Enter);
+            this.txtSearchPat.Leave += new System.EventHandler(this.txtSearchLastName_Leave);
             // 
-            // pnlHomescreen
+            // tabRooms
             // 
-            this.pnlHomescreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlHomescreen.BackgroundImage")));
-            this.pnlHomescreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlHomescreen.Controls.Add(this.pnlInsertPatient);
-            this.pnlHomescreen.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHomescreen.Location = new System.Drawing.Point(273, 3);
-            this.pnlHomescreen.Name = "pnlHomescreen";
-            this.pnlHomescreen.Size = new System.Drawing.Size(789, 634);
-            this.pnlHomescreen.TabIndex = 3;
+            this.tabRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabRooms.Location = new System.Drawing.Point(4, 44);
+            this.tabRooms.Name = "tabRooms";
+            this.tabRooms.Padding = new System.Windows.Forms.Padding(3);
+            this.tabRooms.Size = new System.Drawing.Size(1065, 637);
+            this.tabRooms.TabIndex = 1;
+            this.tabRooms.Text = "    ROOMS    ";
+            this.tabRooms.UseVisualStyleBackColor = true;
             // 
             // pnlInsertPatient
             // 
@@ -228,10 +233,10 @@
             this.pnlInsertPatient.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlInsertPatient.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlInsertPatient.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.pnlInsertPatient.Location = new System.Drawing.Point(0, -7);
+            this.pnlInsertPatient.Location = new System.Drawing.Point(273, -5);
             this.pnlInsertPatient.Name = "pnlInsertPatient";
-            this.pnlInsertPatient.Size = new System.Drawing.Size(789, 641);
-            this.pnlInsertPatient.TabIndex = 19;
+            this.pnlInsertPatient.Size = new System.Drawing.Size(789, 639);
+            this.pnlInsertPatient.TabIndex = 20;
             // 
             // txtPatientAddress
             // 
@@ -350,7 +355,6 @@
             this.cmbPatientGender.Size = new System.Drawing.Size(166, 32);
             this.cmbPatientGender.TabIndex = 5;
             this.cmbPatientGender.Text = " Select...";
-            this.cmbPatientGender.SelectedIndexChanged += new System.EventHandler(this.cmbPatientGender_SelectedIndexChanged);
             this.cmbPatientGender.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             // 
             // txtPatientNOK
@@ -374,6 +378,7 @@
             this.btnInsertPatient.TabIndex = 5;
             this.btnInsertPatient.Text = "INSERT";
             this.btnInsertPatient.UseVisualStyleBackColor = true;
+            this.btnInsertPatient.Click += new System.EventHandler(this.btnInsertPatient_Click);
             // 
             // lblPatientKin
             // 
@@ -428,6 +433,7 @@
             this.lblPatientSurname.Size = new System.Drawing.Size(137, 24);
             this.lblPatientSurname.TabIndex = 11;
             this.lblPatientSurname.Text = "Second name:";
+            this.lblPatientSurname.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             // 
             // lblPatientForename
             // 
@@ -482,19 +488,31 @@
             this.txtPatientForename.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             this.txtPatientForename.Leave += new System.EventHandler(this.txtPatientForename_Leave_1);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label1.Location = new System.Drawing.Point(49, 175);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 24);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Type...";
+            // 
             // PatientsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1073, 685);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabPatient);
             this.Name = "PatientsDashboard";
             this.Text = "PatientsDashboard";
-            this.tabControl1.ResumeLayout(false);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PatientsDashboard_FormClosing);
+            this.tabPatient.ResumeLayout(false);
             this.tabPatients.ResumeLayout(false);
             this.pnlLeftPane.ResumeLayout(false);
             this.pnlLeftPane.PerformLayout();
-            this.pnlHomescreen.ResumeLayout(false);
             this.pnlInsertPatient.ResumeLayout(false);
             this.pnlInsertPatient.PerformLayout();
             this.pnlErrors.ResumeLayout(false);
@@ -505,7 +523,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabPatient;
         private System.Windows.Forms.TabPage tabPatients;
         private System.Windows.Forms.TabPage tabRooms;
         private System.Windows.Forms.Panel pnlLeftPane;
@@ -540,5 +558,6 @@
         private System.Windows.Forms.TextBox txtPatientDOB;
         private System.Windows.Forms.TextBox txtPatientSurname;
         private System.Windows.Forms.TextBox txtPatientForename;
+        private System.Windows.Forms.Label label1;
     }
 }

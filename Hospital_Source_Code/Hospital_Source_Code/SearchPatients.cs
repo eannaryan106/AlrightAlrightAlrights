@@ -12,9 +12,18 @@ namespace Hospital_Source_Code
 {
     public partial class SearchPatients : Form
     {
+        DAO dao = new DAO();
+        PatientsDashboard dash;
+
         public SearchPatients(PatientsDashboard dash, string surname)
         {
             InitializeComponent();
+            this.dash = dash;
+        }
+
+        private void populateList(string surname)
+        {
+
         }
     }
 }
