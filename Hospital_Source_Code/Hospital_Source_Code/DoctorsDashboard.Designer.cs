@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoctorsDashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabDoctors = new System.Windows.Forms.TabPage();
+            this.btnDocReport = new System.Windows.Forms.Button();
             this.lblDocIdlabel = new System.Windows.Forms.Label();
             this.lblDocID = new System.Windows.Forms.Label();
             this.lblDocDepartmentID2 = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.lblSearchDoc1 = new System.Windows.Forms.Label();
             this.txtSearchDoc1 = new System.Windows.Forms.TextBox();
             this.btnSearchDoc = new System.Windows.Forms.Button();
-            this.btnDocReport = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
@@ -105,6 +105,20 @@
             this.tabDoctors.TabIndex = 0;
             this.tabDoctors.Text = "   DOCTORS   ";
             this.tabDoctors.UseVisualStyleBackColor = true;
+            // 
+            // btnDocReport
+            // 
+            this.btnDocReport.Enabled = false;
+            this.btnDocReport.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnDocReport.ForeColor = System.Drawing.Color.MediumBlue;
+            this.btnDocReport.Location = new System.Drawing.Point(902, 550);
+            this.btnDocReport.Name = "btnDocReport";
+            this.btnDocReport.Size = new System.Drawing.Size(131, 46);
+            this.btnDocReport.TabIndex = 62;
+            this.btnDocReport.Text = "REPORT";
+            this.btnDocReport.UseVisualStyleBackColor = true;
+            this.btnDocReport.Visible = false;
+            this.btnDocReport.Click += new System.EventHandler(this.btnDocReport_Click);
             // 
             // lblDocIdlabel
             // 
@@ -371,20 +385,6 @@
             this.btnSearchDoc.UseVisualStyleBackColor = true;
             this.btnSearchDoc.Click += new System.EventHandler(this.btnSearchDoc_Click);
             // 
-            // btnDocReport
-            // 
-            this.btnDocReport.Enabled = false;
-            this.btnDocReport.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnDocReport.ForeColor = System.Drawing.Color.MediumBlue;
-            this.btnDocReport.Location = new System.Drawing.Point(902, 550);
-            this.btnDocReport.Name = "btnDocReport";
-            this.btnDocReport.Size = new System.Drawing.Size(131, 46);
-            this.btnDocReport.TabIndex = 62;
-            this.btnDocReport.Text = "REPORT";
-            this.btnDocReport.UseVisualStyleBackColor = true;
-            this.btnDocReport.Visible = false;
-            this.btnDocReport.Click += new System.EventHandler(this.btnDocReport_Click);
-            // 
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage_1);
@@ -412,6 +412,7 @@
             this.Name = "DoctorsDashboard";
             this.Text = "DoctorsDashboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DoctorsDashboard_FormClosing);
+            this.Load += new System.EventHandler(this.DoctorsDashboard_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabDoctors.ResumeLayout(false);
             this.tabDoctors.PerformLayout();

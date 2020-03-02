@@ -170,5 +170,10 @@ namespace Hospital_Source_Code
             e.Graphics.DrawString(doc.DepartID.ToString(), regFont, Brushes.Black, (width * 0.3f), 200);
             e.Graphics.DrawString(doc.Address, regFont, Brushes.Black, (width * 0.3f), 225);
         }
+
+        private void DoctorsDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
