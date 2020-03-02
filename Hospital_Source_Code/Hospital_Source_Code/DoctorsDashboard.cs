@@ -157,7 +157,6 @@ namespace Hospital_Source_Code
             e.Graphics.DrawString("Qualification:", regFont, Brushes.Black, (width * 0.075f), 175);
             e.Graphics.DrawString("Department ID:", regFont, Brushes.Black, (width * 0.075f), 200);
             e.Graphics.DrawString("Address:", regFont, Brushes.Black, (width * 0.075f), 225);
-            //e.Graphics.DrawString(listOfHolidays[currentHoliday].ToString(), regFont, Brushes.Black, 100, 100);
             e.Graphics.DrawString(doc.FirstName, regFont, Brushes.Black, (width * 0.3f), 75);
             e.Graphics.DrawString(doc.LastName, regFont, Brushes.Black, (width * 0.3f), 100);
             if (doc.Gender == true)
