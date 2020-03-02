@@ -204,8 +204,9 @@ namespace Hospital_Source_Code
 
         ///////////////////////////////////////////////
         // Doctors
-        public void UpdateDoctor(Doctor doc)
+        public bool UpdateDoctor(Doctor doc)
         {
+            bool result = false;
             try
             {
                 SqlConnection sqlConn = new SqlConnection(connection);
@@ -224,6 +225,7 @@ namespace Hospital_Source_Code
                 sqlConn.Open();
 
                 cmd.ExecuteNonQuery();
+                result = true;
             }
             catch (SqlException ex)
             {
@@ -233,6 +235,7 @@ namespace Hospital_Source_Code
             {
                 Console.WriteLine("Database error occured " + ex);
             }
+            return result;
         }
 
         public void AddDoctor(int id)
