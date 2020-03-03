@@ -55,6 +55,7 @@
       <DependentUpon>AddLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Bill.cs" />
+    <Compile Include="Classes\Bed.cs" />
     <Compile Include="Classes\Doctor.cs" />
     <Compile Include="Classes\InPatientBill.cs" />
     <Compile Include="Classes\LoginModel.cs" />
@@ -71,6 +72,12 @@
     </Compile>
     <Compile Include="DoctorsDashboard.Designer.cs">
       <DependentUpon>DoctorsDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BedDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BedDashboard.Designer.cs">
+      <DependentUpon>BedDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="HomeDashboard.cs">
       <SubType>Form</SubType>
@@ -115,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DoctorsDashboard.resx">
       <DependentUpon>DoctorsDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BedDashboard.resx">
+      <DependentUpon>BedDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeDashboard.resx">
       <DependentUpon>HomeDashboard.cs</DependentUpon>
