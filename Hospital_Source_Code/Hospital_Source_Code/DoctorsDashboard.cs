@@ -42,6 +42,11 @@ namespace Hospital_Source_Code
 
         private void btnSearchDoc_Click(object sender, EventArgs e)
         {
+            if (cmbSearchCriteria.SelectedIndex == -1)
+            {
+                MessageBox.Show(this, "Please Select a Search Criteria", "No Search Type Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string searchCriteria = cmbSearchCriteria.SelectedItem.ToString();
             if (searchCriteria.Equals("ID"))
             {
@@ -54,14 +59,18 @@ namespace Hospital_Source_Code
                     return;
                 }
             }
-            else
+            else if (searchCriteria.Equals("Surname"))
             {
                 string surname = txtSearchDoc1.Text;
 
-                if (!surname.Equals(string.Empty))
+                if (!surname.Equals(string.Empty) && !int.TryParse(surname, out int sur))
                 {
                     SearchDoctorsSurname searchDoctors = new SearchDoctorsSurname(this, surname);
                     searchDoctors.Show();
+                }
+                else
+                {
+                    MessageBox.Show(this, "Invalid Data Entered for Surname, Please enter a Name with no numbers.", "Invalid Surname", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -97,26 +106,111 @@ namespace Hospital_Source_Code
         }
         private void btnUpdateDoctor_Click(object sender, EventArgs e)
         {
-            ////// TODO - make error check method for all this
-            int.TryParse(lblDocID.Text, out int id);
+            Doctor doc = verifyInput();
+            if (doc.ID == 0)
+            {
+                MessageBox.Show(this, "Not All Fields Filled Out Correctly, Please Fill in the Areas with Red Lables", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dao.UpdateDoctor(doc))
+            {
+                MessageBox.Show(this, "Doctor Details Updated Succesfully", "Update Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private Doctor verifyInput() {
+            int id;            
             string firstName = txtDocFirstName.Text;
             string lastName = txtDocLastName.Text;
             string address = txtDocAddress.Text;
             bool gender = false;
-            if ((cmbDocGender.SelectedItem.ToString()).Equals("Female"))
-            {
-                gender = true;
-            }
             string phoneNumber = txtDocPhoneNo.Text;
             string qualification = txtDocQualification.Text;
             int deptId = 0;
-            string tempId = cmbDocDeptID.SelectedItem.ToString();
-            int.TryParse(tempId, out deptId);
-            /////////
+            
 
-            Doctor doc = new Doctor(id, firstName, lastName, gender, address, phoneNumber, qualification, deptId);
+            bool valid = true;
 
-            dao.UpdateDoctor(doc);
+            if (int.TryParse(lblDocID.Text, out id))
+            {
+                if (firstName == string.Empty)
+                {
+                    lblDocFirstName2.ForeColor = Color.Red;
+                    valid = false;
+                }
+                else {
+                    lblDocFirstName2.ForeColor = Color.Black;
+                }
+                if (lastName == string.Empty)
+                {
+                    lblDocLastName2.ForeColor = Color.Red;
+                    valid = false;
+                }
+                else {
+                    lblDocLastName2.ForeColor = Color.Black;
+                }
+                if (address == string.Empty)
+                {
+                    lblDocAddress2.ForeColor = Color.Red;
+                    valid = false;
+                } else
+                {
+                    lblDocAddress2.ForeColor = Color.Black;
+                }
+                if (cmbDocGender.SelectedIndex == -1)
+                {
+                    lblDocGender2.ForeColor = Color.Red;
+                    valid = false;
+                } else
+                {
+                    if ((cmbDocGender.SelectedItem.ToString()).Equals("Female"))
+                    {
+                        gender = true;
+                    }
+                    lblDocGender2.ForeColor = Color.Black;
+                }
+                if (!int.TryParse(phoneNumber, out int phNo))
+                {
+                    lblDocPhoneNumber2.ForeColor = Color.Red;
+                    valid = false;
+                } else
+                {
+                    lblDocPhoneNumber2.ForeColor = Color.Black;
+                }
+                if (qualification == string.Empty)
+                {
+                    lblDocQualification2.ForeColor = Color.Red;
+                    valid = false;
+                } else
+                {
+                    lblDocQualification2.ForeColor = Color.Black;
+                }
+                if (cmbDocDeptID.SelectedIndex == -1)
+                {
+                    lblDocDepartmentID2.ForeColor = Color.Red;
+                    valid = false;
+                } else
+                {
+                    if (int.TryParse(cmbDocDeptID.SelectedItem.ToString(), out deptId))
+                    {
+                        lblDocDepartmentID2.ForeColor = Color.Black;
+                    } else
+                    {
+                        lblDocDepartmentID2.ForeColor = Color.Red;
+                        valid = false;
+                    }                                     
+                }                
+            }
+            if (valid)
+            {
+                Doctor doc = new Doctor(id, firstName, lastName, gender, address, phoneNumber, qualification, deptId);
+                return doc;
+            } else
+            {
+                Doctor doc = new Doctor();
+                return doc;
+            }
+
         }
 
         private void DoctorsDashboard_FormClosing(object sender, FormClosingEventArgs e)
@@ -170,9 +264,21 @@ namespace Hospital_Source_Code
             e.Graphics.DrawString(doc.Address, regFont, Brushes.Black, (width * 0.3f), 225);
         }
 
-        private void DoctorsDashboard_Load(object sender, EventArgs e)
+        private void cmbSearchCriteria_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (cmbSearchCriteria.SelectedIndex == -1)
+            {
+                lblDocSearchType.Text = "Not Selected";
+            } else
+            {
+                if (cmbSearchCriteria.SelectedItem.ToString().Equals("ID"))
+                {
+                    lblDocSearchType.Text = "Enter ID";
+                } else
+                {
+                    lblDocSearchType.Text = "Enter Surname";
+                }
+            }
         }
     }
 }

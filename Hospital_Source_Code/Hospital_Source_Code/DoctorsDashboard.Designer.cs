@@ -59,6 +59,8 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.lblDocSearchCriteria = new System.Windows.Forms.Label();
+            this.lblDocSearchType = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabDoctors.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -318,6 +320,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(149)))), ((int)(((byte)(193)))));
+            this.panel2.Controls.Add(this.lblDocSearchType);
+            this.panel2.Controls.Add(this.lblDocSearchCriteria);
             this.panel2.Controls.Add(this.lblSearchDocCriteria);
             this.panel2.Controls.Add(this.cmbSearchCriteria);
             this.panel2.Controls.Add(this.lblSearchDoc1);
@@ -353,6 +357,7 @@
             this.cmbSearchCriteria.Size = new System.Drawing.Size(166, 32);
             this.cmbSearchCriteria.TabIndex = 20;
             this.cmbSearchCriteria.Text = " Select...";
+            this.cmbSearchCriteria.SelectedIndexChanged += new System.EventHandler(this.cmbSearchCriteria_SelectedIndexChanged);
             // 
             // lblSearchDoc1
             // 
@@ -402,6 +407,30 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            // 
+            // lblDocSearchCriteria
+            // 
+            this.lblDocSearchCriteria.AutoSize = true;
+            this.lblDocSearchCriteria.BackColor = System.Drawing.Color.Transparent;
+            this.lblDocSearchCriteria.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDocSearchCriteria.ForeColor = System.Drawing.Color.White;
+            this.lblDocSearchCriteria.Location = new System.Drawing.Point(42, 81);
+            this.lblDocSearchCriteria.Name = "lblDocSearchCriteria";
+            this.lblDocSearchCriteria.Size = new System.Drawing.Size(105, 18);
+            this.lblDocSearchCriteria.TabIndex = 63;
+            this.lblDocSearchCriteria.Text = "Search Criteria";
+            // 
+            // lblDocSearchType
+            // 
+            this.lblDocSearchType.AutoSize = true;
+            this.lblDocSearchType.BackColor = System.Drawing.Color.Transparent;
+            this.lblDocSearchType.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDocSearchType.ForeColor = System.Drawing.Color.White;
+            this.lblDocSearchType.Location = new System.Drawing.Point(42, 154);
+            this.lblDocSearchType.Name = "lblDocSearchType";
+            this.lblDocSearchType.Size = new System.Drawing.Size(94, 18);
+            this.lblDocSearchType.TabIndex = 64;
+            this.lblDocSearchType.Text = "Not Selected";
             // 
             // DoctorsDashboard
             // 
@@ -454,5 +483,7 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Label lblDocSearchType;
+        private System.Windows.Forms.Label lblDocSearchCriteria;
     }
 }

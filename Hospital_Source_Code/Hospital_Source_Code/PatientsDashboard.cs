@@ -65,32 +65,73 @@ namespace Hospital_Source_Code
         }
         private void btnSearchPatient_Click(object sender, EventArgs e)
         {
-            string searchCriteria = comboSearchPatient.SelectedItem.ToString();
-            if (searchCriteria.Equals("ID"))
+            if (comboSearchPatient.SelectedIndex == 0)
             {
-                if (int.TryParse(txtSearchPat.Text, out int docId))
+                if (int.TryParse(txtSearchPat.Text, out int id))
                 {
-                    //populateDetails(docId);
+                    PopulateFields(id);
                 }
                 else
                     label1.ForeColor = Color.Red;
             }
-            else
+            else if (comboSearchPatient.SelectedIndex == 1)
             {
                 string surname = txtSearchPat.Text;
 
                 if (!surname.Equals(string.Empty))
                 {
-                    SearchPatients searchDoctors = new SearchPatients(this, surname);
-                    searchDoctors.Show();
+                    SearchPatients searchPatients = new SearchPatients(this, surname);
+                    searchPatients.Show();
                 }
-                else label1.ForeColor = Color.Red;
+                else
+                    MessageBox.Show("Whait! Whaaaat?");
             }
+            else
+                MessageBox.Show("None selected");
         }
+
+        //------------- Popuplate Patient fields ----------------------------------------------------------------------------------------------------------------------------------
+
+        public void PopulateFields(int patientID)
+        {
+            lblPatientForename.ForeColor = Color.MidnightBlue;
+            lblNameError.Hide();
+            int id = patientID;
+            Patient sickboi = dao.GetPatientByID(patientID);
+            //if (sickboi.PatientID == 0)
+            //{
+            //    MessageBox.Show(this, "ID does not match any in our system, please enter valid ID", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //lblPatientID.Text = sickboi.PatientID.ToString();
+            txtPatientForename.Text = sickboi.FirstName;
+            txtPatientSurname.Text = sickboi.LastName;
+            txtPatientAddress.Text = sickboi.Address;
+            if (sickboi.Gender == true)
+            {
+                cmbPatientGender.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbPatientGender.SelectedIndex = 1;
+            }
+            txtPatientPhone.Text = sickboi.PhoneNumber;
+            txtPatientDOB.Text = sickboi.birth.ToShortDateString();
+            Console.WriteLine("SICKBOI DOB: " + sickboi.birth);
+            Console.WriteLine("----------------------------------the date is: " + sickboi.birth.ToShortDateString());
+            txtPatientNOK.Text = sickboi.NextOfKin;
+
+            pnlInsertPatient.Show();
+            btnInsertPatient.Hide();
+        }
+
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
+            Clear();
             pnlInsertPatient.Show();
             pnlHomescreen.Hide();
+            lblPatientForename.ForeColor = Color.MidnightBlue;
+            lblNameError.Hide();
         }
         //------------- Insert patient -------------------------------------------------------------------------------------------------------------------------------------------
         private void btnInsertPatient_Click(object sender, EventArgs e)
@@ -109,21 +150,31 @@ namespace Hospital_Source_Code
                 string phone = txtPatientPhone.Text;
                 string kin = txtPatientNOK.Text;
 
-                DateTime.TryParse(txtPatientDOB.Text, out DateTime birth);
-                Patient sickboi = new Patient(forename, surname, birth, address, gender, phone, kin);
 
-                bool inserted = dao.InsertPatient(sickboi);
+                if (DateTime.TryParse(txtPatientDOB.Text, out DateTime birth)) {
 
-                if (inserted == true)
-                {
-                    MessageBox.Show("Patient inserted succesfully");
-                    //clear the screen and go back to home page
-                    Clear();
-                    pnlHomescreen.Show();
-                    pnlInsertPatient.Hide();
+                    Console.WriteLine($"\nBirth type is: {birth.GetType()}");
+                    Console.WriteLine($"Birth: --------------------------- {birth.ToShortDateString()}");
+
+                    Patient sickboi = new Patient(forename, surname, birth, address, gender, phone, kin);
+
+                    Console.WriteLine($"Birth (object): ====================== {sickboi.birth.ToShortDateString()}");
+
+                    bool inserted = dao.InsertPatient(sickboi);
+
+                    if (inserted == true)
+                    {
+                        MessageBox.Show("Patient inserted succesfully");
+                        //clear the screen and go back to home page
+                        Clear();
+                        pnlHomescreen.Show();
+                        pnlInsertPatient.Hide();
+                    }
+                    else
+                        MessageBox.Show("Failed");
                 }
                 else
-                    MessageBox.Show("Failed");
+                    MessageBox.Show("Invalid date bro");
             }
             else
                 MessageBox.Show("ain't gonna happen...");
@@ -138,6 +189,7 @@ namespace Hospital_Source_Code
                     c.Text = "";
                 }
             }
+            cmbPatientGender.Text = "Select";
         }
         //-------------- PATIENT: Hide error messages
         private void hideErrors()
@@ -182,8 +234,8 @@ namespace Hospital_Source_Code
             }
             else
             {
-                lblPatientSurname.ForeColor = Color.MidnightBlue;
-                lblSurnameError.Hide();
+                lblPatientForename.ForeColor = Color.MidnightBlue;
+                lblNameError.Hide();
                 test();
             }
 
@@ -209,12 +261,14 @@ namespace Hospital_Source_Code
                 lblPatientDOB.ForeColor = Color.Red;
                 lblDOBError.Show();
             }
-            else
+            else if (DateTime.TryParse(txtPatientDOB.Text, out DateTime regDate))
             {
                 lblPatientDOB.ForeColor = Color.MidnightBlue;
                 lblDOBError.Hide();
                 test();
             }
+            else
+                MessageBox.Show("Invalid date");
         }
         private void txtPatientAddress_Leave_1(object sender, EventArgs e)
         {

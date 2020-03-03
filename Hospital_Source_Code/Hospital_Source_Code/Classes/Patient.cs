@@ -10,14 +10,27 @@ namespace Hospital_Source_Code.Classes
     {
         public int PatientID { get; set; }
         public string NextOfKin { get; set; }
+        public DateTime birth { get; set; }
 
         public Patient()
         {
 
         }
 
-        public Patient(string firstName, string lastName, DateTime dob, string address, bool gender, string phoneNumber, string nextOfKin)
+        public Patient(int id)
+        {
+            PatientID = id;
+        }
+
+        public Patient(string firstName, string lastName, DateTime DOB, string address, bool gender, string phoneNumber, string nextOfKin)
             : base(firstName, lastName, address, gender, phoneNumber)
+        {
+            NextOfKin = nextOfKin;
+            birth = DOB;
+        }
+
+        public Patient(int id, string firstName, string lastName, DateTime dob, string address, bool gender, string phoneNumber, string nextOfKin)
+    : base(firstName, lastName, address, gender, phoneNumber)
         {
             NextOfKin = nextOfKin;
         }
