@@ -32,6 +32,7 @@
             this.tabPatient = new System.Windows.Forms.TabControl();
             this.tabPatients = new System.Windows.Forms.TabPage();
             this.pnlInsertPatient = new System.Windows.Forms.Panel();
+            this.lblPatientID = new System.Windows.Forms.Label();
             this.txtPatientAddress = new System.Windows.Forms.TextBox();
             this.pnlErrors = new System.Windows.Forms.Panel();
             this.lblKinError = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@
             this.comboSearchPatient = new System.Windows.Forms.ComboBox();
             this.txtSearchPat = new System.Windows.Forms.TextBox();
             this.tabRooms = new System.Windows.Forms.TabPage();
-            this.lblPatientID = new System.Windows.Forms.Label();
             this.tabPatient.SuspendLayout();
             this.tabPatients.SuspendLayout();
             this.pnlInsertPatient.SuspendLayout();
@@ -127,6 +127,15 @@
             this.pnlInsertPatient.Name = "pnlInsertPatient";
             this.pnlInsertPatient.Size = new System.Drawing.Size(789, 639);
             this.pnlInsertPatient.TabIndex = 20;
+            // 
+            // lblPatientID
+            // 
+            this.lblPatientID.AutoSize = true;
+            this.lblPatientID.Location = new System.Drawing.Point(86, 554);
+            this.lblPatientID.Name = "lblPatientID";
+            this.lblPatientID.Size = new System.Drawing.Size(32, 24);
+            this.lblPatientID.TabIndex = 19;
+            this.lblPatientID.Text = "lbl";
             // 
             // txtPatientAddress
             // 
@@ -501,15 +510,6 @@
             this.tabRooms.TabIndex = 1;
             this.tabRooms.Text = "    ROOMS    ";
             this.tabRooms.UseVisualStyleBackColor = true;
-            // 
-            // lblPatientID
-            // 
-            this.lblPatientID.AutoSize = true;
-            this.lblPatientID.Location = new System.Drawing.Point(86, 554);
-            this.lblPatientID.Name = "lblPatientID";
-            this.lblPatientID.Size = new System.Drawing.Size(32, 24);
-            this.lblPatientID.TabIndex = 19;
-            this.lblPatientID.Text = "lbl";
             // 
             // PatientsDashboard
             // 
