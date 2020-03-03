@@ -10,7 +10,6 @@ namespace Hospital_Source_Code.Classes
     {
         public int PatientID { get; set; }
         public string NextOfKin { get; set; }
-        public DateTime dob { get; set; }
 
         public Patient()
         {

@@ -431,6 +431,7 @@ namespace Hospital_Source_Code
             return listOfDeptId;
         }
 
+
         public bool InsertPatient(Patient sickboi)
         {
             bool inserted = false;
@@ -441,13 +442,12 @@ namespace Hospital_Source_Code
             {
                 SqlCommand cmd = new SqlCommand("[dbo].[Insert_Patient_Details]", sqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                DateTime test = new DateTime();
-                test = sickboi.DOB;
+                DateTime test = new DateTime(2019,01,02);
                 Console.WriteLine("DAO DOB: ++++++++++++++++++++++++++ " + test.ToShortDateString() + "\n");
 
                 cmd.Parameters.Add("@Forename", SqlDbType.VarChar).Value = sickboi.FirstName;
                 cmd.Parameters.Add("@Surname", SqlDbType.VarChar).Value = sickboi.LastName;
-                cmd.Parameters.Add("@DateOfBirth", SqlDbType.Date).Value = test;
+                cmd.Parameters.Add("@DateOfBirth", SqlDbType.DateTime).Value = test;
                 cmd.Parameters.Add("@Gender", SqlDbType.Bit).Value = sickboi.Gender;
                 cmd.Parameters.Add("@Address", SqlDbType.VarChar).Value = sickboi.Address;
                 cmd.Parameters.Add("@PhoneNumber", SqlDbType.VarChar).Value = sickboi.PhoneNumber;
@@ -517,7 +517,6 @@ namespace Hospital_Source_Code
             }
             return inserted;
         }
-
         public Doctor GetDoctor(int id)
         {
             string sql = $"SELECT * FROM DoctorDetails WHERE Id=" + id;

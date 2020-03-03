@@ -32,7 +32,6 @@
             this.tabPatient = new System.Windows.Forms.TabControl();
             this.tabPatients = new System.Windows.Forms.TabPage();
             this.pnlInsertPatient = new System.Windows.Forms.Panel();
-            this.lblPatientID = new System.Windows.Forms.Label();
             this.txtPatientAddress = new System.Windows.Forms.TextBox();
             this.pnlErrors = new System.Windows.Forms.Panel();
             this.lblKinError = new System.Windows.Forms.Label();
@@ -103,7 +102,6 @@
             // pnlInsertPatient
             // 
             this.pnlInsertPatient.BackColor = System.Drawing.Color.White;
-            this.pnlInsertPatient.Controls.Add(this.lblPatientID);
             this.pnlInsertPatient.Controls.Add(this.txtPatientAddress);
             this.pnlInsertPatient.Controls.Add(this.pnlErrors);
             this.pnlInsertPatient.Controls.Add(this.cmbPatientGender);
@@ -127,15 +125,6 @@
             this.pnlInsertPatient.Name = "pnlInsertPatient";
             this.pnlInsertPatient.Size = new System.Drawing.Size(789, 639);
             this.pnlInsertPatient.TabIndex = 20;
-            // 
-            // lblPatientID
-            // 
-            this.lblPatientID.AutoSize = true;
-            this.lblPatientID.Location = new System.Drawing.Point(86, 554);
-            this.lblPatientID.Name = "lblPatientID";
-            this.lblPatientID.Size = new System.Drawing.Size(32, 24);
-            this.lblPatientID.TabIndex = 19;
-            this.lblPatientID.Text = "lbl";
             // 
             // txtPatientAddress
             // 
@@ -570,6 +559,5 @@
         private System.Windows.Forms.TextBox txtPatientSurname;
         private System.Windows.Forms.TextBox txtPatientForename;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblPatientID;
     }
 }

@@ -76,7 +76,6 @@ namespace Hospital_Source_Code
             }
             else if (comboSearchPatient.SelectedIndex == 1)
             {
-                Console.WriteLine("izzzzzzey");
                 string surname = txtSearchPat.Text;
 
                 if (!surname.Equals(string.Empty))
@@ -88,7 +87,7 @@ namespace Hospital_Source_Code
                     MessageBox.Show("Whait! Whaaaat?");
             }
             else
-                MessageBox.Show("None selected dude");
+                MessageBox.Show("None selected");
         }
 
         //------------- Popuplate Patient fields ----------------------------------------------------------------------------------------------------------------------------------
