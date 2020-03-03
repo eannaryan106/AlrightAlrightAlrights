@@ -7,6 +7,8 @@ using System.Configuration.Assemblies;
 using System.Data.SqlClient;
 using Hospital_Source_Code.Classes;
 using System.Data;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Hospital_Source_Code
 {
@@ -199,6 +201,145 @@ namespace Hospital_Source_Code
                 success = false;
             }
 
+            return success;
+        }
+
+        public DataSet SearchBills(string field, string @operator, string @value)
+        {
+            DataSet dataSet = new DataSet();
+
+            string sql = "SELECT * FROM BillingDetails WHERE " +
+                        $"{field} {@operator} '{@value}'";
+
+            try
+            {
+                SqlCommand command = new SqlCommand
+                {
+                    Connection = sqlConnection,
+                    CommandText = sql
+                };
+                sqlConnection.Open();
+
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+
+                dataAdapter.Fill(dataSet, "BillingTable");
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine("A DataBase Exception Occurred: " + ex);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("A Non Database Exception Occured: " + ex);
+            }
+            finally
+            {
+                if (sqlConnection.State == ConnectionState.Open)
+                    sqlConnection.Close();
+            }
+
+            return dataSet;
+        }
+
+        public bool InsertBill(Bill bill)
+        {
+            bool success = false;
+            int newId = 0;
+
+            string sql = "INSERT INTO BillingDetails " +
+                        "(Date, PatientId, RoomCharge, DoctorsFee, Note, MiscellaneousFee, VisitID, Paid) " +
+                        $"VALUES(@Date, @PatientId, @RoomCharge, @DoctorsFee, @Note, @MiscellaneousFee, @VisitID, @Paid)";
+                        
+
+            try
+            {
+                SqlCommand command = new SqlCommand
+                {
+                    Connection = sqlConnection,
+                    CommandText = sql
+                };
+               
+
+                command.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@Date",
+                    Value = bill.DateIssued,
+                    SqlDbType = SqlDbType.Date        
+                });
+
+                command.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@PatientId",
+                    Value = bill.PatientId,
+                    SqlDbType = SqlDbType.Int
+                });
+
+                command.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@RoomCharge",
+                    Value = bill.RoomCharge,
+                    SqlDbType = SqlDbType.Decimal
+                });
+
+                command.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@DoctorsFee",
+                    Value = bill.DoctorFee,
+                    SqlDbType = SqlDbType.Decimal            
+                });
+
+                command.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@Note",
+                    Value = bill.Note,
+                    SqlDbType = SqlDbType.NVarChar,
+                    Size = 40
+                });
+
+                command.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@MiscellaneousFee",
+                    Value = bill.MicellFee,
+                    SqlDbType = SqlDbType.Decimal
+                });
+
+                command.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@VisitID",
+                    Value = bill.visitId,
+                    SqlDbType = SqlDbType.Int
+                });
+
+                command.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@Paid",
+                    Value = 0,
+                    SqlDbType = SqlDbType.Bit
+                });
+
+                sqlConnection.Open();
+
+                //newId = int.Parse(command.ExecuteScalar().ToString());
+                newId = command.ExecuteNonQuery();
+                success = true;
+
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("A Database Exception Occurred: " + ex);
+                success = false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("A Non Database Exception Occurred: " + ex);
+                success = false;
+            }
+            finally
+            {
+                if (sqlConnection.State == ConnectionState.Open)
+                    sqlConnection.Close();
+            }
             return success;
         }
 

@@ -84,9 +84,15 @@ namespace Hospital_Source_Code
                 patientDashboard.Show();
                 this.Hide();
             }
+            else if (role == UserRole.Accounts)
+            {
+                HomeDashboard homeDashboard = new HomeDashboard(role, userName);
+                homeDashboard.Show();
+                this.Hide();
+            }
             else
             {
-                MessageBox.Show(this, "User doe's not match with any in our system please try again", "Invalid User", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "User does not match with any in our system please try again", "Invalid User", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
