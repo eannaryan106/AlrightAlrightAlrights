@@ -159,9 +159,9 @@
             this.pnlErrors.Controls.Add(this.lblDOBError);
             this.pnlErrors.Controls.Add(this.lblSurnameError);
             this.pnlErrors.Controls.Add(this.lblNameError);
-            this.pnlErrors.Location = new System.Drawing.Point(420, 60);
+            this.pnlErrors.Location = new System.Drawing.Point(441, 60);
             this.pnlErrors.Name = "pnlErrors";
-            this.pnlErrors.Size = new System.Drawing.Size(364, 451);
+            this.pnlErrors.Size = new System.Drawing.Size(343, 451);
             this.pnlErrors.TabIndex = 18;
             // 
             // lblKinError
@@ -169,7 +169,7 @@
             this.lblKinError.AutoSize = true;
             this.lblKinError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKinError.ForeColor = System.Drawing.Color.Red;
-            this.lblKinError.Location = new System.Drawing.Point(34, 405);
+            this.lblKinError.Location = new System.Drawing.Point(13, 405);
             this.lblKinError.Name = "lblKinError";
             this.lblKinError.Size = new System.Drawing.Size(72, 14);
             this.lblKinError.TabIndex = 6;
@@ -180,7 +180,7 @@
             this.lblPhoneError.AutoSize = true;
             this.lblPhoneError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhoneError.ForeColor = System.Drawing.Color.Red;
-            this.lblPhoneError.Location = new System.Drawing.Point(34, 347);
+            this.lblPhoneError.Location = new System.Drawing.Point(13, 347);
             this.lblPhoneError.Name = "lblPhoneError";
             this.lblPhoneError.Size = new System.Drawing.Size(72, 14);
             this.lblPhoneError.TabIndex = 5;
@@ -191,7 +191,7 @@
             this.lblAddressError.AutoSize = true;
             this.lblAddressError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddressError.ForeColor = System.Drawing.Color.Red;
-            this.lblAddressError.Location = new System.Drawing.Point(118, 233);
+            this.lblAddressError.Location = new System.Drawing.Point(97, 233);
             this.lblAddressError.Name = "lblAddressError";
             this.lblAddressError.Size = new System.Drawing.Size(72, 14);
             this.lblAddressError.TabIndex = 4;
@@ -202,7 +202,7 @@
             this.lblGenderError.AutoSize = true;
             this.lblGenderError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenderError.ForeColor = System.Drawing.Color.Red;
-            this.lblGenderError.Location = new System.Drawing.Point(34, 175);
+            this.lblGenderError.Location = new System.Drawing.Point(13, 175);
             this.lblGenderError.Name = "lblGenderError";
             this.lblGenderError.Size = new System.Drawing.Size(72, 14);
             this.lblGenderError.TabIndex = 3;
@@ -213,7 +213,7 @@
             this.lblDOBError.AutoSize = true;
             this.lblDOBError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDOBError.ForeColor = System.Drawing.Color.Red;
-            this.lblDOBError.Location = new System.Drawing.Point(34, 119);
+            this.lblDOBError.Location = new System.Drawing.Point(13, 119);
             this.lblDOBError.Name = "lblDOBError";
             this.lblDOBError.Size = new System.Drawing.Size(72, 14);
             this.lblDOBError.TabIndex = 2;
@@ -224,7 +224,7 @@
             this.lblSurnameError.AutoSize = true;
             this.lblSurnameError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSurnameError.ForeColor = System.Drawing.Color.Red;
-            this.lblSurnameError.Location = new System.Drawing.Point(34, 57);
+            this.lblSurnameError.Location = new System.Drawing.Point(13, 57);
             this.lblSurnameError.Name = "lblSurnameError";
             this.lblSurnameError.Size = new System.Drawing.Size(72, 14);
             this.lblSurnameError.TabIndex = 1;
@@ -235,7 +235,7 @@
             this.lblNameError.AutoSize = true;
             this.lblNameError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblNameError.Location = new System.Drawing.Point(34, 3);
+            this.lblNameError.Location = new System.Drawing.Point(13, 3);
             this.lblNameError.Name = "lblNameError";
             this.lblNameError.Size = new System.Drawing.Size(72, 14);
             this.lblNameError.TabIndex = 0;

@@ -126,6 +126,7 @@ namespace Hospital_Source_Code
 
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
+            Clear();
             pnlInsertPatient.Show();
             pnlHomescreen.Hide();
             lblPatientForename.ForeColor = Color.MidnightBlue;
