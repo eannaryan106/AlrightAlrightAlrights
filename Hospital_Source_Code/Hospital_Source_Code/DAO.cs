@@ -442,8 +442,8 @@ namespace Hospital_Source_Code
             {
                 SqlCommand cmd = new SqlCommand("[dbo].[Insert_Patient_Details]", sqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                DateTime test = new DateTime(1999,11,11);
-                Console.WriteLine("DAO DOB: ++++++++++++++++++++++++++ " + test.ToShortDateString() + "\n");
+               // DateTime test = new DateTime(1999,11,11);
+               // Console.WriteLine("DAO DOB: ++++++++++++++++++++++++++ " + test.ToShortDateString() + "\n");
 
                 cmd.Parameters.Add("@Forename", SqlDbType.VarChar).Value = sickboi.FirstName;
                 cmd.Parameters.Add("@Surname", SqlDbType.VarChar).Value = sickboi.LastName;
