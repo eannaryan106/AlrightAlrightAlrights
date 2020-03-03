@@ -72,12 +72,19 @@ namespace Hospital_Source_Code
                 AddLogin addLogin = new AddLogin();
                 addLogin.Show();
                 this.Hide();
-            } else if (role != UserRole.None)
+            } else if (role == UserRole.HR)
             {
-                HomeDashboard homeDashboard = new HomeDashboard(role, userName);
-                homeDashboard.Show();
+                DoctorsDashboard docDashboard = new DoctorsDashboard(role, userName);
+                docDashboard.Show();
                 this.Hide();
-            } else
+            }
+            else if (role == UserRole.Admin)
+            {
+                PatientsDashboard patientDashboard = new PatientsDashboard(role, userName);
+                patientDashboard.Show();
+                this.Hide();
+            }
+            else
             {
                 MessageBox.Show(this, "User doe's not match with any in our system please try again", "Invalid User", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

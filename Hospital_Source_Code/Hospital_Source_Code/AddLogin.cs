@@ -36,6 +36,11 @@ namespace Hospital_Source_Code
                     // Create Login
                     role = userTypeCheck();
                     bool success = dao.testAddUser(userName, password, role);
+                    if (role == UserRole.Doctor)
+                    {
+                        int id = dao.GetLoginId(userName);
+                        dao.AddDoctor(id);
+                    }
                     MessageBox.Show("User " + userName + " inserted successfully", "Insert completed", MessageBoxButtons.OK);
                 }
                 else
@@ -55,7 +60,7 @@ namespace Hospital_Source_Code
             else if (comboUserType.SelectedIndex == 3)
                 role = UserRole.SuperUser;
             else
-                role = UserRole.Accounts;
+                role = UserRole.None;
             return role;
         }
 
