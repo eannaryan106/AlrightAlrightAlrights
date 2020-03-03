@@ -191,7 +191,14 @@ namespace Hospital_Source_Code
                     valid = false;
                 } else
                 {
-                    lblDocDepartmentID2.ForeColor = Color.Black;
+                    if (int.TryParse(cmbDocDeptID.SelectedItem.ToString(), out deptId))
+                    {
+                        lblDocDepartmentID2.ForeColor = Color.Black;
+                    } else
+                    {
+                        lblDocDepartmentID2.ForeColor = Color.Red;
+                        valid = false;
+                    }                                     
                 }                
             }
             if (valid)
