@@ -65,6 +65,7 @@
             this.comboSearchPatient = new System.Windows.Forms.ComboBox();
             this.txtSearchPat = new System.Windows.Forms.TextBox();
             this.tabRooms = new System.Windows.Forms.TabPage();
+            this.lblPatientID = new System.Windows.Forms.Label();
             this.tabPatient.SuspendLayout();
             this.tabPatients.SuspendLayout();
             this.pnlInsertPatient.SuspendLayout();
@@ -102,6 +103,7 @@
             // pnlInsertPatient
             // 
             this.pnlInsertPatient.BackColor = System.Drawing.Color.White;
+            this.pnlInsertPatient.Controls.Add(this.lblPatientID);
             this.pnlInsertPatient.Controls.Add(this.txtPatientAddress);
             this.pnlInsertPatient.Controls.Add(this.pnlErrors);
             this.pnlInsertPatient.Controls.Add(this.cmbPatientGender);
@@ -500,6 +502,14 @@
             this.tabRooms.Text = "    ROOMS    ";
             this.tabRooms.UseVisualStyleBackColor = true;
             // 
+            // lblPatientID
+            // 
+            this.lblPatientID.AutoSize = true;
+            this.lblPatientID.Location = new System.Drawing.Point(86, 554);
+            this.lblPatientID.Name = "lblPatientID";
+            this.lblPatientID.Size = new System.Drawing.Size(0, 24);
+            this.lblPatientID.TabIndex = 19;
+            // 
             // PatientsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,5 +569,6 @@
         private System.Windows.Forms.TextBox txtPatientSurname;
         private System.Windows.Forms.TextBox txtPatientForename;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPatientID;
     }
 }

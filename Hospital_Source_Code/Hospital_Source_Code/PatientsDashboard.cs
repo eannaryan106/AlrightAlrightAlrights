@@ -98,7 +98,6 @@ namespace Hospital_Source_Code
             lblNameError.Hide();
             int id = patientID;
             Patient sickboi = dao.GetPatientByID(patientID);
-            Console.WriteLine("His id is: " + id);
             //if (sickboi.PatientID == 0)
             //{
             //    MessageBox.Show(this, "ID does not match any in our system, please enter valid ID", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -117,8 +116,9 @@ namespace Hospital_Source_Code
                 cmbPatientGender.SelectedIndex = 1;
             }
             txtPatientPhone.Text = sickboi.PhoneNumber;
-            txtPatientDOB.Text = sickboi.DOB.ToShortDateString();
-            Console.WriteLine("----------------------------------the date is: " + sickboi.DOB.ToShortDateString());
+            txtPatientDOB.Text = sickboi.birth.ToShortDateString();
+            Console.WriteLine("SICKBOI DOB: " + sickboi.birth);
+            Console.WriteLine("----------------------------------the date is: " + sickboi.birth.ToShortDateString());
             txtPatientNOK.Text = sickboi.NextOfKin;
 
             pnlInsertPatient.Show();
@@ -158,7 +158,7 @@ namespace Hospital_Source_Code
 
                     Patient sickboi = new Patient(forename, surname, birth, address, gender, phone, kin);
 
-                    Console.WriteLine($"Birth (object): ====================== {sickboi.DOB.ToShortDateString()}");
+                    Console.WriteLine($"Birth (object): ====================== {sickboi.birth.ToShortDateString()}");
 
                     bool inserted = dao.InsertPatient(sickboi);
 
