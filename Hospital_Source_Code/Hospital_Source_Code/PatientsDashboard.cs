@@ -103,7 +103,7 @@ namespace Hospital_Source_Code
             //    MessageBox.Show(this, "ID does not match any in our system, please enter valid ID", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    return;
             //}
-            lblPatientID.Text = sickboi.PatientID.ToString();
+            //lblPatientID.Text = sickboi.PatientID.ToString();
             txtPatientForename.Text = sickboi.FirstName;
             txtPatientSurname.Text = sickboi.LastName;
             txtPatientAddress.Text = sickboi.Address;
