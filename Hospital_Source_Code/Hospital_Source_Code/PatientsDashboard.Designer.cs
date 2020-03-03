@@ -169,7 +169,7 @@
             this.lblKinError.AutoSize = true;
             this.lblKinError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKinError.ForeColor = System.Drawing.Color.Red;
-            this.lblKinError.Location = new System.Drawing.Point(3, 405);
+            this.lblKinError.Location = new System.Drawing.Point(34, 405);
             this.lblKinError.Name = "lblKinError";
             this.lblKinError.Size = new System.Drawing.Size(72, 14);
             this.lblKinError.TabIndex = 6;
@@ -180,7 +180,7 @@
             this.lblPhoneError.AutoSize = true;
             this.lblPhoneError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhoneError.ForeColor = System.Drawing.Color.Red;
-            this.lblPhoneError.Location = new System.Drawing.Point(3, 347);
+            this.lblPhoneError.Location = new System.Drawing.Point(34, 347);
             this.lblPhoneError.Name = "lblPhoneError";
             this.lblPhoneError.Size = new System.Drawing.Size(72, 14);
             this.lblPhoneError.TabIndex = 5;
@@ -191,7 +191,7 @@
             this.lblAddressError.AutoSize = true;
             this.lblAddressError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddressError.ForeColor = System.Drawing.Color.Red;
-            this.lblAddressError.Location = new System.Drawing.Point(112, 233);
+            this.lblAddressError.Location = new System.Drawing.Point(118, 233);
             this.lblAddressError.Name = "lblAddressError";
             this.lblAddressError.Size = new System.Drawing.Size(72, 14);
             this.lblAddressError.TabIndex = 4;
@@ -202,7 +202,7 @@
             this.lblGenderError.AutoSize = true;
             this.lblGenderError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenderError.ForeColor = System.Drawing.Color.Red;
-            this.lblGenderError.Location = new System.Drawing.Point(3, 175);
+            this.lblGenderError.Location = new System.Drawing.Point(34, 175);
             this.lblGenderError.Name = "lblGenderError";
             this.lblGenderError.Size = new System.Drawing.Size(72, 14);
             this.lblGenderError.TabIndex = 3;
@@ -213,7 +213,7 @@
             this.lblDOBError.AutoSize = true;
             this.lblDOBError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDOBError.ForeColor = System.Drawing.Color.Red;
-            this.lblDOBError.Location = new System.Drawing.Point(3, 119);
+            this.lblDOBError.Location = new System.Drawing.Point(34, 119);
             this.lblDOBError.Name = "lblDOBError";
             this.lblDOBError.Size = new System.Drawing.Size(72, 14);
             this.lblDOBError.TabIndex = 2;
@@ -224,7 +224,7 @@
             this.lblSurnameError.AutoSize = true;
             this.lblSurnameError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSurnameError.ForeColor = System.Drawing.Color.Red;
-            this.lblSurnameError.Location = new System.Drawing.Point(3, 57);
+            this.lblSurnameError.Location = new System.Drawing.Point(34, 57);
             this.lblSurnameError.Name = "lblSurnameError";
             this.lblSurnameError.Size = new System.Drawing.Size(72, 14);
             this.lblSurnameError.TabIndex = 1;
@@ -235,7 +235,7 @@
             this.lblNameError.AutoSize = true;
             this.lblNameError.Font = new System.Drawing.Font("Microsoft JhengHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblNameError.Location = new System.Drawing.Point(3, 3);
+            this.lblNameError.Location = new System.Drawing.Point(34, 3);
             this.lblNameError.Name = "lblNameError";
             this.lblNameError.Size = new System.Drawing.Size(72, 14);
             this.lblNameError.TabIndex = 0;
@@ -251,7 +251,7 @@
             "Female"});
             this.cmbPatientGender.Location = new System.Drawing.Point(232, 235);
             this.cmbPatientGender.Name = "cmbPatientGender";
-            this.cmbPatientGender.Size = new System.Drawing.Size(166, 32);
+            this.cmbPatientGender.Size = new System.Drawing.Size(203, 32);
             this.cmbPatientGender.TabIndex = 5;
             this.cmbPatientGender.Text = " Select...";
             this.cmbPatientGender.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
@@ -262,7 +262,7 @@
             this.txtPatientNOK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
             this.txtPatientNOK.Location = new System.Drawing.Point(232, 465);
             this.txtPatientNOK.Name = "txtPatientNOK";
-            this.txtPatientNOK.Size = new System.Drawing.Size(166, 32);
+            this.txtPatientNOK.Size = new System.Drawing.Size(203, 32);
             this.txtPatientNOK.TabIndex = 17;
             this.txtPatientNOK.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             this.txtPatientNOK.Leave += new System.EventHandler(this.txtPatientNOK_Leave_1);
@@ -349,7 +349,7 @@
             this.txtPatientPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
             this.txtPatientPhone.Location = new System.Drawing.Point(232, 404);
             this.txtPatientPhone.Name = "txtPatientPhone";
-            this.txtPatientPhone.Size = new System.Drawing.Size(166, 32);
+            this.txtPatientPhone.Size = new System.Drawing.Size(203, 32);
             this.txtPatientPhone.TabIndex = 8;
             this.txtPatientPhone.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             this.txtPatientPhone.Leave += new System.EventHandler(this.txtPatientPhone_Leave_1);
@@ -360,7 +360,7 @@
             this.txtPatientDOB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
             this.txtPatientDOB.Location = new System.Drawing.Point(232, 177);
             this.txtPatientDOB.Name = "txtPatientDOB";
-            this.txtPatientDOB.Size = new System.Drawing.Size(166, 32);
+            this.txtPatientDOB.Size = new System.Drawing.Size(203, 32);
             this.txtPatientDOB.TabIndex = 7;
             this.txtPatientDOB.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             this.txtPatientDOB.Leave += new System.EventHandler(this.txtPatientDOB_Leave_1);
@@ -371,7 +371,7 @@
             this.txtPatientSurname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
             this.txtPatientSurname.Location = new System.Drawing.Point(232, 118);
             this.txtPatientSurname.Name = "txtPatientSurname";
-            this.txtPatientSurname.Size = new System.Drawing.Size(166, 32);
+            this.txtPatientSurname.Size = new System.Drawing.Size(203, 32);
             this.txtPatientSurname.TabIndex = 6;
             this.txtPatientSurname.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             this.txtPatientSurname.Leave += new System.EventHandler(this.txtPatientSurname_Leave_1);
@@ -382,7 +382,7 @@
             this.txtPatientForename.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
             this.txtPatientForename.Location = new System.Drawing.Point(232, 60);
             this.txtPatientForename.Name = "txtPatientForename";
-            this.txtPatientForename.Size = new System.Drawing.Size(166, 32);
+            this.txtPatientForename.Size = new System.Drawing.Size(203, 32);
             this.txtPatientForename.TabIndex = 5;
             this.txtPatientForename.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             this.txtPatientForename.Leave += new System.EventHandler(this.txtPatientForename_Leave_1);
