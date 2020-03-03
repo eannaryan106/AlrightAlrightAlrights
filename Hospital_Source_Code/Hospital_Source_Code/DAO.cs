@@ -642,8 +642,8 @@ namespace Hospital_Source_Code
                     }
                     else
                     {
-                        sickboi = new Patient(id, forename, surname, dob, address, gender, phoneNumber, kin);
-                        Console.WriteLine($"ID: {id}, Surname: {surname}");
+                        sickboi = new Patient(forename, surname, dob, address, gender, phoneNumber, kin);
+                        //Console.WriteLine($"ID: {id}, Surname: {surname}");
                     }
                 }
                 sqlConn.Close();
