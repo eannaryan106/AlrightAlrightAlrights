@@ -31,15 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientsDashboard));
             this.tabPatient = new System.Windows.Forms.TabControl();
             this.tabPatients = new System.Windows.Forms.TabPage();
-            this.pnlHomescreen = new System.Windows.Forms.Panel();
-            this.pnlLeftPane = new System.Windows.Forms.Panel();
-            this.btnSearchPatient = new System.Windows.Forms.Button();
-            this.btnAddPatient = new System.Windows.Forms.Button();
-            this.lblAddPatients = new System.Windows.Forms.Label();
-            this.lblSearchpatients = new System.Windows.Forms.Label();
-            this.comboSearchPatient = new System.Windows.Forms.ComboBox();
-            this.txtSearchPat = new System.Windows.Forms.TextBox();
-            this.tabRooms = new System.Windows.Forms.TabPage();
             this.pnlInsertPatient = new System.Windows.Forms.Panel();
             this.txtPatientAddress = new System.Windows.Forms.TextBox();
             this.pnlErrors = new System.Windows.Forms.Panel();
@@ -64,12 +55,22 @@
             this.txtPatientDOB = new System.Windows.Forms.TextBox();
             this.txtPatientSurname = new System.Windows.Forms.TextBox();
             this.txtPatientForename = new System.Windows.Forms.TextBox();
+            this.pnlHomescreen = new System.Windows.Forms.Panel();
+            this.pnlLeftPane = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSearchPatient = new System.Windows.Forms.Button();
+            this.btnAddPatient = new System.Windows.Forms.Button();
+            this.lblAddPatients = new System.Windows.Forms.Label();
+            this.lblSearchpatients = new System.Windows.Forms.Label();
+            this.comboSearchPatient = new System.Windows.Forms.ComboBox();
+            this.txtSearchPat = new System.Windows.Forms.TextBox();
+            this.tabRooms = new System.Windows.Forms.TabPage();
+            this.lblPatientID = new System.Windows.Forms.Label();
             this.tabPatient.SuspendLayout();
             this.tabPatients.SuspendLayout();
-            this.pnlLeftPane.SuspendLayout();
             this.pnlInsertPatient.SuspendLayout();
             this.pnlErrors.SuspendLayout();
+            this.pnlLeftPane.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPatient
@@ -99,121 +100,10 @@
             this.tabPatients.Text = "    PATIENTS   ";
             this.tabPatients.UseVisualStyleBackColor = true;
             // 
-            // pnlHomescreen
-            // 
-            this.pnlHomescreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlHomescreen.BackgroundImage")));
-            this.pnlHomescreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlHomescreen.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHomescreen.Location = new System.Drawing.Point(273, 3);
-            this.pnlHomescreen.Name = "pnlHomescreen";
-            this.pnlHomescreen.Size = new System.Drawing.Size(789, 638);
-            this.pnlHomescreen.TabIndex = 3;
-            // 
-            // pnlLeftPane
-            // 
-            this.pnlLeftPane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(149)))), ((int)(((byte)(193)))));
-            this.pnlLeftPane.Controls.Add(this.label1);
-            this.pnlLeftPane.Controls.Add(this.btnSearchPatient);
-            this.pnlLeftPane.Controls.Add(this.btnAddPatient);
-            this.pnlLeftPane.Controls.Add(this.lblAddPatients);
-            this.pnlLeftPane.Controls.Add(this.lblSearchpatients);
-            this.pnlLeftPane.Controls.Add(this.comboSearchPatient);
-            this.pnlLeftPane.Controls.Add(this.txtSearchPat);
-            this.pnlLeftPane.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLeftPane.Location = new System.Drawing.Point(3, 3);
-            this.pnlLeftPane.Name = "pnlLeftPane";
-            this.pnlLeftPane.Size = new System.Drawing.Size(270, 631);
-            this.pnlLeftPane.TabIndex = 1;
-            // 
-            // btnSearchPatient
-            // 
-            this.btnSearchPatient.BackColor = System.Drawing.Color.Transparent;
-            this.btnSearchPatient.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnSearchPatient.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchPatient.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.btnSearchPatient.Location = new System.Drawing.Point(62, 238);
-            this.btnSearchPatient.Name = "btnSearchPatient";
-            this.btnSearchPatient.Size = new System.Drawing.Size(131, 46);
-            this.btnSearchPatient.TabIndex = 5;
-            this.btnSearchPatient.Text = "SEARCH";
-            this.btnSearchPatient.UseVisualStyleBackColor = false;
-            this.btnSearchPatient.Click += new System.EventHandler(this.btnSearchPatient_Click);
-            // 
-            // btnAddPatient
-            // 
-            this.btnAddPatient.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnAddPatient.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPatient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
-            this.btnAddPatient.Location = new System.Drawing.Point(62, 399);
-            this.btnAddPatient.Name = "btnAddPatient";
-            this.btnAddPatient.Size = new System.Drawing.Size(131, 46);
-            this.btnAddPatient.TabIndex = 4;
-            this.btnAddPatient.Text = "ADD";
-            this.btnAddPatient.UseVisualStyleBackColor = true;
-            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
-            // 
-            // lblAddPatients
-            // 
-            this.lblAddPatients.AutoSize = true;
-            this.lblAddPatients.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddPatients.ForeColor = System.Drawing.Color.White;
-            this.lblAddPatients.Location = new System.Drawing.Point(45, 348);
-            this.lblAddPatients.Name = "lblAddPatients";
-            this.lblAddPatients.Size = new System.Drawing.Size(168, 24);
-            this.lblAddPatients.TabIndex = 3;
-            this.lblAddPatients.Text = "Add new patients";
-            // 
-            // lblSearchpatients
-            // 
-            this.lblSearchpatients.AutoSize = true;
-            this.lblSearchpatients.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchpatients.ForeColor = System.Drawing.Color.White;
-            this.lblSearchpatients.Location = new System.Drawing.Point(45, 45);
-            this.lblSearchpatients.Name = "lblSearchpatients";
-            this.lblSearchpatients.Size = new System.Drawing.Size(152, 24);
-            this.lblSearchpatients.TabIndex = 2;
-            this.lblSearchpatients.Text = "Search patients:";
-            // 
-            // comboSearchPatient
-            // 
-            this.comboSearchPatient.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboSearchPatient.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.comboSearchPatient.FormattingEnabled = true;
-            this.comboSearchPatient.Items.AddRange(new object[] {
-            "ID",
-            "Last name"});
-            this.comboSearchPatient.Location = new System.Drawing.Point(45, 102);
-            this.comboSearchPatient.Name = "comboSearchPatient";
-            this.comboSearchPatient.Size = new System.Drawing.Size(166, 32);
-            this.comboSearchPatient.TabIndex = 1;
-            this.comboSearchPatient.Text = " Select...";
-            this.comboSearchPatient.SelectedIndexChanged += new System.EventHandler(this.comboSearchPatient_SelectedIndexChanged);
-            // 
-            // txtSearchPat
-            // 
-            this.txtSearchPat.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchPat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
-            this.txtSearchPat.Location = new System.Drawing.Point(45, 171);
-            this.txtSearchPat.Name = "txtSearchPat";
-            this.txtSearchPat.Size = new System.Drawing.Size(166, 32);
-            this.txtSearchPat.TabIndex = 0;
-            this.txtSearchPat.Enter += new System.EventHandler(this.txtSearchLastName_Enter);
-            this.txtSearchPat.Leave += new System.EventHandler(this.txtSearchLastName_Leave);
-            // 
-            // tabRooms
-            // 
-            this.tabRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabRooms.Location = new System.Drawing.Point(4, 44);
-            this.tabRooms.Name = "tabRooms";
-            this.tabRooms.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRooms.Size = new System.Drawing.Size(1065, 637);
-            this.tabRooms.TabIndex = 1;
-            this.tabRooms.Text = "    ROOMS    ";
-            this.tabRooms.UseVisualStyleBackColor = true;
-            // 
             // pnlInsertPatient
             // 
             this.pnlInsertPatient.BackColor = System.Drawing.Color.White;
+            this.pnlInsertPatient.Controls.Add(this.lblPatientID);
             this.pnlInsertPatient.Controls.Add(this.txtPatientAddress);
             this.pnlInsertPatient.Controls.Add(this.pnlErrors);
             this.pnlInsertPatient.Controls.Add(this.cmbPatientGender);
@@ -488,6 +378,32 @@
             this.txtPatientForename.TextChanged += new System.EventHandler(this.txtPatientForename_TextChanged);
             this.txtPatientForename.Leave += new System.EventHandler(this.txtPatientForename_Leave_1);
             // 
+            // pnlHomescreen
+            // 
+            this.pnlHomescreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlHomescreen.BackgroundImage")));
+            this.pnlHomescreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlHomescreen.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHomescreen.Location = new System.Drawing.Point(273, 3);
+            this.pnlHomescreen.Name = "pnlHomescreen";
+            this.pnlHomescreen.Size = new System.Drawing.Size(789, 638);
+            this.pnlHomescreen.TabIndex = 3;
+            // 
+            // pnlLeftPane
+            // 
+            this.pnlLeftPane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(149)))), ((int)(((byte)(193)))));
+            this.pnlLeftPane.Controls.Add(this.label1);
+            this.pnlLeftPane.Controls.Add(this.btnSearchPatient);
+            this.pnlLeftPane.Controls.Add(this.btnAddPatient);
+            this.pnlLeftPane.Controls.Add(this.lblAddPatients);
+            this.pnlLeftPane.Controls.Add(this.lblSearchpatients);
+            this.pnlLeftPane.Controls.Add(this.comboSearchPatient);
+            this.pnlLeftPane.Controls.Add(this.txtSearchPat);
+            this.pnlLeftPane.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlLeftPane.Location = new System.Drawing.Point(3, 3);
+            this.pnlLeftPane.Name = "pnlLeftPane";
+            this.pnlLeftPane.Size = new System.Drawing.Size(270, 631);
+            this.pnlLeftPane.TabIndex = 1;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -500,6 +416,101 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Type...";
             // 
+            // btnSearchPatient
+            // 
+            this.btnSearchPatient.BackColor = System.Drawing.Color.Transparent;
+            this.btnSearchPatient.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnSearchPatient.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchPatient.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnSearchPatient.Location = new System.Drawing.Point(62, 238);
+            this.btnSearchPatient.Name = "btnSearchPatient";
+            this.btnSearchPatient.Size = new System.Drawing.Size(131, 46);
+            this.btnSearchPatient.TabIndex = 5;
+            this.btnSearchPatient.Text = "SEARCH";
+            this.btnSearchPatient.UseVisualStyleBackColor = false;
+            this.btnSearchPatient.Click += new System.EventHandler(this.btnSearchPatient_Click);
+            // 
+            // btnAddPatient
+            // 
+            this.btnAddPatient.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnAddPatient.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPatient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.btnAddPatient.Location = new System.Drawing.Point(62, 399);
+            this.btnAddPatient.Name = "btnAddPatient";
+            this.btnAddPatient.Size = new System.Drawing.Size(131, 46);
+            this.btnAddPatient.TabIndex = 4;
+            this.btnAddPatient.Text = "ADD";
+            this.btnAddPatient.UseVisualStyleBackColor = true;
+            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
+            // 
+            // lblAddPatients
+            // 
+            this.lblAddPatients.AutoSize = true;
+            this.lblAddPatients.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddPatients.ForeColor = System.Drawing.Color.White;
+            this.lblAddPatients.Location = new System.Drawing.Point(45, 348);
+            this.lblAddPatients.Name = "lblAddPatients";
+            this.lblAddPatients.Size = new System.Drawing.Size(168, 24);
+            this.lblAddPatients.TabIndex = 3;
+            this.lblAddPatients.Text = "Add new patients";
+            // 
+            // lblSearchpatients
+            // 
+            this.lblSearchpatients.AutoSize = true;
+            this.lblSearchpatients.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchpatients.ForeColor = System.Drawing.Color.White;
+            this.lblSearchpatients.Location = new System.Drawing.Point(45, 45);
+            this.lblSearchpatients.Name = "lblSearchpatients";
+            this.lblSearchpatients.Size = new System.Drawing.Size(152, 24);
+            this.lblSearchpatients.TabIndex = 2;
+            this.lblSearchpatients.Text = "Search patients:";
+            // 
+            // comboSearchPatient
+            // 
+            this.comboSearchPatient.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboSearchPatient.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.comboSearchPatient.FormattingEnabled = true;
+            this.comboSearchPatient.Items.AddRange(new object[] {
+            "ID",
+            "Last name"});
+            this.comboSearchPatient.Location = new System.Drawing.Point(45, 102);
+            this.comboSearchPatient.Name = "comboSearchPatient";
+            this.comboSearchPatient.Size = new System.Drawing.Size(166, 32);
+            this.comboSearchPatient.TabIndex = 1;
+            this.comboSearchPatient.Text = " Select...";
+            this.comboSearchPatient.SelectedIndexChanged += new System.EventHandler(this.comboSearchPatient_SelectedIndexChanged);
+            // 
+            // txtSearchPat
+            // 
+            this.txtSearchPat.Font = new System.Drawing.Font("Microsoft JhengHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchPat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.txtSearchPat.Location = new System.Drawing.Point(45, 171);
+            this.txtSearchPat.Name = "txtSearchPat";
+            this.txtSearchPat.Size = new System.Drawing.Size(166, 32);
+            this.txtSearchPat.TabIndex = 0;
+            this.txtSearchPat.Enter += new System.EventHandler(this.txtSearchLastName_Enter);
+            this.txtSearchPat.Leave += new System.EventHandler(this.txtSearchLastName_Leave);
+            // 
+            // tabRooms
+            // 
+            this.tabRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabRooms.Location = new System.Drawing.Point(4, 44);
+            this.tabRooms.Name = "tabRooms";
+            this.tabRooms.Padding = new System.Windows.Forms.Padding(3);
+            this.tabRooms.Size = new System.Drawing.Size(1065, 637);
+            this.tabRooms.TabIndex = 1;
+            this.tabRooms.Text = "    ROOMS    ";
+            this.tabRooms.UseVisualStyleBackColor = true;
+            // 
+            // lblPatientID
+            // 
+            this.lblPatientID.AutoSize = true;
+            this.lblPatientID.Location = new System.Drawing.Point(86, 554);
+            this.lblPatientID.Name = "lblPatientID";
+            this.lblPatientID.Size = new System.Drawing.Size(32, 24);
+            this.lblPatientID.TabIndex = 19;
+            this.lblPatientID.Text = "lbl";
+            // 
             // PatientsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -511,12 +522,12 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PatientsDashboard_FormClosing);
             this.tabPatient.ResumeLayout(false);
             this.tabPatients.ResumeLayout(false);
-            this.pnlLeftPane.ResumeLayout(false);
-            this.pnlLeftPane.PerformLayout();
             this.pnlInsertPatient.ResumeLayout(false);
             this.pnlInsertPatient.PerformLayout();
             this.pnlErrors.ResumeLayout(false);
             this.pnlErrors.PerformLayout();
+            this.pnlLeftPane.ResumeLayout(false);
+            this.pnlLeftPane.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -559,5 +570,6 @@
         private System.Windows.Forms.TextBox txtPatientSurname;
         private System.Windows.Forms.TextBox txtPatientForename;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPatientID;
     }
 }

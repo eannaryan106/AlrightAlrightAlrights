@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSelect = new System.Windows.Forms.Button();
             this.dGDPatients = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dGDPatients)).BeginInit();
@@ -35,18 +36,25 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(54, 354);
+            this.btnSelect.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelect.Location = new System.Drawing.Point(465, 302);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.Size = new System.Drawing.Size(103, 42);
             this.btnSelect.TabIndex = 3;
-            this.btnSelect.Text = "Select";
+            this.btnSelect.Text = "SELECT";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // dGDPatients
             // 
+            this.dGDPatients.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dGDPatients.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dGDPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGDPatients.Location = new System.Drawing.Point(54, 59);
+            this.dGDPatients.Location = new System.Drawing.Point(25, 28);
             this.dGDPatients.Name = "dGDPatients";
+            this.dGDPatients.RowHeadersWidth = 50;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dGDPatients.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dGDPatients.Size = new System.Drawing.Size(543, 255);
             this.dGDPatients.TabIndex = 2;
             // 
@@ -54,7 +62,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(149)))), ((int)(((byte)(193)))));
+            this.ClientSize = new System.Drawing.Size(594, 356);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.dGDPatients);
             this.Name = "SearchPatients";

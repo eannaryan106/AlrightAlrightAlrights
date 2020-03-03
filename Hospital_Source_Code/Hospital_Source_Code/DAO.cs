@@ -40,7 +40,7 @@ namespace Hospital_Source_Code
 
                 while (dataReader.Read())
                 {
-                    LoginModel newLogin = new LoginModel((string)dataReader["username"], (string)dataReader["password"], (int)dataReader["LoginID"], 
+                    LoginModel newLogin = new LoginModel((string)dataReader["username"], (string)dataReader["password"], (int)dataReader["LoginID"],
                         (string)dataReader["UserType"]);
                     if (newLogin.Username.Equals(username) && newLogin.Password.Equals(password))
                     {
@@ -68,7 +68,7 @@ namespace Hospital_Source_Code
         }
 
         public void testCon() {
-            using(SqlConnection sqlConn = new SqlConnection(connection))
+            using (SqlConnection sqlConn = new SqlConnection(connection))
             {
                 SqlCommand cmd = new SqlCommand("SELECT * FROM Login WHERE LoginID=1000", sqlConn);
 
@@ -86,7 +86,7 @@ namespace Hospital_Source_Code
 
 
             }
-            
+
         }
 
         public bool CheckForAccount(string username)
@@ -112,7 +112,7 @@ namespace Hospital_Source_Code
 
                 int count = dsUser.Tables[0].Rows.Count;
                 if (count == 0)
-                accountAvailable = true;
+                    accountAvailable = true;
 
             } catch (SqlException ex)
             {
@@ -273,7 +273,7 @@ namespace Hospital_Source_Code
                 sqlConn.Open();
 
                 SqlDataReader dataReader = cmd.ExecuteReader();
-                
+
                 while (dataReader.Read())
                 {
                     int tempDeptId = dataReader.GetInt32(0);
@@ -376,7 +376,7 @@ namespace Hospital_Source_Code
 
         public Doctor GetDoctor(int id)
         {
-            string sql = $"SELECT * FROM DoctorDetails WHERE Id="+id;
+            string sql = $"SELECT * FROM DoctorDetails WHERE Id=" + id;
             Doctor doc = new Doctor();
             try
             {
@@ -403,7 +403,7 @@ namespace Hospital_Source_Code
                     } else
                     {
                         doc = new Doctor(docId, forename, surname, gender, address, phoneNumber, qualification, deptId);
-                    }                    
+                    }
                 }
                 sqlConn.Close();
             }
@@ -445,8 +445,9 @@ namespace Hospital_Source_Code
 
         public DataSet GetPatients(string surname)
         {
+            Console.WriteLine("The surname passed is " + surname);
             DataSet ds = new DataSet();
-            string sql = $"SELECT Forename, Surname, Id, DateOfBirth WHERE Surname='{surname}'";
+            string sql = $"SELECT Forename, Surname, PD_ID, DateOfBirth FROM PatientDetails WHERE Surname='{surname}'";
 
             try
             {
@@ -457,7 +458,7 @@ namespace Hospital_Source_Code
 
                 dataAdapter.Fill(ds, "PatientsTable");
 
-            } catch(SqlException ex)
+            } catch (SqlException ex)
             {
                 Console.WriteLine("Database error occured " + ex);
             } catch (Exception ex)
@@ -465,6 +466,52 @@ namespace Hospital_Source_Code
                 Console.WriteLine("Database error occured " + ex);
             }
             return ds;
+        }
+
+        public Patient GetPatientByID(int patientID)
+        {
+            string sql = $"SELECT * FROM PatientDetails WHERE PD_ID=" + patientID;
+            Patient sickboi = new Patient();
+
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(connection);
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+                sqlConn.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    int id = (int)dataReader["PD_ID"];
+                    string forename = (string)dataReader["Forename"];
+                    string surname = (string)dataReader["Surname"];
+                    DateTime dob = (DateTime)dataReader["DateOfBirth"];
+                    string address = (string)dataReader["Address"];
+                    bool gender = (bool)dataReader["Gender"];
+                    string phoneNumber = (string)dataReader["PhoneNumber"];
+                    string kin = (string)dataReader["NextOfKin"];
+
+                    if (forename.Equals(string.Empty))
+                    {
+                        sickboi = new Patient(id);
+                    }
+                    else
+                    {
+                        sickboi = new Patient(id, forename, surname, dob, address, gender, phoneNumber, kin);
+                        Console.WriteLine($"ID: {id}, Surname: {surname}");
+                    }
+                }
+                sqlConn.Close();
+            } catch (SqlException ex)
+            {
+                Console.WriteLine("Database error");
+            } catch (Exception ex)
+            {
+                Console.WriteLine("Exception");
+            }
+
+            return sickboi;
         }
                 
     }
