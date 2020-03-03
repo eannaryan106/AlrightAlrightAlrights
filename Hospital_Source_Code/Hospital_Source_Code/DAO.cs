@@ -40,7 +40,7 @@ namespace Hospital_Source_Code
 
                 while (dataReader.Read())
                 {
-                    LoginModel newLogin = new LoginModel((string)dataReader["username"], (string)dataReader["password"], (int)dataReader["LoginID"], 
+                    LoginModel newLogin = new LoginModel((string)dataReader["username"], (string)dataReader["password"], (int)dataReader["LoginID"],
                         (string)dataReader["UserType"]);
                     if (newLogin.Username.Equals(username) && newLogin.Password.Equals(password))
                     {
@@ -67,8 +67,9 @@ namespace Hospital_Source_Code
             return login;
         }
 
-        public void testCon() {
-            using(SqlConnection sqlConn = new SqlConnection(connection))
+        public void testCon()
+        {
+            using (SqlConnection sqlConn = new SqlConnection(connection))
             {
                 SqlCommand cmd = new SqlCommand("SELECT * FROM Login WHERE LoginID=1000", sqlConn);
 
@@ -86,7 +87,7 @@ namespace Hospital_Source_Code
 
 
             }
-            
+
         }
 
         public bool CheckForAccount(string username)
@@ -112,9 +113,10 @@ namespace Hospital_Source_Code
 
                 int count = dsUser.Tables[0].Rows.Count;
                 if (count == 0)
-                accountAvailable = true;
+                    accountAvailable = true;
 
-            } catch (SqlException ex)
+            }
+            catch (SqlException ex)
             {
                 Console.WriteLine("Database error occured " + ex);
                 accountAvailable = false;
@@ -193,7 +195,8 @@ namespace Hospital_Source_Code
 
                 success = true;
 
-            } catch (SqlException ex)
+            }
+            catch (SqlException ex)
             {
                 Console.WriteLine("Database error occured " + ex);
                 success = false;
@@ -259,7 +262,8 @@ namespace Hospital_Source_Code
             }
         }
 
-        public List<int> GetDeptIds() {
+        public List<int> GetDeptIds()
+        {
             string sql = "SELECT Department_Id FROM DepartmentDetails";
             List<int> listOfDeptId = new List<int>();
             try
@@ -270,7 +274,7 @@ namespace Hospital_Source_Code
                 sqlConn.Open();
 
                 SqlDataReader dataReader = cmd.ExecuteReader();
-                
+
                 while (dataReader.Read())
                 {
                     int tempDeptId = dataReader.GetInt32(0);
@@ -304,50 +308,7 @@ namespace Hospital_Source_Code
                 cmd.Parameters.Add("@Gender", SqlDbType.Bit).Value = sickboi.Gender;
                 cmd.Parameters.Add("@Address", SqlDbType.VarChar).Value = sickboi.Address;
                 cmd.Parameters.Add("@PhoneNumber", SqlDbType.VarChar).Value = sickboi.PhoneNumber;
-                cmd.Parameters.Add("@NextOfKin", SqlDbType.VarChar).Value = sickboi.NextOfKin;
-
-                //cmd.Parameters.Add(new SqlParameter
-                //{
-                //    ParameterName = "@forename",
-                //    Value = sickboi.FirstName,
-                //    SqlDbType = System.Data.SqlDbType.VarChar,
-                //});
-                //cmd.Parameters.Add(new SqlParameter
-                //{
-                //    ParameterName = "@surname",
-                //    Value = sickboi.LastName,
-                //    SqlDbType = System.Data.SqlDbType.VarChar,
-                //});
-                //cmd.Parameters.Add(new SqlParameter
-                //{
-                //    ParameterName = "@dob",
-                //    Value = sickboi.DOB,
-                //    SqlDbType = System.Data.SqlDbType.DateTime,
-                //});
-                //cmd.Parameters.Add(new SqlParameter
-                //{
-                //    ParameterName = "@gender",
-                //    Value = sickboi.Gender,
-                //    SqlDbType = System.Data.SqlDbType.Bit,
-                //});
-                //cmd.Parameters.Add(new SqlParameter
-                //{
-                //    ParameterName = "@address",
-                //    Value = sickboi.Address,
-                //    SqlDbType = System.Data.SqlDbType.VarChar,
-                //});
-                //cmd.Parameters.Add(new SqlParameter
-                //{
-                //    ParameterName = "@phone",
-                //    Value = sickboi.PhoneNumber,
-                //    SqlDbType = System.Data.SqlDbType.VarChar,
-                //});
-                //cmd.Parameters.Add(new SqlParameter
-                //{
-                //    ParameterName = "@kin",
-                //    Value = sickboi.NextOfKin,
-                //    SqlDbType = System.Data.SqlDbType.VarChar,
-                //});
+                cmd.Parameters.Add("@NextOfKin", SqlDbType.VarChar).Value = sickboi.NextOfKin;         
 
                 sqlConnection.Open();
 
@@ -373,7 +334,7 @@ namespace Hospital_Source_Code
 
         public Doctor GetDoctor(int id)
         {
-            string sql = $"SELECT * FROM DoctorDetails WHERE Id="+id;
+            string sql = $"SELECT * FROM DoctorDetails WHERE Id=" + id;
             Doctor doc = new Doctor();
             try
             {
@@ -397,10 +358,11 @@ namespace Hospital_Source_Code
                     if (forename.Equals(string.Empty))
                     {
                         doc = new Doctor(docId);
-                    } else
+                    }
+                    else
                     {
                         doc = new Doctor(docId, forename, surname, gender, address, phoneNumber, qualification, deptId);
-                    }                    
+                    }
                 }
                 sqlConn.Close();
             }
@@ -454,15 +416,44 @@ namespace Hospital_Source_Code
 
                 dataAdapter.Fill(ds, "PatientsTable");
 
-            } catch(SqlException ex)
+            }
+            catch (SqlException ex)
             {
                 Console.WriteLine("Database error occured " + ex);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("Database error occured " + ex);
             }
             return ds;
         }
-                
-    }
-}
+
+        //Non working Database connection added by Eanna
+        public Bed GetDepartmentBeds(int DeptId)
+        {
+            SqlCommand cmd = new SqlCommand("[dbo].[Select_All_Vacant_Beds_For_Department]", sqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            Bed bed = new Bed();
+            DataSet ds = new DataSet();
+
+            cmd.Parameters.Add(new SqlParameter("@Dept_ID", DeptId));
+
+            SqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                int bedId = (int)dataReader["Id"];
+
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+
+                dataAdapter.Fill(ds, "DepartmentBedsTable");
+            }
+            Console.WriteLine("DepartmentBedsTable");
+            return bed;
+        }
+      
+                                    
+        };
+
+        }
+    
+

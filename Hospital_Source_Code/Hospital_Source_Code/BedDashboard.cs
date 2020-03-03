@@ -74,5 +74,24 @@ namespace Hospital_Source_Code
                 }
             }
         }
+        
+        private void populateDetails(int DeptId)
+        {
+            Bed bed = dao.GetDepartmentBeds(DeptId);
+            if (bed.BedId == 0)
+            {
+                MessageBox.Show(this, "ID does not match any in our system, please enter valid ID", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+           
+
+        }
+               
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            //do all sorts of stuff on zee click ya?
+            populateDetails();
+        }
     }
 }
