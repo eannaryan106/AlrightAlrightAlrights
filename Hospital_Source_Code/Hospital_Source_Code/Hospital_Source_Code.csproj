@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBill.Designer.cs">
+      <DependentUpon>AddBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,12 @@
     <Compile Include="Classes\PrescriptionDetails.cs" />
     <Compile Include="Classes\TestDetails.cs" />
     <Compile Include="Classes\VisitDetails.cs" />
+    <Compile Include="frmBillsToBeIssued.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBillsToBeIssued.Designer.cs">
+      <DependentUpon>frmBillsToBeIssued.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +89,9 @@
     </Compile>
     <Compile Include="HomeDashboard.Designer.cs">
       <DependentUpon>HomeDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalDatabaseDataSet.cs">
+      <DependentUpon>HospitalDatabaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -92,8 +107,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRole.cs" />
+    <EmbeddedResource Include="AddBill.resx">
+      <DependentUpon>AddBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddLogin.resx">
       <DependentUpon>AddLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBillsToBeIssued.resx">
+      <DependentUpon>frmBillsToBeIssued.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSearch.resx">
       <DependentUpon>frmSearch.cs</DependentUpon>
@@ -116,6 +137,7 @@
     </Compile>
     <None Include="HospitalDatabaseDataSet.xsc">
       <DependentUpon>HospitalDatabaseDataSet.xsd</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="HospitalDatabaseDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>

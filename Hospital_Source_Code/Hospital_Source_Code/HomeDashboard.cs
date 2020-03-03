@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Hospital_Source_Code
 {
     public partial class HomeDashboard : Form
     {
         UserRole role;
+
+        
+
         public HomeDashboard(UserRole role, string userName)
         {
             InitializeComponent();
@@ -83,10 +87,64 @@ namespace Hospital_Source_Code
                     txtSearchLastName.Text = " Type...";
             }
         }
-        private void btnSearchAllBillsIssued_Click(object sender, EventArgs e)
+
+        private void btnInsertDoctor_Click(object sender, EventArgs e)
         {
-            frmSearch searchForm = new frmSearch();
+
+        }
+
+
+        private void btnSearchAllBillsIssued_Click_1(object sender, EventArgs e)
+        {
+            frmSearch searchForm = new frmSearch(this);
             searchForm.Show();
         }
+
+        private void btnIssueBills_Click(object sender, EventArgs e)
+        {
+            frmBillsToBeIssued issueForm = new frmBillsToBeIssued();
+            
+            issueForm.Show();
+        }
+
+
+        public void DisplayBill(HospitalDatabaseDataSet.BillVisitDetailsDataTable billDetail)
+        {
+            decimal total = 0;
+
+            Console.WriteLine("Test: " + billDetail.Rows[0]["Id"]);
+            labPatientName.Text = "Patient Name: "+ billDetail.Rows[0]["Forename"] + " " + billDetail.Rows[0]["Surname"];
+            labBillId.Text = "Bill ID: "+billDetail.Rows[0]["Id"].ToString();
+            labIssuedDate.Text = "Date Issued: "+((DateTime)billDetail.Rows[0]["Date"]).ToString("dd/MM/yyyy");
+            labPatientId.Text = "Patient ID: "+billDetail.Rows[0]["PatientId"].ToString();
+            if (!billDetail.Rows[0]["RoomCharge"].Equals(null))
+            {
+                total = (decimal)billDetail[0]["RoomCharge"];
+                labRoomCharge.Text = "Room Charge: €"+billDetail[0]["RoomCharge"].ToString();
+            }
+            else
+            {
+                labRoomCharge.Text = "";
+            }
+            labDoctorFees.Text = "Doctor Fee: €"+billDetail.Rows[0]["DoctorsFee"].ToString();
+            total = total + (decimal)billDetail.Rows[0]["DoctorsFee"];
+            labNote.Text = "Notes: "+billDetail.Rows[0]["Note"].ToString();
+
+            if (!billDetail.Rows[0]["MiscellaneousFee"].Equals(null))
+            {
+                labMiscellaneous.Text = "Miscellaneous: €" + billDetail.Rows[0]["MiscellaneousFee"].ToString();
+                total = total + (decimal)billDetail.Rows[0]["MiscellaneousFee"];
+            }
+            else
+            {
+                labMiscellaneous.Text = "Miscellaneous: €00.00";
+            }
+
+            labTotal.Text = "Total: €"+total.ToString();
+
+
+            
+        }
+
     }
 }
