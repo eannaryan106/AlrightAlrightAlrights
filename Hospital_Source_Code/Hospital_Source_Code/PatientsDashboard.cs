@@ -95,6 +95,8 @@ namespace Hospital_Source_Code
 
         public void PopulateFields(int patientID)
         {
+            lblPatientForename.ForeColor = Color.MidnightBlue;
+            lblNameError.Hide();
             int id = patientID;
             Patient sickboi = dao.GetPatientByID(patientID);
             Console.WriteLine("His id is: " + id);
@@ -188,6 +190,7 @@ namespace Hospital_Source_Code
                     c.Text = "";
                 }
             }
+            cmbPatientGender.Text = "Select";
         }
         //-------------- PATIENT: Hide error messages
         private void hideErrors()
